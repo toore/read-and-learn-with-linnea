@@ -6,7 +6,7 @@
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
                       xmlns:app="clr-namespace:ReadAndLearnWithLinnea.App"
                       mc:Ignorable="d"
-                      d:DataContext="{d:DesignInstance Type=app:VocabulariesViewModelTestData, IsDesignTimeCreatable=True}"
+                      d:DataContext="{d:DesignInstance Type=app:MainViewModelTestData, IsDesignTimeCreatable=True}"
                       Title="Read and learn with Linnea" Height="480" Width="640"
                       GlowBrush="{DynamicResource AccentColorBrush}"
                       ResizeMode="CanResizeWithGrip"
@@ -44,6 +44,6 @@
 
     </Window.Resources>
 
-    <controls:TransitioningContentControl Content="{Binding}" />
+    <controls:TransitioningContentControl Content="{Binding Child}" />
 
 </controls:MetroWindow>

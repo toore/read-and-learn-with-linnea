@@ -88,10 +88,17 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="App\ApplicationController.cs" />
+    <Compile Include="App\MainViewModel.cs" />
+    <Compile Include="App\ShowVocabulariesViewMessage.cs" />
+    <Compile Include="App\StartTrainingSessionMessage.cs" />
+    <Compile Include="App\ViewConductor.cs" />
+    <Compile Include="App\VocabulariesViewModelFactory.cs" />
+    <Compile Include="App\VocabularyExtension.cs" />
     <Compile Include="Caliburn.Micro\EventAggregator.cs" />
     <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />
     <Compile Include="App\VocabulariesViewModel.cs" />
-    <Compile Include="App\VocabulariesViewModelTestData.cs" />
+    <Compile Include="App\MainViewModelTestData.cs" />
     <Compile Include="Core\Vocabulary.cs" />
     <Compile Include="App\VocabularyViewModel.cs" />
     <Compile Include="Core\Vocable.cs" />

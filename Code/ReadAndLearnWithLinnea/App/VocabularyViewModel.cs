@@ -1,6 +1,5 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
-using ReadAndLearnWithLinnea.Caliburn.Micro;
 using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.App
@@ -8,12 +7,12 @@ namespace ReadAndLearnWithLinnea.App
     public class VocabularyViewModel
     {
         private readonly Vocabulary _vocabulary;
-        private readonly IEventAggregator _eventAggregator;
+        private readonly ApplicationController _applicationController;
 
-        public VocabularyViewModel(Vocabulary vocabulary, IEventAggregator eventAggregator)
+        public VocabularyViewModel(Vocabulary vocabulary, ApplicationController applicationController)
         {
             _vocabulary = vocabulary;
-            _eventAggregator = eventAggregator;
+            _applicationController = applicationController;
 
             StartTrainingSessionCommand = new AsyncDelegateCommand(x => StartTraining(_vocabulary));
         }
@@ -22,7 +21,7 @@ namespace ReadAndLearnWithLinnea.App
 
         private Task StartTraining(Vocabulary vocabulary)
         {
-            return Task.Run(() => _eventAggregator.Publish(new StartTrainingSessionMessage(vocabulary)));
+            return Task.Run(() => _applicationController.StartTrainingSession(vocabulary));
         }
 
         public string Name
@@ -33,16 +32,6 @@ namespace ReadAndLearnWithLinnea.App
         public int VocablesCount
         {
             get { return _vocabulary.Vocables.Count; }
-        }
-    }
-
-    public class StartTrainingSessionMessage
-    {
-        private readonly Vocabulary _vocabulary;
-
-        public StartTrainingSessionMessage(Vocabulary vocabulary)
-        {
-            _vocabulary = vocabulary;
         }
     }
 }
