@@ -1,0 +1,48 @@
+﻿<controls:MetroWindow x:Class="ReadAndLearnWithLinnea.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:readAndLearnWithLinnea="clr-namespace:ReadAndLearnWithLinnea"
+                      mc:Ignorable="d"
+                      d:DataContext="{d:DesignInstance Type=readAndLearnWithLinnea:TrainingCategoriesViewModelTestData, IsDesignTimeCreatable=True}"
+                      Title="Read and learn with Linnea" Height="480" Width="640"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      ResizeMode="CanResizeWithGrip"
+                      UseLayoutRounding="True">
+
+    <Window.Resources>
+
+        <DataTemplate DataType="{x:Type readAndLearnWithLinnea:TrainingCategoriesViewModel}">
+            <Grid Margin="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Label FontSize="30" FontFamily="Segoe UI">What do you want to learn?</Label>
+
+                <ItemsControl Grid.Row="1"
+                         ItemsSource="{Binding TrainingCategories}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="readAndLearnWithLinnea:TrainingCategory">
+                            <controls:Tile Title="{Binding Name}"
+                                           Count="{Binding Vocables.Count}"
+                                           Width="150" Height="80" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </DataTemplate>
+
+    </Window.Resources>
+
+    <controls:TransitioningContentControl Content="{Binding}" />
+
+</controls:MetroWindow>
