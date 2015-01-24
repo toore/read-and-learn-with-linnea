@@ -23,8 +23,7 @@
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Label FontSize="30" 
-                       FontFamily="Segoe UI" 
+                <Label FontSize="{StaticResource HeaderFontSize}" 
                        Content="What do you want to learn?" />
 
                 <ItemsControl Grid.Row="1"
@@ -53,16 +52,17 @@
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
-
                 <ItemsControl ItemsSource="{Binding TranslationCandidateViewModels}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
-                            <UniformGrid Rows="2"/>
+                            <UniformGrid Rows="2" />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
                         <DataTemplate DataType="trainingSessionView:TranslationCandidateViewModel">
-                            <Button Content="{Binding Text}" />
+                            <Button Content="{Binding Text}"
+                                    FontSize="{StaticResource SubHeaderFontSize}"
+                                    Margin="10"/>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
@@ -70,8 +70,7 @@
                 <Label Grid.Row="1" 
                        Margin="0" 
                        HorizontalContentAlignment="Center" 
-                       FontSize="30" 
-                       FontFamily="Segoe UI" 
+                       FontSize="{StaticResource HeaderFontSize}" 
                        Content="{Binding Text}" />
 
             </Grid>
