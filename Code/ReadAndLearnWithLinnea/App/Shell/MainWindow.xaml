@@ -4,25 +4,28 @@
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
-                      xmlns:vocabulariesView="clr-namespace:ReadAndLearnWithLinnea.App.VocabulariesView"
                       xmlns:shell="clr-namespace:ReadAndLearnWithLinnea.App.Shell"
+                      xmlns:selectTrainingView="clr-namespace:ReadAndLearnWithLinnea.App.SelectTrainingView"
+                      xmlns:trainingSessionView="clr-namespace:ReadAndLearnWithLinnea.App.TrainingSessionView"
                       mc:Ignorable="d"
                       d:DataContext="{d:DesignInstance Type=shell:MainViewModelTestData, IsDesignTimeCreatable=True}"
                       Title="Read and learn with Linnea" Height="480" Width="640"
                       GlowBrush="{DynamicResource AccentColorBrush}"
                       ResizeMode="CanResizeWithGrip"
                       UseLayoutRounding="True">
-    
+
     <Window.Resources>
 
-        <DataTemplate DataType="{x:Type vocabulariesView:VocabulariesViewModel}">
+        <DataTemplate DataType="{x:Type selectTrainingView:SelectTrainingViewModel}">
             <Grid Margin="30">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="80" />
                     <RowDefinition Height="*" />
                 </Grid.RowDefinitions>
 
-                <Label FontSize="30" FontFamily="Segoe UI">What do you want to learn?</Label>
+                <Label FontSize="30" 
+                       FontFamily="Segoe UI" 
+                       Content="What do you want to learn?" />
 
                 <ItemsControl Grid.Row="1"
                               ItemsSource="{Binding VocabularyViewModels}">
@@ -32,7 +35,7 @@
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="vocabulariesView:VocabularyViewModel">
+                        <DataTemplate DataType="selectTrainingView:VocabularyTrainingViewModel">
                             <controls:Tile Title="{Binding Name}"
                                            Count="{Binding VocablesCount}"
                                            Command="{Binding StartTrainingSessionCommand}"
@@ -40,6 +43,37 @@
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type trainingSessionView:TrainingSessionViewModel}">
+            <Grid Margin="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+
+                <ItemsControl ItemsSource="{Binding TranslationCandidateViewModels}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Rows="2"/>
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="trainingSessionView:TranslationCandidateViewModel">
+                            <Button Content="{Binding Text}" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <Label Grid.Row="1" 
+                       Margin="0" 
+                       HorizontalContentAlignment="Center" 
+                       FontSize="30" 
+                       FontFamily="Segoe UI" 
+                       Content="{Binding Text}" />
+
             </Grid>
         </DataTemplate>
 

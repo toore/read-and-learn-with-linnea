@@ -10,6 +10,6 @@ namespace ReadAndLearnWithLinnea.App.TrainingSessionView
             _candidateResult = candidateResult;
         }
 
-        public readonly string Text;
+        public string Text { get; private set; }
     }
 }

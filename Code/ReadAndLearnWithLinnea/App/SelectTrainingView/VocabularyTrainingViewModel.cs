@@ -1,16 +1,15 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
-using ReadAndLearnWithLinnea.App.Shell;
 using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.App.VocabulariesView
+namespace ReadAndLearnWithLinnea.App.SelectTrainingView
 {
-    public class VocabularyViewModel
+    public class VocabularyTrainingViewModel
     {
         private readonly Vocabulary _vocabulary;
         private readonly ApplicationController _applicationController;
 
-        public VocabularyViewModel(Vocabulary vocabulary, ApplicationController applicationController)
+        public VocabularyTrainingViewModel(Vocabulary vocabulary, ApplicationController applicationController)
         {
             _vocabulary = vocabulary;
             _applicationController = applicationController;

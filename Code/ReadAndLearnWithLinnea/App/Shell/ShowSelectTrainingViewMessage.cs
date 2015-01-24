@@ -1,6 +1,6 @@
 ﻿namespace ReadAndLearnWithLinnea.App.Shell
 {
-    public class ShowVocabulariesViewMessage
+    public class ShowSelectTrainingViewMessage
     {
     }
 }

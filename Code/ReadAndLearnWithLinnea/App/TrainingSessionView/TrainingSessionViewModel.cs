@@ -10,7 +10,7 @@ namespace ReadAndLearnWithLinnea.App.TrainingSessionView
             Text = text;
         }
 
-        public readonly string Text;
-        public readonly IEnumerable<TranslationCandidateViewModel> TranslationCandidateViewModels;
+        public string Text { get; set; }
+        public IEnumerable<TranslationCandidateViewModel> TranslationCandidateViewModels { get; set; }
     }
 }

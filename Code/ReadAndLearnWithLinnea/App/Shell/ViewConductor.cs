@@ -1,20 +1,20 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
+using ReadAndLearnWithLinnea.App.SelectTrainingView;
 using ReadAndLearnWithLinnea.App.TrainingSessionView;
-using ReadAndLearnWithLinnea.App.VocabulariesView;
 using ReadAndLearnWithLinnea.Caliburn.Micro;
 using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.App.Shell
 {
-    public class ViewConductor : IHandle<ShowVocabulariesViewMessage>, IHandle<ShowTrainingSessionViewMessage>
+    public class ViewConductor : IHandle<ShowSelectTrainingViewMessage>, IHandle<ShowTrainingSessionViewMessage>
     {
-        private readonly VocabulariesViewModelFactory _vocabulariesViewModelFactory;
+        private readonly SelectTrainingViewModelFactory _selectTrainingViewModelFactory;
         private readonly TrainingSessionViewModelFactory _trainingSessionViewModelFactory;
 
-        public ViewConductor(VocabulariesViewModelFactory vocabulariesViewModelFactory, TrainingSessionViewModelFactory trainingSessionViewModelFactory)
+        public ViewConductor(SelectTrainingViewModelFactory selectTrainingViewModelFactory, TrainingSessionViewModelFactory trainingSessionViewModelFactory)
         {
-            _vocabulariesViewModelFactory = vocabulariesViewModelFactory;
+            _selectTrainingViewModelFactory = selectTrainingViewModelFactory;
             _trainingSessionViewModelFactory = trainingSessionViewModelFactory;
 
             ViewModel = new MainViewModel();
@@ -22,9 +22,9 @@ namespace ReadAndLearnWithLinnea.App.Shell
 
         public readonly MainViewModel ViewModel;
 
-        public void Handle(ShowVocabulariesViewMessage message)
+        public void Handle(ShowSelectTrainingViewMessage message)
         {
-            ViewModel.Child = _vocabulariesViewModelFactory.Create(GetTrainingCategories());
+            ViewModel.Child = _selectTrainingViewModelFactory.Create(GetTrainingCategories());
         }
 
         private static IEnumerable<Vocabulary> GetTrainingCategories()

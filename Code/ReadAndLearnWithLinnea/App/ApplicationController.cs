@@ -1,7 +1,8 @@
-﻿using ReadAndLearnWithLinnea.Caliburn.Micro;
+﻿using ReadAndLearnWithLinnea.App.Shell;
+using ReadAndLearnWithLinnea.Caliburn.Micro;
 using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.App.Shell
+namespace ReadAndLearnWithLinnea.App
 {
     public class ApplicationController
     {
@@ -14,7 +15,7 @@ namespace ReadAndLearnWithLinnea.App.Shell
 
         public void StartApplication()
         {
-            _eventAggregator.Publish(new ShowVocabulariesViewMessage());
+            _eventAggregator.Publish(new ShowSelectTrainingViewMessage());
         }
 
         public void StartTrainingSession(Vocabulary vocabulary)
