@@ -1,8 +1,9 @@
 using System.Collections.Generic;
 using System.Linq;
+using ReadAndLearnWithLinnea.App.Shell;
 using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.App
+namespace ReadAndLearnWithLinnea.App.VocabulariesView
 {
     public class VocabulariesViewModelFactory
     {

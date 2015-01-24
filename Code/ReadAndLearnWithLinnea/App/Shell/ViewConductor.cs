@@ -1,16 +1,22 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
+using ReadAndLearnWithLinnea.App.TrainingSessionView;
+using ReadAndLearnWithLinnea.App.VocabulariesView;
 using ReadAndLearnWithLinnea.Caliburn.Micro;
 using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.App
+namespace ReadAndLearnWithLinnea.App.Shell
 {
-    public class ViewConductor : IHandle<ShowVocabulariesViewMessage>
+    public class ViewConductor : IHandle<ShowVocabulariesViewMessage>, IHandle<ShowTrainingSessionViewMessage>
     {
-        private readonly ApplicationController _applicationController;
+        private readonly VocabulariesViewModelFactory _vocabulariesViewModelFactory;
+        private readonly TrainingSessionViewModelFactory _trainingSessionViewModelFactory;
 
-        public ViewConductor(ApplicationController applicationController)
+        public ViewConductor(VocabulariesViewModelFactory vocabulariesViewModelFactory, TrainingSessionViewModelFactory trainingSessionViewModelFactory)
         {
-            _applicationController = applicationController;
+            _vocabulariesViewModelFactory = vocabulariesViewModelFactory;
+            _trainingSessionViewModelFactory = trainingSessionViewModelFactory;
+
             ViewModel = new MainViewModel();
         }
 
@@ -18,7 +24,7 @@ namespace ReadAndLearnWithLinnea.App
 
         public void Handle(ShowVocabulariesViewMessage message)
         {
-            ViewModel.Child = new VocabulariesViewModelFactory(_applicationController).Create(GetTrainingCategories());
+            ViewModel.Child = _vocabulariesViewModelFactory.Create(GetTrainingCategories());
         }
 
         private static IEnumerable<Vocabulary> GetTrainingCategories()
@@ -57,7 +63,7 @@ namespace ReadAndLearnWithLinnea.App
             houseAndGardenVocables.AddSwedishEnglish("Tak (inne)", "Ceiling");
             houseAndGardenVocables.AddSwedishEnglish("Balkong", "Balcony");
             houseAndGardenVocables.AddSwedishEnglish("Brevlåda", "Letter box");
-            houseAndGardenVocables.AddSwedishEnglish("Stake", "Fence");
+            houseAndGardenVocables.AddSwedishEnglish("Staket", "Fence");
 
             return houseAndGardenVocables;
         }
@@ -76,6 +82,11 @@ namespace ReadAndLearnWithLinnea.App
             furnitureVocables.AddSwedishEnglish("Matta", "Carpet");
 
             return furnitureVocables;
+        }
+
+        public void Handle(ShowTrainingSessionViewMessage message)
+        {
+            ViewModel.Child = _trainingSessionViewModelFactory.Create(message.Vocables);
         }
     }
 }

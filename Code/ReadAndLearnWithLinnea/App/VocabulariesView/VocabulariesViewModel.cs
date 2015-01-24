@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ReadAndLearnWithLinnea.App
+namespace ReadAndLearnWithLinnea.App.VocabulariesView
 {
     public class VocabulariesViewModel
     {

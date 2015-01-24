@@ -1,7 +1,7 @@
 ﻿using ReadAndLearnWithLinnea.Caliburn.Micro;
 using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.App
+namespace ReadAndLearnWithLinnea.App.Shell
 {
     public class ApplicationController
     {
@@ -19,7 +19,7 @@ namespace ReadAndLearnWithLinnea.App
 
         public void StartTrainingSession(Vocabulary vocabulary)
         {
-            _eventAggregator.Publish(new StartTrainingSessionMessage(vocabulary));
+            _eventAggregator.Publish(new ShowTrainingSessionViewMessage(vocabulary));
         }
     }
 }

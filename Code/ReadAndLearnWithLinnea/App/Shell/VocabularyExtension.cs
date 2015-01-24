@@ -1,6 +1,6 @@
 using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.App
+namespace ReadAndLearnWithLinnea.App.Shell
 {
     public static class VocabularyExtension
     {

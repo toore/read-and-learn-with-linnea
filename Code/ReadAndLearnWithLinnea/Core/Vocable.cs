@@ -6,8 +6,6 @@ namespace ReadAndLearnWithLinnea.Core
 {
     public class Vocable
     {
-        private readonly IEnumerable<Word> _words;
-
         public Vocable(params Word[] words)
         {
             if (!IsAllLanguagesSet(words))
@@ -15,8 +13,10 @@ namespace ReadAndLearnWithLinnea.Core
                 throw new AllLanguagesNeedsToBeDefinedException(words);
             }
 
-            _words = words;
+            Words = words;
         }
+
+        public readonly IEnumerable<Word> Words;
 
         private static bool IsAllLanguagesSet(IEnumerable<Word> words)
         {

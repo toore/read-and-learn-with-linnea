@@ -1,8 +1,9 @@
 using System.Threading.Tasks;
 using System.Windows.Input;
+using ReadAndLearnWithLinnea.App.Shell;
 using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.App
+namespace ReadAndLearnWithLinnea.App.VocabulariesView
 {
     public class VocabularyViewModel
     {

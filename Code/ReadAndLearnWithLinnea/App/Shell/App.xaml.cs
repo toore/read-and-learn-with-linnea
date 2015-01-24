@@ -1,7 +1,9 @@
 ﻿using System.Windows;
+using ReadAndLearnWithLinnea.App.TrainingSessionView;
+using ReadAndLearnWithLinnea.App.VocabulariesView;
 using ReadAndLearnWithLinnea.Caliburn.Micro;
 
-namespace ReadAndLearnWithLinnea.App
+namespace ReadAndLearnWithLinnea.App.Shell
 {
     public partial class App
     {
@@ -11,7 +13,9 @@ namespace ReadAndLearnWithLinnea.App
 
             var applicationController = new ApplicationController(eventAggregator);
 
-            var viewConductor = new ViewConductor(applicationController);
+            var vocabulariesViewModelFactory = new VocabulariesViewModelFactory(applicationController);
+            var trainingSessionViewModelFactory = new TrainingSessionViewModelFactory();
+            var viewConductor = new ViewConductor(vocabulariesViewModelFactory, trainingSessionViewModelFactory);
             eventAggregator.Subscribe(viewConductor);
 
             applicationController.StartApplication();

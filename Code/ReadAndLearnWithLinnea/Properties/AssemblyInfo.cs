@@ -10,9 +10,9 @@ using System.Windows;
 [assembly: AssemblyTitle("ReadAndLearnWithLinnea")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("AtlasCopco")]
+[assembly: AssemblyCompany("ReadAndLearnWithLinnea")]
 [assembly: AssemblyProduct("ReadAndLearnWithLinnea")]
-[assembly: AssemblyCopyright("Copyright © AtlasCopco 2015")]
+[assembly: AssemblyCopyright("Copyright © ReadAndLearnWithLinnea 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
