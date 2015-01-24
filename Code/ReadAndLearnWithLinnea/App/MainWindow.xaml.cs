@@ -1,4 +1,4 @@
-﻿namespace ReadAndLearnWithLinnea
+﻿namespace ReadAndLearnWithLinnea.App
 {
     public partial class MainWindow
     {

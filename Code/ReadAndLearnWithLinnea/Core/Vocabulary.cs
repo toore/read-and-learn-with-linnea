@@ -1,13 +1,13 @@
 using System.Collections.Generic;
 
-namespace ReadAndLearnWithLinnea
+namespace ReadAndLearnWithLinnea.Core
 {
-    public class TrainingCategory
+    public class Vocabulary
     {
         private readonly string _name;
         private readonly IList<Vocable> _vocables = new List<Vocable>();
 
-        public TrainingCategory(string name)
+        public Vocabulary(string name)
         {
             _name = name;
         }

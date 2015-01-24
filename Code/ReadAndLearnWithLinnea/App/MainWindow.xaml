@@ -1,12 +1,12 @@
-﻿<controls:MetroWindow x:Class="ReadAndLearnWithLinnea.MainWindow"
+﻿<controls:MetroWindow x:Class="ReadAndLearnWithLinnea.App.MainWindow"
                       xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
                       xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
                       xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
-                      xmlns:readAndLearnWithLinnea="clr-namespace:ReadAndLearnWithLinnea"
+                      xmlns:app="clr-namespace:ReadAndLearnWithLinnea.App"
                       mc:Ignorable="d"
-                      d:DataContext="{d:DesignInstance Type=readAndLearnWithLinnea:TrainingCategoriesViewModelTestData, IsDesignTimeCreatable=True}"
+                      d:DataContext="{d:DesignInstance Type=app:VocabulariesViewModelTestData, IsDesignTimeCreatable=True}"
                       Title="Read and learn with Linnea" Height="480" Width="640"
                       GlowBrush="{DynamicResource AccentColorBrush}"
                       ResizeMode="CanResizeWithGrip"
@@ -14,7 +14,7 @@
 
     <Window.Resources>
 
-        <DataTemplate DataType="{x:Type readAndLearnWithLinnea:TrainingCategoriesViewModel}">
+        <DataTemplate DataType="{x:Type app:VocabulariesViewModel}">
             <Grid Margin="30">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="80" />
@@ -24,16 +24,17 @@
                 <Label FontSize="30" FontFamily="Segoe UI">What do you want to learn?</Label>
 
                 <ItemsControl Grid.Row="1"
-                         ItemsSource="{Binding TrainingCategories}">
+                              ItemsSource="{Binding VocabularyViewModels}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <WrapPanel />
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="readAndLearnWithLinnea:TrainingCategory">
+                        <DataTemplate DataType="app:VocabularyViewModel">
                             <controls:Tile Title="{Binding Name}"
-                                           Count="{Binding Vocables.Count}"
+                                           Count="{Binding VocablesCount}"
+                                           Command="{Binding StartTrainingSessionCommand}"
                                            Width="150" Height="80" />
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
