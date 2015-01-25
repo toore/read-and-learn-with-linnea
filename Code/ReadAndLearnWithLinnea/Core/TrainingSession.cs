@@ -35,7 +35,10 @@ namespace ReadAndLearnWithLinnea.Core
             TextToTranslate = _vocableToTranslate.GetText(Language.English);
             CorrectTranslation = _vocableToTranslate.GetText(Language.Swedish);
 
-            var falseTranslationsCandidates = new List<Vocable>();
+            var falseTranslationsCandidates = _vocabulary.Vocables
+                .Where(x => x != _vocableToTranslate)
+                .Shuffle(_shuffler)
+                .Take(3);
 
             FalseTranslations = falseTranslationsCandidates.Select(x => x.GetText(Language.Swedish));
         }
@@ -44,7 +47,7 @@ namespace ReadAndLearnWithLinnea.Core
         public string TextToTranslate { get; private set; }
         public string CorrectTranslation { get; private set; }
         public IEnumerable<string> FalseTranslations { get; private set; }
-        
+
         public int NoOfCorrectTranslations { get; private set; }
         public int TotalWords { get; private set; }
 
