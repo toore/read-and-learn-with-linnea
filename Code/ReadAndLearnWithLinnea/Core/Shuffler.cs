@@ -4,18 +4,23 @@ using System.Linq;
 
 namespace ReadAndLearnWithLinnea.Core
 {
-    public static class ListExtensions
+    public class Shuffler
     {
-        public static IEnumerable<T> Shuffle<T>(this IEnumerable<T> items)
-        {
-            var random = new Random();
+        private readonly Random _random;
 
+        public Shuffler(Random random)
+        {
+            _random = random;
+        }
+
+        public IEnumerable<T> Shuffle<T>(IEnumerable<T> items)
+        {
             var list = items.ToList();
             var n = list.Count;
 
-            for (int i = 0; i < n - 1; i++)
+            for (var i = 0; i < n - 1; i++)
             {
-                var j = random.Next(i, n);
+                var j = _random.Next(i, n);
 
                 var temp = list[j];
                 list[j] = list[i];

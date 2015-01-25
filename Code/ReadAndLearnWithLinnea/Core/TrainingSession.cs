@@ -6,12 +6,14 @@ namespace ReadAndLearnWithLinnea.Core
 {
     public class TrainingSession
     {
+        private readonly Shuffler _shuffler;
         private readonly Vocabulary _vocabulary;
         private Stack<Vocable> _vocables;
         private Vocable _vocableToTranslate;
 
-        public TrainingSession(Vocabulary vocabulary)
+        public TrainingSession(Shuffler shuffler, Vocabulary vocabulary)
         {
+            _shuffler = shuffler;
             _vocabulary = vocabulary;
         }
 
@@ -20,7 +22,7 @@ namespace ReadAndLearnWithLinnea.Core
 
         public void Start()
         {
-            var shuffledVocables = _vocabulary.Vocables.Shuffle().ToList();
+            var shuffledVocables = _shuffler.Shuffle(_vocabulary.Vocables);
             _vocables = new Stack<Vocable>(shuffledVocables);
 
             ContinueSession();

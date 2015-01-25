@@ -70,7 +70,7 @@ namespace ReadAndLearnWithLinnea.App.Shell
             furnitureVocables.AddSwedishEnglish("Säng", "Bed");
             furnitureVocables.AddSwedishEnglish("Byrå", "Drawer");
             furnitureVocables.AddSwedishEnglish("Matta", "Carpet");
-
+                
             return furnitureVocables;
         }
 
