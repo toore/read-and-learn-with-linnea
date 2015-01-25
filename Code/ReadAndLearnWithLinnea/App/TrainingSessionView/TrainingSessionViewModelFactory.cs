@@ -1,4 +1,5 @@
 ﻿using System.Linq;
+using ReadAndLearnWithLinnea.Common.Shuffle;
 using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.App.TrainingSessionView
@@ -14,11 +15,11 @@ namespace ReadAndLearnWithLinnea.App.TrainingSessionView
 
         public TrainingSessionViewModel Create(TrainingSession trainingSession)
         {
-            var translationCandidateViewModels = trainingSession.Answers
+            var answerViewModels = trainingSession.Answers
                 .Select(candidate => new AnswerViewModel(trainingSession, candidate))
                 .Shuffle(_fisherYatesShuffleAlgorithm);
 
-            var trainingSessionViewModel = new TrainingSessionViewModel(trainingSession.Text, translationCandidateViewModels);
+            var trainingSessionViewModel = new TrainingSessionViewModel(trainingSession.Text, answerViewModels);
 
             return trainingSessionViewModel;
         }

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ReadAndLearnWithLinnea
+namespace ReadAndLearnWithLinnea.Common.Shuffle
 {
     public class FisherYatesShuffleAlgorithm
     {

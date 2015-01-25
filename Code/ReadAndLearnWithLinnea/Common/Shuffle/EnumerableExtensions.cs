@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ReadAndLearnWithLinnea
+namespace ReadAndLearnWithLinnea.Common.Shuffle
 {
     public static class EnumerableExtensions
     {

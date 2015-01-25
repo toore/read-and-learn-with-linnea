@@ -3,6 +3,7 @@ using System.Windows;
 using ReadAndLearnWithLinnea.App.SelectTrainingView;
 using ReadAndLearnWithLinnea.App.TrainingSessionView;
 using ReadAndLearnWithLinnea.Caliburn.Micro;
+using ReadAndLearnWithLinnea.Common.Shuffle;
 using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.App.Shell
@@ -30,7 +31,7 @@ namespace ReadAndLearnWithLinnea.App.Shell
 
             var mainWindow = new MainWindow();
             var windowManager = new WindowManager(mainWindow);
-            _viewConductor = new ViewConductor(windowManager, vocabulariesViewModelFactory, trainingSessionViewModelFactory);
+            _viewConductor = new ViewConductor(windowManager, new VocabularyRepository(), vocabulariesViewModelFactory, trainingSessionViewModelFactory);
             eventAggregator.Subscribe(_viewConductor);
 
             applicationController.StartApplication();

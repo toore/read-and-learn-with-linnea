@@ -13,9 +13,9 @@ namespace ReadAndLearnWithLinnea.App.SelectTrainingView
             _applicationController = applicationController;
         }
 
-        public SelectVocabularyTrainingViewModel Create(IEnumerable<Vocabulary> trainingCategories)
+        public SelectVocabularyTrainingViewModel Create(IEnumerable<Vocabulary> vocabularies)
         {
-            var vocabularyTrainingViewModels = trainingCategories.Select(Create).ToList();
+            var vocabularyTrainingViewModels = vocabularies.Select(Create).ToList();
             var trainingCategoriesViewModel = new SelectVocabularyTrainingViewModel(vocabularyTrainingViewModels);
 
             return trainingCategoriesViewModel;

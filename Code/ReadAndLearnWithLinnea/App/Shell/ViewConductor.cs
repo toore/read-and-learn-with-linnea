@@ -14,12 +14,18 @@ namespace ReadAndLearnWithLinnea.App.Shell
         IHandle<ShowTrainingSessionCompletedMessage>
     {
         private readonly WindowManager _windowManager;
+        private readonly VocabularyRepository _vocabularyRepository;
         private readonly SelectVocabularyTrainingViewModelFactory _selectVocabularyTrainingViewModelFactory;
         private readonly TrainingSessionViewModelFactory _trainingSessionViewModelFactory;
 
-        public ViewConductor(WindowManager windowManager, SelectVocabularyTrainingViewModelFactory selectVocabularyTrainingViewModelFactory, TrainingSessionViewModelFactory trainingSessionViewModelFactory)
+        public ViewConductor(
+            WindowManager windowManager, 
+            VocabularyRepository vocabularyRepository,
+            SelectVocabularyTrainingViewModelFactory selectVocabularyTrainingViewModelFactory, 
+            TrainingSessionViewModelFactory trainingSessionViewModelFactory)
         {
             _windowManager = windowManager;
+            _vocabularyRepository = vocabularyRepository;
             _selectVocabularyTrainingViewModelFactory = selectVocabularyTrainingViewModelFactory;
             _trainingSessionViewModelFactory = trainingSessionViewModelFactory;
 
@@ -30,50 +36,8 @@ namespace ReadAndLearnWithLinnea.App.Shell
 
         public void Handle(ShowSelectTrainingViewMessage message)
         {
-            var trainingCategories = GetTrainingCategories();
-            ViewModel.Child = _selectVocabularyTrainingViewModelFactory.Create(trainingCategories);
-        }
-
-        private static IEnumerable<Vocabulary> GetTrainingCategories()
-        {
-            yield return CreateHouseAndGardenVocables();
-            yield return CreateFurnitureVocables();
-        }
-
-        private static Vocabulary CreateHouseAndGardenVocables()
-        {
-            var houseAndGardenVocables = new Vocabulary("House and garden");
-
-            houseAndGardenVocables.AddSwedishEnglish("Hus", "House");
-            houseAndGardenVocables.AddSwedishEnglish("Trädgård", "Garden");
-            houseAndGardenVocables.AddSwedishEnglishAndEnglishAlternative("Lägenhet", "Apartment", "Flat");
-            houseAndGardenVocables.AddSwedishEnglish("Grind", "Gate");
-            houseAndGardenVocables.AddSwedishEnglish("Fönster", "Window");
-            houseAndGardenVocables.AddSwedishEnglish("Dörr (entré)", "Frontdoor");
-            houseAndGardenVocables.AddSwedishEnglish("Tak (ute)", "Roof");
-            houseAndGardenVocables.AddSwedishEnglish("Tak (inne)", "Ceiling");
-            houseAndGardenVocables.AddSwedishEnglish("Balkong", "Balcony");
-            houseAndGardenVocables.AddSwedishEnglish("Brevlåda", "Letter box");
-            houseAndGardenVocables.AddSwedishEnglish("Staket", "Fence");
-
-            return houseAndGardenVocables;
-        }
-
-        private static Vocabulary CreateFurnitureVocables()
-        {
-            var furnitureVocables = new Vocabulary("Furniture");
-
-            furnitureVocables.AddSwedishEnglish("Möbler", "Furniture");
-            furnitureVocables.AddSwedishEnglish("Soffa", "Sofa");
-            furnitureVocables.AddSwedishEnglish("Bord", "Table");
-            furnitureVocables.AddSwedishEnglish("Gardin", "Curtain");
-            furnitureVocables.AddSwedishEnglish("Bokhylla", "Bookshelf");
-            furnitureVocables.AddSwedishEnglish("Stol", "Chair");
-            furnitureVocables.AddSwedishEnglish("Säng", "Bed");
-            furnitureVocables.AddSwedishEnglish("Byrå", "Drawer");
-            furnitureVocables.AddSwedishEnglish("Matta", "Carpet");
-                
-            return furnitureVocables;
+            var vocabularies = _vocabularyRepository.GetAll();
+            ViewModel.Child = _selectVocabularyTrainingViewModelFactory.Create(vocabularies);
         }
 
         public void Handle(ShowTrainingSessionViewMessage message)

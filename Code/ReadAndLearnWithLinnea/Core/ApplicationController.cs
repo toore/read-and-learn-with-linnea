@@ -1,5 +1,6 @@
 ﻿using System;
 using ReadAndLearnWithLinnea.Caliburn.Micro;
+using ReadAndLearnWithLinnea.Common.Shuffle;
 
 namespace ReadAndLearnWithLinnea.Core
 {
