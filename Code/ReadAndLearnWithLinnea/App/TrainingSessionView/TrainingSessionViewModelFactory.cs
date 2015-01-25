@@ -5,10 +5,18 @@ namespace ReadAndLearnWithLinnea.App.TrainingSessionView
 {
     public class TrainingSessionViewModelFactory
     {
+        private readonly FisherYatesShuffleAlgorithm _fisherYatesShuffleAlgorithm;
+
+        public TrainingSessionViewModelFactory(FisherYatesShuffleAlgorithm fisherYatesShuffleAlgorithm)
+        {
+            _fisherYatesShuffleAlgorithm = fisherYatesShuffleAlgorithm;
+        }
+
         public TrainingSessionViewModel Create(TrainingSession trainingSession)
         {
-            var wordViewModels = CreateWordViewModels(trainingSession);
-            var trainingSessionViewModel = new TrainingSessionViewModel(trainingSession.TextToTranslate, wordViewModels);
+            var translationCandidateViewModels = CreateWordViewModels(trainingSession).Shuffle(_fisherYatesShuffleAlgorithm);
+
+            var trainingSessionViewModel = new TrainingSessionViewModel(trainingSession.TextToTranslate, translationCandidateViewModels);
 
             return trainingSessionViewModel;
         }

@@ -95,8 +95,8 @@
     <Compile Include="Core\ApplicationController.cs" />
     <Compile Include="App\Shell\MainViewModel.cs" />
     <Compile Include="App\GuiThreadDispatcher.cs" />
-    <Compile Include="Core\EnumerableExtensions.cs" />
-    <Compile Include="Core\Shuffler.cs" />
+    <Compile Include="EnumerableExtensions.cs" />
+    <Compile Include="FisherYatesShuffleAlgorithm.cs" />
     <Compile Include="Core\ShowSelectTrainingViewMessage.cs" />
     <Compile Include="Core\ShowTrainingSessionCompletedMessage.cs" />
     <Compile Include="Core\ShowTrainingSessionViewMessage.cs" />

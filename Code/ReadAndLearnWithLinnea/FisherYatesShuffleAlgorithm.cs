@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace ReadAndLearnWithLinnea.Core
+namespace ReadAndLearnWithLinnea
 {
-    public class Shuffler
+    public class FisherYatesShuffleAlgorithm
     {
         private readonly Random _random;
 
-        public Shuffler(Random random)
+        public FisherYatesShuffleAlgorithm(Random random)
         {
             _random = random;
         }

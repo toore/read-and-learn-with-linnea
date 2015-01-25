@@ -6,12 +6,12 @@ namespace ReadAndLearnWithLinnea.Core
     public class ApplicationController
     {
         private readonly IEventAggregator _eventAggregator;
-        private readonly Shuffler _shuffler;
+        private readonly FisherYatesShuffleAlgorithm _fisherYatesShuffleAlgorithm;
 
-        public ApplicationController(IEventAggregator eventAggregator, Shuffler shuffler)
+        public ApplicationController(IEventAggregator eventAggregator, FisherYatesShuffleAlgorithm fisherYatesShuffleAlgorithm)
         {
             _eventAggregator = eventAggregator;
-            _shuffler = shuffler;
+            _fisherYatesShuffleAlgorithm = fisherYatesShuffleAlgorithm;
         }
 
         public void StartApplication()
@@ -26,7 +26,7 @@ namespace ReadAndLearnWithLinnea.Core
 
         public void StartTrainingSession(Vocabulary vocabulary)
         {
-            var trainingSession = new TrainingSession(_shuffler, vocabulary);
+            var trainingSession = new TrainingSession(_fisherYatesShuffleAlgorithm, vocabulary);
             trainingSession.TranslationSelected = () => TranslationSelected(trainingSession);
             trainingSession.TrainingSessionCompleted = () => TrainingSessionCompleted(trainingSession);
             trainingSession.Start();

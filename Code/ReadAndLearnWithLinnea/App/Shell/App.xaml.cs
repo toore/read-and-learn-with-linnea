@@ -18,12 +18,12 @@ namespace ReadAndLearnWithLinnea.App.Shell
             {
                 PublicationThreadMarshaller = guiThreadDispatcher.Invoke
             };
-            var shuffler = new Shuffler(new Random());
+            var shuffler = new FisherYatesShuffleAlgorithm(new Random());
 
             var applicationController = new ApplicationController(eventAggregator, shuffler);
 
             var vocabulariesViewModelFactory = new SelectVocabularyTrainingViewModelFactory(applicationController);
-            var trainingSessionViewModelFactory = new TrainingSessionViewModelFactory();
+            var trainingSessionViewModelFactory = new TrainingSessionViewModelFactory(shuffler);
 
             var mainWindow = new MainWindow();
             var windowManager = new WindowManager(mainWindow);

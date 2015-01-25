@@ -6,14 +6,14 @@ namespace ReadAndLearnWithLinnea.Core
 {
     public class TrainingSession
     {
-        private readonly Shuffler _shuffler;
+        private readonly FisherYatesShuffleAlgorithm _fisherYatesShuffleAlgorithm;
         private readonly Vocabulary _vocabulary;
         private Stack<Vocable> _vocables;
         private Vocable _vocableToTranslate;
 
-        public TrainingSession(Shuffler shuffler, Vocabulary vocabulary)
+        public TrainingSession(FisherYatesShuffleAlgorithm fisherYatesShuffleAlgorithm, Vocabulary vocabulary)
         {
-            _shuffler = shuffler;
+            _fisherYatesShuffleAlgorithm = fisherYatesShuffleAlgorithm;
             _vocabulary = vocabulary;
         }
 
@@ -22,7 +22,7 @@ namespace ReadAndLearnWithLinnea.Core
 
         public void Start()
         {
-            var shuffledVocables = _shuffler.Shuffle(_vocabulary.Vocables);
+            var shuffledVocables = _fisherYatesShuffleAlgorithm.Shuffle(_vocabulary.Vocables);
             _vocables = new Stack<Vocable>(shuffledVocables);
 
             ContinueSession();
@@ -37,7 +37,7 @@ namespace ReadAndLearnWithLinnea.Core
 
             var falseTranslationsCandidates = _vocabulary.Vocables
                 .Where(x => x != _vocableToTranslate)
-                .Shuffle(_shuffler)
+                .Shuffle(_fisherYatesShuffleAlgorithm)
                 .Take(3);
 
             FalseTranslations = falseTranslationsCandidates.Select(x => x.GetText(Language.Swedish));
