@@ -94,8 +94,8 @@ namespace ReadAndLearnWithLinnea.App.Shell
             var continueWith = message.ContinueWith;
 
             await _windowManager.ShowMessage(
-                string.Format("Training of {0} completed!{1}{1}You passed {2} of {3} ({4:P0}).",
-                    name, Environment.NewLine, noOfCorrectTranslations, totalWords, noOfCorrectTranslations/(double) totalWords));
+                string.Format("Practies of {1} completed!{0}{0}You passed {2} of {3} ({4:P0}).",
+                    Environment.NewLine, name, noOfCorrectTranslations, totalWords, noOfCorrectTranslations/(double) totalWords));
 
             continueWith.Invoke();
         }
