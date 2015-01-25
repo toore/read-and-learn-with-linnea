@@ -88,14 +88,15 @@ namespace ReadAndLearnWithLinnea.App.Shell
         {
             var trainingSession = message.TrainingSession;
             var name = trainingSession.Name;
-            var wordsTranslated = trainingSession.NoOfCorrectTranslations;
+            var noOfCorrectTranslations = trainingSession.NoOfCorrectTranslations;
             var totalWords = trainingSession.TotalWords;
+            var continueWith = message.ContinueWith;
 
             await _windowManager.ShowMessage(
                 string.Format("Training of {0} completed!{1}{1}You passed {2} of {3} ({4:P0}).",
-                name, Environment.NewLine, wordsTranslated, totalWords, wordsTranslated / (double)totalWords));
+                    name, Environment.NewLine, noOfCorrectTranslations, totalWords, noOfCorrectTranslations/(double) totalWords));
 
-            message.ContinueWith();
+            continueWith.Invoke();
         }
     }
 }

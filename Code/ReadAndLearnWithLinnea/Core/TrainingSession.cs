@@ -38,7 +38,8 @@ namespace ReadAndLearnWithLinnea.Core
             var falseTranslationsCandidates = _vocabulary.Vocables
                 .Where(x => x != _vocableToTranslate)
                 .Shuffle(_fisherYatesShuffleAlgorithm)
-                .Take(3);
+                .Take(3)
+                .ToList();
 
             FalseTranslations = falseTranslationsCandidates.Select(x => x.GetText(Language.Swedish));
         }
