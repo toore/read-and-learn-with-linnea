@@ -1,4 +1,5 @@
-﻿using ReadAndLearnWithLinnea.Caliburn.Micro;
+﻿using System;
+using ReadAndLearnWithLinnea.Caliburn.Micro;
 using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.App
@@ -38,9 +39,17 @@ namespace ReadAndLearnWithLinnea.App
         {
             _eventAggregator.Publish(
                 new ShowTrainingSessionCompletedMessage(trainingSession),
-                x => _guiThreadDispatcher.Invoke(x));
+                x => _guiThreadDispatcher.Invoke(Action(x)));
 
-            StartApplication();
+        }
+
+        private  Action Action(Action x)
+        {
+            return () =>
+            {
+                x();
+                StartApplication();
+            };
         }
     }
 }
