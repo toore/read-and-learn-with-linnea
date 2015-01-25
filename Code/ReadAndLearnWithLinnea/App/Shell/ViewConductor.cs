@@ -88,8 +88,8 @@ namespace ReadAndLearnWithLinnea.App.Shell
         {
             var trainingSession = message.TrainingSession;
             var name = trainingSession.Name;
-            var noOfCorrectTranslations = trainingSession.NoOfCorrectTranslations;
-            var totalWords = trainingSession.TotalWords;
+            var noOfCorrectTranslations = trainingSession.NoOfCorrectAnswers;
+            var totalWords = trainingSession.NoOfQuestions;
             var continueWith = message.ContinueWith;
 
             await _windowManager.ShowMessage(

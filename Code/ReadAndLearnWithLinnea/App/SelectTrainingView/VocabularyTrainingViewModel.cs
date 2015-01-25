@@ -20,7 +20,7 @@ namespace ReadAndLearnWithLinnea.App.SelectTrainingView
 
         private void StartTraining()
         {
-            _applicationController.StartTrainingSession(_vocabulary);
+            new GuiThreadDispatcher().Invoke(() => _applicationController.StartTrainingSession(_vocabulary));
         }
 
         public string Name

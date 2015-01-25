@@ -8,7 +8,7 @@ namespace ReadAndLearnWithLinnea.Core
     {
         private readonly FisherYatesShuffleAlgorithm _fisherYatesShuffleAlgorithm;
         private readonly Vocabulary _vocabulary;
-        private Stack<Vocable> _vocables;
+        private Stack<Vocable> _vocablesInTrainingOrder;
         private Vocable _vocableToTranslate;
 
         public TrainingSession(FisherYatesShuffleAlgorithm fisherYatesShuffleAlgorithm, Vocabulary vocabulary)
@@ -23,14 +23,14 @@ namespace ReadAndLearnWithLinnea.Core
         public void Start()
         {
             var shuffledVocables = _fisherYatesShuffleAlgorithm.Shuffle(_vocabulary.Vocables);
-            _vocables = new Stack<Vocable>(shuffledVocables);
+            _vocablesInTrainingOrder = new Stack<Vocable>(shuffledVocables);
 
-            ContinueSession();
+            ContinueWithNextVocable();
         }
 
-        private void ContinueSession()
+        private void ContinueWithNextVocable()
         {
-            _vocableToTranslate = _vocables.Pop();
+            _vocableToTranslate = _vocablesInTrainingOrder.Pop();
 
             TextToTranslate = _vocableToTranslate.GetText(Language.English);
             CorrectTranslation = _vocableToTranslate.GetText(Language.Swedish);
@@ -49,24 +49,24 @@ namespace ReadAndLearnWithLinnea.Core
         public string CorrectTranslation { get; private set; }
         public IEnumerable<string> FalseTranslations { get; private set; }
 
-        public int NoOfCorrectTranslations { get; private set; }
-        public int TotalWords { get; private set; }
+        public int NoOfCorrectAnswers { get; private set; }
+        public int NoOfQuestions { get; private set; }
 
         public void SelectTranslation(string translation)
         {
-            TotalWords++;
+            NoOfQuestions++;
             if (translation.Equals(CorrectTranslation, StringComparison.InvariantCultureIgnoreCase))
             {
-                NoOfCorrectTranslations++;
+                NoOfCorrectAnswers++;
             }
 
-            if (!_vocables.Any())
+            if (!_vocablesInTrainingOrder.Any())
             {
                 TrainingSessionCompleted.Invoke();
                 return;
             }
 
-            ContinueSession();
+            ContinueWithNextVocable();
 
             TranslationSelected.Invoke();
         }

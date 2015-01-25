@@ -11,6 +11,9 @@ namespace ReadAndLearnWithLinnea.App.Shell
 
     public partial class App
     {
+        // Reference must be kept to prevent garbage collection
+        private ViewConductor _viewConductor;
+
         private void OnStartup(object sender, StartupEventArgs e)
         {
             var guiThreadDispatcher = new GuiThreadDispatcher();
@@ -27,12 +30,12 @@ namespace ReadAndLearnWithLinnea.App.Shell
 
             var mainWindow = new MainWindow();
             var windowManager = new WindowManager(mainWindow);
-            var viewConductor = new ViewConductor(windowManager, vocabulariesViewModelFactory, trainingSessionViewModelFactory);
-            eventAggregator.Subscribe(viewConductor);
+            _viewConductor = new ViewConductor(windowManager, vocabulariesViewModelFactory, trainingSessionViewModelFactory);
+            eventAggregator.Subscribe(_viewConductor);
 
             applicationController.StartApplication();
 
-            mainWindow.DataContext = viewConductor.ViewModel;
+            mainWindow.DataContext = _viewConductor.ViewModel;
             mainWindow.Show();
         }
     }
