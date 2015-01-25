@@ -104,7 +104,7 @@
     <Compile Include="App\TrainingSessionView\TrainingSessionViewModelFactory.cs" />
     <Compile Include="App\TrainingSessionView\TrainingSessionViewModel.cs" />
     <Compile Include="App\Shell\ViewConductor.cs" />
-    <Compile Include="App\TrainingSessionView\TranslationCandidateViewModel.cs" />
+    <Compile Include="App\TrainingSessionView\AnswerViewModel.cs" />
     <Compile Include="App\SelectTrainingView\SelectVocabularyTrainingViewModelFactory.cs" />
     <Compile Include="Core\TrainingSessionCompletedMessage.cs" />
     <Compile Include="Core\UpdateTrainingSessionViewMessage.cs" />

@@ -6,29 +6,21 @@ namespace ReadAndLearnWithLinnea.Core
     {
         public static void AddSwedishEnglish(this Vocabulary vocabulary, string swedish, string english)
         {
-            var vocable = new Vocable(new[]
-            {
-                new Word(Language.Swedish, swedish), 
-                new Word(Language.English, english)
-            });
+            var vocable = new Vocable();
+            vocable.AddWord(new Word(Language.Swedish, swedish));
+            vocable.AddWord(new Word(Language.English, english));
 
             vocabulary.AddVocable(vocable);
         }
 
         public static void AddSwedishEnglishAndEnglishAlternative(this Vocabulary vocabulary, string swedish, string english, string englishAlternative)
         {
-            var vocable = new Vocable(new[]
-            {
-                new Word(Language.Swedish, swedish), 
-                new Word(Language.English, english),
-                new Word(Language.English, englishAlternative)
-            });
-            vocabulary.AddVocable(vocable);
-        }
+            var vocable = new Vocable();
+            vocable.AddWord(new Word(Language.Swedish, swedish));
+            vocable.AddWord(new Word(Language.English, english));
+            vocable.AddWord(new Word(Language.English, englishAlternative));
 
-        public static string GetText(this Vocable vocable, Language language)
-        {
-            return vocable.Words.Single(x => x.Language == language).Text;
+            vocabulary.AddVocable(vocable);
         }
     }
 }

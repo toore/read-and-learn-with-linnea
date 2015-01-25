@@ -59,7 +59,7 @@
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="trainingSessionView:TranslationCandidateViewModel">
+                        <DataTemplate DataType="trainingSessionView:AnswerViewModel">
                             <Button Content="{Binding Text}"
                                     FontSize="{StaticResource SubHeaderFontSize}"
                                     Margin="10"

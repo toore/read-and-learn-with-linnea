@@ -1,4 +1,4 @@
-﻿using System.Collections.Generic;
+﻿using System.Linq;
 using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.App.TrainingSessionView
@@ -14,21 +14,13 @@ namespace ReadAndLearnWithLinnea.App.TrainingSessionView
 
         public TrainingSessionViewModel Create(TrainingSession trainingSession)
         {
-            var translationCandidateViewModels = CreateWordViewModels(trainingSession).Shuffle(_fisherYatesShuffleAlgorithm);
+            var translationCandidateViewModels = trainingSession.Answers
+                .Select(candidate => new AnswerViewModel(trainingSession, candidate))
+                .Shuffle(_fisherYatesShuffleAlgorithm);
 
-            var trainingSessionViewModel = new TrainingSessionViewModel(trainingSession.TextToTranslate, translationCandidateViewModels);
+            var trainingSessionViewModel = new TrainingSessionViewModel(trainingSession.Text, translationCandidateViewModels);
 
             return trainingSessionViewModel;
-        }
-
-        private static IEnumerable<TranslationCandidateViewModel> CreateWordViewModels(TrainingSession trainingSession)
-        {
-            yield return new TranslationCandidateViewModel(trainingSession, trainingSession.CorrectTranslation);
-
-            foreach (var falseTranslation in trainingSession.FalseTranslations)
-            {
-                yield return new TranslationCandidateViewModel(trainingSession, falseTranslation);
-            }
         }
     }
 }

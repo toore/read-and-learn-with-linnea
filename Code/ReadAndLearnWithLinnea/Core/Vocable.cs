@@ -1,43 +1,19 @@
-using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace ReadAndLearnWithLinnea.Core
 {
     public class Vocable
     {
-        public Vocable(params Word[] words)
-        {
-            if (!IsAllLanguagesSet(words))
-            {
-                throw new AllLanguagesNeedsToBeDefinedException(words);
-            }
+        private readonly List<Word> _words = new List<Word>();
 
-            Words = words;
+        public void AddWord(Word word)
+        {
+            _words.Add(word);
         }
 
-        public readonly IEnumerable<Word> Words;
-
-        private static bool IsAllLanguagesSet(IEnumerable<Word> words)
+        public IEnumerable<Word> Words
         {
-            IEnumerable<Language> allLanguages = (Language[])Enum.GetValues(typeof(Language));
-
-            var languages = words.Select(x => x.Language);
-
-            var isAllLanguagesSet = allLanguages
-                .All(x => languages.Contains(x));
-
-            return isAllLanguagesSet;
-        }
-    }
-
-    public class AllLanguagesNeedsToBeDefinedException : ApplicationException
-    {
-        public Word[] Words { get; private set; }
-
-        public AllLanguagesNeedsToBeDefinedException(Word[] words)
-        {
-            Words = words;
+            get { return _words; }
         }
     }
 

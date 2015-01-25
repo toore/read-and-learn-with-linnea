@@ -6,10 +6,12 @@ namespace ReadAndLearnWithLinnea.Core
 {
     public class TrainingSession
     {
+        private const Language TranslateFromLanguage = Language.English;
+        private const Language TranslateToLanguage = Language.Swedish;
         private readonly FisherYatesShuffleAlgorithm _fisherYatesShuffleAlgorithm;
         private readonly Vocabulary _vocabulary;
         private Stack<Vocable> _vocablesInTrainingOrder;
-        private Vocable _vocableToTranslate;
+        private string _correctAnswer;
 
         public TrainingSession(FisherYatesShuffleAlgorithm fisherYatesShuffleAlgorithm, Vocabulary vocabulary)
         {
@@ -18,44 +20,78 @@ namespace ReadAndLearnWithLinnea.Core
         }
 
         public Action TrainingSessionCompleted = () => { };
-        public Action TranslationSelected = () => { };
+        public Action NewTranslationQuestionAsked = () => { };
+        private IEnumerable<string> _falseAnswers;
 
         public void Start()
         {
             var shuffledVocables = _fisherYatesShuffleAlgorithm.Shuffle(_vocabulary.Vocables);
             _vocablesInTrainingOrder = new Stack<Vocable>(shuffledVocables);
 
-            ContinueWithNextVocable();
+            UpdateTranslationQuestion(_vocablesInTrainingOrder.Pop());
         }
 
-        private void ContinueWithNextVocable()
+        private void UpdateTranslationQuestion(Vocable vocable)
         {
-            _vocableToTranslate = _vocablesInTrainingOrder.Pop();
+            Text = GetTextToTranslate(vocable);
+            _correctAnswer = GetTranslation(vocable);
+            _falseAnswers = GetIncorrectTranslations(vocable);
+        }
 
-            TextToTranslate = _vocableToTranslate.GetText(Language.English);
-            CorrectTranslation = _vocableToTranslate.GetText(Language.Swedish);
+        private string GetTextToTranslate(Vocable vocable)
+        {
+            return GetText(vocable, TranslateFromLanguage);
+        }
 
+        private string GetTranslation(Vocable vocable)
+        {
+            return GetText(vocable, TranslateToLanguage);
+        }
+
+        private IEnumerable<string> GetIncorrectTranslations(Vocable vocableToTranslate)
+        {
             var falseTranslationsCandidates = _vocabulary.Vocables
-                .Where(x => x != _vocableToTranslate)
+                .Where(x => x != vocableToTranslate)
                 .Shuffle(_fisherYatesShuffleAlgorithm)
                 .Take(3)
+                .Select(x => GetText(x, TranslateToLanguage))
                 .ToList();
 
-            FalseTranslations = falseTranslationsCandidates.Select(x => x.GetText(Language.Swedish));
+            return falseTranslationsCandidates;
+        }
+
+        private string GetText(Vocable vocable, Language language)
+        {
+            var text = vocable.Words
+                .Where(x => x.Language == language)
+                .Select(x => x.Text)
+                .Shuffle(_fisherYatesShuffleAlgorithm)
+                .First();
+
+            return text;
         }
 
         public string Name { get { return _vocabulary.Name; } }
-        public string TextToTranslate { get; private set; }
-        public string CorrectTranslation { get; private set; }
-        public IEnumerable<string> FalseTranslations { get; private set; }
+        public string Text { get; private set; }
+        public IEnumerable<string> Answers
+        {
+            get
+            {
+                var answers = new List<string>();
+                answers.Add(_correctAnswer);
+                answers.AddRange(_falseAnswers);
+
+                return answers;
+            }
+        }
 
         public int NoOfCorrectAnswers { get; private set; }
         public int NoOfQuestions { get; private set; }
 
-        public void SelectTranslation(string translation)
+        public void SelectAnswer(string translationAnswer)
         {
             NoOfQuestions++;
-            if (translation.Equals(CorrectTranslation, StringComparison.InvariantCultureIgnoreCase))
+            if (translationAnswer.Equals(_correctAnswer, StringComparison.InvariantCultureIgnoreCase))
             {
                 NoOfCorrectAnswers++;
             }
@@ -66,9 +102,9 @@ namespace ReadAndLearnWithLinnea.Core
                 return;
             }
 
-            ContinueWithNextVocable();
+            UpdateTranslationQuestion(_vocablesInTrainingOrder.Pop());
 
-            TranslationSelected.Invoke();
+            NewTranslationQuestionAsked.Invoke();
         }
     }
 }

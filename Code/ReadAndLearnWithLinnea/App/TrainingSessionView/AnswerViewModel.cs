@@ -3,11 +3,11 @@ using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.App.TrainingSessionView
 {
-    public class TranslationCandidateViewModel
+    public class AnswerViewModel
     {
         private readonly TrainingSession _trainingSession;
 
-        public TranslationCandidateViewModel(TrainingSession trainingSession, string text)
+        public AnswerViewModel(TrainingSession trainingSession, string text)
         {
             Text = text;
             _trainingSession = trainingSession;
@@ -16,7 +16,7 @@ namespace ReadAndLearnWithLinnea.App.TrainingSessionView
 
         private void SelectTranslation()
         {
-            _trainingSession.SelectTranslation(Text);
+            _trainingSession.SelectAnswer(Text);
         }
 
         public string Text { get; private set; }
