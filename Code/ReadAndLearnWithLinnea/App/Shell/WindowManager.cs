@@ -1,4 +1,5 @@
-﻿using MahApps.Metro.Controls;
+﻿using System.Threading.Tasks;
+using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 
 namespace ReadAndLearnWithLinnea.App.Shell
@@ -12,9 +13,9 @@ namespace ReadAndLearnWithLinnea.App.Shell
             _window = window;
         }
 
-        public void ShowMessage(string message)
+        public Task<MessageDialogResult> ShowMessage(string message)
         {
-            _window.ShowMessageAsync("ReadAndLearnWithLinnea", message);
+            return _window.ShowMessageAsync("ReadAndLearnWithLinnea", message);
         }
     }
 }

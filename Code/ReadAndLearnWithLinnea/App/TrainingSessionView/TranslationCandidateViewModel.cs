@@ -12,12 +12,12 @@ namespace ReadAndLearnWithLinnea.App.TrainingSessionView
         {
             Text = text;
             _trainingSession = trainingSession;
-            SelectTranslationCommand = new AsyncDelegateCommand(x => SelectTranslation());
+            SelectTranslationCommand = new DelegateCommand(x => SelectTranslation());
         }
 
-        private Task SelectTranslation()
+        private void SelectTranslation()
         {
-            return Task.Run(() => _trainingSession.SelectTranslation(Text));
+            _trainingSession.SelectTranslation(Text);
         }
 
         public string Text { get; private set; }

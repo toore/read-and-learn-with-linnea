@@ -1,21 +1,23 @@
 ﻿using System;
 using ReadAndLearnWithLinnea.Caliburn.Micro;
-using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.App
+namespace ReadAndLearnWithLinnea.Core
 {
     public class ApplicationController
     {
         private readonly IEventAggregator _eventAggregator;
-        private readonly GuiThreadDispatcher _guiThreadDispatcher;
 
-        public ApplicationController(IEventAggregator eventAggregator, GuiThreadDispatcher guiThreadDispatcher)
+        public ApplicationController(IEventAggregator eventAggregator)
         {
             _eventAggregator = eventAggregator;
-            _guiThreadDispatcher = guiThreadDispatcher;
         }
 
         public void StartApplication()
+        {
+            ShowSelectTrainingView();
+        }
+
+        private void ShowSelectTrainingView()
         {
             _eventAggregator.Publish(new ShowSelectTrainingViewMessage());
         }
@@ -27,6 +29,11 @@ namespace ReadAndLearnWithLinnea.App
             trainingSession.TrainingSessionCompleted = () => TrainingSessionCompleted(trainingSession);
             trainingSession.Start();
 
+            ShowTrainingSessionView(trainingSession);
+        }
+
+        private void ShowTrainingSessionView(TrainingSession trainingSession)
+        {
             _eventAggregator.Publish(new ShowTrainingSessionViewMessage(trainingSession));
         }
 
@@ -37,19 +44,12 @@ namespace ReadAndLearnWithLinnea.App
 
         private void TrainingSessionCompleted(TrainingSession trainingSession)
         {
-            _eventAggregator.Publish(
-                new ShowTrainingSessionCompletedMessage(trainingSession),
-                x => _guiThreadDispatcher.Invoke(Action(x)));
-
+            ShowTrainingSessionCompletedMessage(trainingSession, () => ShowSelectTrainingView());
         }
 
-        private  Action Action(Action x)
+        private void ShowTrainingSessionCompletedMessage(TrainingSession trainingSession, Action continueWith)
         {
-            return () =>
-            {
-                x();
-                StartApplication();
-            };
+            _eventAggregator.Publish(new ShowTrainingSessionCompletedMessage(trainingSession, continueWith));
         }
     }
 }

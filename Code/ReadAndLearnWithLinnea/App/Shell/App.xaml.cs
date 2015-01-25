@@ -2,6 +2,7 @@
 using ReadAndLearnWithLinnea.App.SelectTrainingView;
 using ReadAndLearnWithLinnea.App.TrainingSessionView;
 using ReadAndLearnWithLinnea.Caliburn.Micro;
+using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.App.Shell
 {
@@ -11,9 +12,14 @@ namespace ReadAndLearnWithLinnea.App.Shell
     {
         private void OnStartup(object sender, StartupEventArgs e)
         {
-            var eventAggregator = new EventAggregator();
+            var guiThreadDispatcher = new GuiThreadDispatcher();
 
-            var applicationController = new ApplicationController(eventAggregator, new GuiThreadDispatcher());
+            var eventAggregator = new EventAggregator
+            {
+                PublicationThreadMarshaller = guiThreadDispatcher.Invoke
+            };
+
+            var applicationController = new ApplicationController(eventAggregator);
 
             var vocabulariesViewModelFactory = new SelectVocabularyTrainingViewModelFactory(applicationController);
             var trainingSessionViewModelFactory = new TrainingSessionViewModelFactory();

@@ -60,9 +60,6 @@
     </StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="AsyncDelegateCommand">
-      <HintPath>..\packages\asyncdelegatecommand-wpf.AsyncDelegateCommand.1.0.3\lib\portable-net45+win+wpa81+wp80\AsyncDelegateCommand.dll</HintPath>
-    </Reference>
     <Reference Include="MahApps.Metro, Version=1.0.1.27, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\packages\MahApps.Metro.1.0.1-ALPHA027\lib\net45\MahApps.Metro.dll</HintPath>
@@ -93,8 +90,9 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="App\DelegateCommand.cs" />
     <Compile Include="App\Shell\WindowManager.cs" />
-    <Compile Include="App\ApplicationController.cs" />
+    <Compile Include="Core\ApplicationController.cs" />
     <Compile Include="App\Shell\MainViewModel.cs" />
     <Compile Include="App\GuiThreadDispatcher.cs" />
     <Compile Include="Core\ListExtensions.cs" />

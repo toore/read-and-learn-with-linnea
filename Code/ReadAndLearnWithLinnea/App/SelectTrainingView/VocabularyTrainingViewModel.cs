@@ -1,4 +1,3 @@
-using System.Threading.Tasks;
 using System.Windows.Input;
 using ReadAndLearnWithLinnea.Core;
 
@@ -14,14 +13,14 @@ namespace ReadAndLearnWithLinnea.App.SelectTrainingView
             _vocabulary = vocabulary;
             _applicationController = applicationController;
 
-            StartTrainingSessionCommand = new AsyncDelegateCommand(x => StartTraining());
+            StartTrainingSessionCommand = new DelegateCommand(x => StartTraining());
         }
 
         public ICommand StartTrainingSessionCommand { get; set; }
 
-        private Task StartTraining()
+        private void StartTraining()
         {
-            return Task.Run(() => _applicationController.StartTrainingSession(_vocabulary));
+            _applicationController.StartTrainingSession(_vocabulary);
         }
 
         public string Name

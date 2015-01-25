@@ -84,16 +84,18 @@ namespace ReadAndLearnWithLinnea.App.Shell
             ViewModel.Child = _trainingSessionViewModelFactory.Create(message.TrainingSession);
         }
 
-        public void Handle(ShowTrainingSessionCompletedMessage message)
+        public async void Handle(ShowTrainingSessionCompletedMessage message)
         {
             var trainingSession = message.TrainingSession;
             var name = trainingSession.Name;
             var wordsTranslated = trainingSession.NoOfCorrectTranslations;
             var totalWords = trainingSession.TotalWords;
 
-            _windowManager.ShowMessage(
+            await _windowManager.ShowMessage(
                 string.Format("Training of {0} completed!{1}{1}You passed {2} of {3} ({4:P0}).",
                 name, Environment.NewLine, wordsTranslated, totalWords, wordsTranslated / (double)totalWords));
+
+            message.ContinueWith();
         }
     }
 }
