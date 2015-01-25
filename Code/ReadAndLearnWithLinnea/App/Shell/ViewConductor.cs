@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Windows;
 using ReadAndLearnWithLinnea.App.SelectTrainingView;
 using ReadAndLearnWithLinnea.App.TrainingSessionView;
 using ReadAndLearnWithLinnea.Caliburn.Micro;

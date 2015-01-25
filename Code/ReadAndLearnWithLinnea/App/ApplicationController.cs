@@ -1,15 +1,17 @@
-﻿using System.Windows;
-using ReadAndLearnWithLinnea.Caliburn.Micro;
+﻿using ReadAndLearnWithLinnea.Caliburn.Micro;
+using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.Core
+namespace ReadAndLearnWithLinnea.App
 {
     public class ApplicationController
     {
         private readonly IEventAggregator _eventAggregator;
+        private readonly GuiThreadDispatcher _guiThreadDispatcher;
 
-        public ApplicationController(IEventAggregator eventAggregator)
+        public ApplicationController(IEventAggregator eventAggregator, GuiThreadDispatcher guiThreadDispatcher)
         {
             _eventAggregator = eventAggregator;
+            _guiThreadDispatcher = guiThreadDispatcher;
         }
 
         public void StartApplication()
@@ -36,7 +38,9 @@ namespace ReadAndLearnWithLinnea.Core
         {
             _eventAggregator.Publish(
                 new ShowTrainingSessionCompletedMessage(trainingSession),
-                x => Application.Current.Dispatcher.Invoke(x));
+                x => _guiThreadDispatcher.Invoke(x));
+
+            StartApplication();
         }
     }
 }

@@ -94,8 +94,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="App\Shell\WindowManager.cs" />
-    <Compile Include="Core\ApplicationController.cs" />
+    <Compile Include="App\ApplicationController.cs" />
     <Compile Include="App\Shell\MainViewModel.cs" />
+    <Compile Include="App\GuiThreadDispatcher.cs" />
     <Compile Include="Core\ListExtensions.cs" />
     <Compile Include="Core\ShowSelectTrainingViewMessage.cs" />
     <Compile Include="Core\ShowTrainingSessionCompletedMessage.cs" />
