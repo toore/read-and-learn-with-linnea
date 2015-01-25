@@ -45,6 +45,7 @@ namespace ReadAndLearnWithLinnea.App.Shell
             var houseAndGardenVocables = new Vocabulary("House and garden");
 
             houseAndGardenVocables.AddSwedishEnglish("Hus", "House");
+            houseAndGardenVocables.AddSwedishEnglish("Trädgård", "Garden");
             houseAndGardenVocables.AddSwedishEnglishAndEnglishAlternative("Lägenhet", "Apartment", "Flat");
             houseAndGardenVocables.AddSwedishEnglish("Grind", "Gate");
             houseAndGardenVocables.AddSwedishEnglish("Fönster", "Window");

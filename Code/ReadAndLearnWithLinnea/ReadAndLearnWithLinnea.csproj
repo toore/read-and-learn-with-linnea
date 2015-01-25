@@ -108,7 +108,7 @@
     <Compile Include="App\SelectTrainingView\SelectVocabularyTrainingViewModelFactory.cs" />
     <Compile Include="Core\TrainingSessionCompletedMessage.cs" />
     <Compile Include="Core\UpdateTrainingSessionViewMessage.cs" />
-    <Compile Include="Core\VocabularyExtension.cs" />
+    <Compile Include="App\Shell\VocabularyExtension.cs" />
     <Compile Include="Caliburn.Micro\EventAggregator.cs" />
     <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />
     <Compile Include="App\SelectTrainingView\SelectVocabularyTrainingViewModel.cs" />
