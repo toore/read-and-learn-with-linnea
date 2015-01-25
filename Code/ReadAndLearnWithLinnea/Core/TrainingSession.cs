@@ -95,6 +95,11 @@ namespace ReadAndLearnWithLinnea.Core
 
         public TrainingSessionResult GetResult()
         {
+            if (_answers.Count < Questions.Count())
+            {
+                throw new NotAllQuestionsHaveBeenAnsweredException();
+            }
+
             var noOfCorrectAnswers = GetNoOfCorrectAnswers();
             var noOfQuestions = Questions.Count();
 
@@ -105,6 +110,10 @@ namespace ReadAndLearnWithLinnea.Core
         {
             return _answers.Count(a => a.IsAnswerCorrect());
         }
+    }
+
+    public class NotAllQuestionsHaveBeenAnsweredException : ApplicationException
+    {
     }
 
     public class AnsweredQuestionIsNotPartOfTrainingSessionException : ApplicationException
