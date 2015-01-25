@@ -24,7 +24,7 @@
                 </Grid.RowDefinitions>
 
                 <Label FontSize="{StaticResource HeaderFontSize}" 
-                       Content="What do you want to learn?" />
+                       Content="What do you want to practise?" />
 
                 <ItemsControl Grid.Row="1"
                               ItemsSource="{Binding VocabularyViewModels}">

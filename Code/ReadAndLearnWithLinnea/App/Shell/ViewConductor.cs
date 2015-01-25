@@ -30,7 +30,8 @@ namespace ReadAndLearnWithLinnea.App.Shell
 
         public void Handle(ShowSelectTrainingViewMessage message)
         {
-            ViewModel.Child = _selectVocabularyTrainingViewModelFactory.Create(GetTrainingCategories());
+            var trainingCategories = GetTrainingCategories();
+            ViewModel.Child = _selectVocabularyTrainingViewModelFactory.Create(trainingCategories);
         }
 
         private static IEnumerable<Vocabulary> GetTrainingCategories()
