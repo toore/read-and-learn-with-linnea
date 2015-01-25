@@ -241,11 +241,6 @@
             Gets/sets the default text( just the inputdialog needed)
             </summary>
         </member>
-        <member name="P:MahApps.Metro.Controls.Dialogs.MetroDialogSettings.MaximumBodyHeight">
-            <summary>
-            Gets/sets the maximum height. (Default is unlimited height, <a href="http://msdn.microsoft.com/de-de/library/system.double.nan">Double.NaN</a>)
-            </summary>
-        </member>
         <member name="T:MahApps.Metro.Controls.Dialogs.MetroDialogColorScheme">
             <summary>
             An enum representing the different choices for a color scheme in a Metro Dialog.
@@ -320,12 +315,6 @@
             The <paramref name="dialog"/> is not visible in the window.
             This happens if <see cref="M:MahApps.Metro.Controls.Dialogs.DialogManager.ShowMetroDialogAsync(MahApps.Metro.Controls.MetroWindow,MahApps.Metro.Controls.Dialogs.BaseMetroDialog,MahApps.Metro.Controls.Dialogs.MetroDialogSettings)"/> hasn't been called before.
             </exception>
-        </member>
-        <member name="M:MahApps.Metro.Controls.Dialogs.DialogManager.GetCurrentDialogAsync``1(MahApps.Metro.Controls.MetroWindow)">
-            <summary>
-            Gets the current shown dialog.
-            </summary>
-            <param name="window">The dialog owner.</param>
         </member>
         <member name="T:MahApps.Metro.Controls.Dialogs.InputDialog">
             <summary>
@@ -683,11 +672,6 @@
             An extended, metrofied Window class.
             </summary>
         </member>
-        <member name="M:MahApps.Metro.Controls.MetroWindow.GetWindowPlacementSettings">
-            <summary>
-            Gets the window placement settings (can be overwritten).
-            </summary>
-        </member>
         <member name="M:MahApps.Metro.Controls.MetroWindow.ShowOverlayAsync">
             <summary>
             Begins to show the MetroWindow's overlay effect.
@@ -808,21 +792,6 @@
         <member name="P:MahApps.Metro.Controls.MetroWindow.ShowCloseButton">
             <summary>
             Gets/sets if the close button is visible.
-            </summary>
-        </member>
-        <member name="P:MahApps.Metro.Controls.MetroWindow.IsMinButtonEnabled">
-            <summary>
-            Gets/sets if the min button is enabled.
-            </summary>
-        </member>
-        <member name="P:MahApps.Metro.Controls.MetroWindow.IsMaxRestoreButtonEnabled">
-            <summary>
-            Gets/sets if the max/restore button is enabled.
-            </summary>
-        </member>
-        <member name="P:MahApps.Metro.Controls.MetroWindow.IsCloseButtonEnabled">
-            <summary>
-            Gets/sets if the close button is enabled.
             </summary>
         </member>
         <member name="P:MahApps.Metro.Controls.MetroWindow.ShowSystemMenuOnRightClick">
