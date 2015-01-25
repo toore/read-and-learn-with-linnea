@@ -27,7 +27,7 @@ namespace ReadAndLearnWithLinnea.App.Shell
             var applicationController = new ApplicationController(eventAggregator, shuffler);
 
             var vocabulariesViewModelFactory = new SelectVocabularyTrainingViewModelFactory(applicationController);
-            var trainingSessionViewModelFactory = new TrainingSessionViewModelFactory(shuffler);
+            var trainingSessionViewModelFactory = new QuestionViewModelFactory(shuffler);
 
             var mainWindow = new MainWindow();
             var windowManager = new WindowManager(mainWindow);

@@ -28,7 +28,6 @@ namespace ReadAndLearnWithLinnea.Core
         public void StartTrainingSession(Vocabulary vocabulary)
         {
             var trainingSession = new TrainingSession(_fisherYatesShuffleAlgorithm, vocabulary);
-            trainingSession.NewTranslationQuestionAsked = () => TranslationSelected(trainingSession);
             trainingSession.TrainingSessionCompleted = () => TrainingSessionCompleted(trainingSession);
             trainingSession.Start();
 
@@ -38,11 +37,6 @@ namespace ReadAndLearnWithLinnea.Core
         private void ShowTrainingSessionView(TrainingSession trainingSession)
         {
             _eventAggregator.Publish(new ShowTrainingSessionViewMessage(trainingSession));
-        }
-
-        private void TranslationSelected(TrainingSession trainingSession)
-        {
-            _eventAggregator.Publish(new UpdateTrainingSessionViewMessage(trainingSession));
         }
 
         private void TrainingSessionCompleted(TrainingSession trainingSession)

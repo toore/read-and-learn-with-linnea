@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using ReadAndLearnWithLinnea.App.SelectTrainingView;
 using ReadAndLearnWithLinnea.App.TrainingSessionView;
 using ReadAndLearnWithLinnea.Caliburn.Micro;
@@ -10,24 +9,23 @@ namespace ReadAndLearnWithLinnea.App.Shell
     public class ViewConductor :
         IHandle<ShowSelectTrainingViewMessage>,
         IHandle<ShowTrainingSessionViewMessage>,
-        IHandle<UpdateTrainingSessionViewMessage>,
         IHandle<ShowTrainingSessionCompletedMessage>
     {
         private readonly WindowManager _windowManager;
         private readonly VocabularyRepository _vocabularyRepository;
         private readonly SelectVocabularyTrainingViewModelFactory _selectVocabularyTrainingViewModelFactory;
-        private readonly TrainingSessionViewModelFactory _trainingSessionViewModelFactory;
+        private readonly QuestionViewModelFactory _questionViewModelFactory;
 
         public ViewConductor(
             WindowManager windowManager, 
             VocabularyRepository vocabularyRepository,
             SelectVocabularyTrainingViewModelFactory selectVocabularyTrainingViewModelFactory, 
-            TrainingSessionViewModelFactory trainingSessionViewModelFactory)
+            QuestionViewModelFactory questionViewModelFactory)
         {
             _windowManager = windowManager;
             _vocabularyRepository = vocabularyRepository;
             _selectVocabularyTrainingViewModelFactory = selectVocabularyTrainingViewModelFactory;
-            _trainingSessionViewModelFactory = trainingSessionViewModelFactory;
+            _questionViewModelFactory = questionViewModelFactory;
 
             ViewModel = new MainViewModel();
         }
@@ -42,12 +40,7 @@ namespace ReadAndLearnWithLinnea.App.Shell
 
         public void Handle(ShowTrainingSessionViewMessage message)
         {
-            ViewModel.Child = _trainingSessionViewModelFactory.Create(message.TrainingSession);
-        }
-
-        public void Handle(UpdateTrainingSessionViewMessage message)
-        {
-            ViewModel.Child = _trainingSessionViewModelFactory.Create(message.TrainingSession);
+            ViewModel.Child = _questionViewModelFactory.Create(message.TrainingSession);
         }
 
         public async void Handle(ShowTrainingSessionCompletedMessage message)

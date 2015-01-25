@@ -13,6 +13,7 @@ namespace ReadAndLearnWithLinnea.Core
         private readonly Vocabulary _vocabulary;
         private Stack<Vocable> _vocablesInTrainingOrder;
         private string _correctAnswer;
+        private IEnumerable<string> _falseAnswers;
 
         public TrainingSession(FisherYatesShuffleAlgorithm fisherYatesShuffleAlgorithm, Vocabulary vocabulary)
         {
@@ -21,22 +22,28 @@ namespace ReadAndLearnWithLinnea.Core
         }
 
         public Action TrainingSessionCompleted = () => { };
-        public Action NewTranslationQuestionAsked = () => { };
-        private IEnumerable<string> _falseAnswers;
+        public Action QuestionUpdated = () => { };
+
+        public string Name { get { return _vocabulary.Name; } }
+        public Question Question { get; private set; }
 
         public void Start()
         {
             var shuffledVocables = _fisherYatesShuffleAlgorithm.Shuffle(_vocabulary.Vocables);
             _vocablesInTrainingOrder = new Stack<Vocable>(shuffledVocables);
 
-            UpdateTranslationQuestion(_vocablesInTrainingOrder.Pop());
+            UpdateQuestion(_vocablesInTrainingOrder.Pop());
         }
 
-        private void UpdateTranslationQuestion(Vocable vocable)
+        private void UpdateQuestion(Vocable vocable)
         {
-            Text = GetTextToTranslate(vocable);
+            var text = GetTextToTranslate(vocable);
             _correctAnswer = GetTranslation(vocable);
             _falseAnswers = GetIncorrectTranslations(vocable);
+
+            Question = new Question(text, _correctAnswer, _falseAnswers);
+
+            QuestionUpdated.Invoke();
         }
 
         private string GetTextToTranslate(Vocable vocable)
@@ -72,27 +79,18 @@ namespace ReadAndLearnWithLinnea.Core
             return text;
         }
 
-        public string Name { get { return _vocabulary.Name; } }
-        public string Text { get; private set; }
-        public IEnumerable<string> Answers
-        {
-            get
-            {
-                var answers = new List<string>();
-                answers.Add(_correctAnswer);
-                answers.AddRange(_falseAnswers);
-
-                return answers;
-            }
-        }
-
         public int NoOfCorrectAnswers { get; private set; }
         public int NoOfQuestions { get; private set; }
 
-        public void SelectAnswer(string translationAnswer)
+        public void SetAnswer(Question question, string answer)
         {
+            if (question != Question)
+            {
+                throw new AnsweringAnotherQuestionException();
+            }
+
             NoOfQuestions++;
-            if (translationAnswer.Equals(_correctAnswer, StringComparison.InvariantCultureIgnoreCase))
+            if (answer.Equals(_correctAnswer, StringComparison.InvariantCultureIgnoreCase))
             {
                 NoOfCorrectAnswers++;
             }
@@ -103,9 +101,11 @@ namespace ReadAndLearnWithLinnea.Core
                 return;
             }
 
-            UpdateTranslationQuestion(_vocablesInTrainingOrder.Pop());
-
-            NewTranslationQuestionAsked.Invoke();
+            UpdateQuestion(_vocablesInTrainingOrder.Pop());
         }
+    }
+
+    public class AnsweringAnotherQuestionException : ApplicationException
+    {
     }
 }

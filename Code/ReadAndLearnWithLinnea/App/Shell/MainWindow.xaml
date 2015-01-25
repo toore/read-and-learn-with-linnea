@@ -45,14 +45,14 @@
             </Grid>
         </DataTemplate>
 
-        <DataTemplate DataType="{x:Type trainingSessionView:TrainingSessionViewModel}">
+        <DataTemplate DataType="{x:Type trainingSessionView:QuestionViewModel}">
             <Grid Margin="30">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="*" />
                     <RowDefinition Height="auto" />
                 </Grid.RowDefinitions>
 
-                <ItemsControl ItemsSource="{Binding TranslationCandidateViewModels}">
+                <ItemsControl ItemsSource="{Binding AnswerViewModels}">
                     <ItemsControl.ItemsPanel>
                         <ItemsPanelTemplate>
                             <UniformGrid Rows="2" />
@@ -63,7 +63,7 @@
                             <Button Content="{Binding Text}"
                                     FontSize="{StaticResource SubHeaderFontSize}"
                                     Margin="10"
-                                    Command="{Binding SelectTranslationCommand}"/>
+                                    Command="{Binding AnswerCommand}"/>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>

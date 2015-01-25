@@ -95,6 +95,7 @@
     <Compile Include="Core\ApplicationController.cs" />
     <Compile Include="App\Shell\MainViewModel.cs" />
     <Compile Include="App\GuiThreadDispatcher.cs" />
+    <Compile Include="Core\Question.cs" />
     <Compile Include="Core\VocabularyRepository.cs" />
     <Compile Include="Common\Shuffle\EnumerableExtensions.cs" />
     <Compile Include="Common\Shuffle\FisherYatesShuffleAlgorithm.cs" />
@@ -102,13 +103,12 @@
     <Compile Include="Core\ShowTrainingSessionCompletedMessage.cs" />
     <Compile Include="Core\ShowTrainingSessionViewMessage.cs" />
     <Compile Include="Core\TrainingSession.cs" />
-    <Compile Include="App\TrainingSessionView\TrainingSessionViewModelFactory.cs" />
-    <Compile Include="App\TrainingSessionView\TrainingSessionViewModel.cs" />
+    <Compile Include="App\TrainingSessionView\QuestionViewModelFactory.cs" />
+    <Compile Include="App\TrainingSessionView\QuestionViewModel.cs" />
     <Compile Include="App\Shell\ViewConductor.cs" />
     <Compile Include="App\TrainingSessionView\AnswerViewModel.cs" />
     <Compile Include="App\SelectTrainingView\SelectVocabularyTrainingViewModelFactory.cs" />
     <Compile Include="Core\TrainingSessionCompletedMessage.cs" />
-    <Compile Include="Core\UpdateTrainingSessionViewMessage.cs" />
     <Compile Include="Core\VocabularyExtension.cs" />
     <Compile Include="Caliburn.Micro\EventAggregator.cs" />
     <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />

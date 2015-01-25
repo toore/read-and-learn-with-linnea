@@ -5,21 +5,24 @@ namespace ReadAndLearnWithLinnea.App.TrainingSessionView
 {
     public class AnswerViewModel
     {
+        private readonly Question _question;
         private readonly TrainingSession _trainingSession;
 
-        public AnswerViewModel(TrainingSession trainingSession, string text)
+        public AnswerViewModel(string text, Question question, TrainingSession trainingSession)
         {
-            Text = text;
+            _question = question;
             _trainingSession = trainingSession;
-            SelectTranslationCommand = new DelegateCommand(x => SelectTranslation());
+            Text = text;
+
+            AnswerCommand = new DelegateCommand(x => Answer());
         }
 
-        private void SelectTranslation()
+        private void Answer()
         {
-            _trainingSession.SelectAnswer(Text);
+            _trainingSession.SetAnswer(_question, Text);
         }
 
         public string Text { get; private set; }
-        public ICommand SelectTranslationCommand { get; private set; }
+        public ICommand AnswerCommand { get; private set; }
     }
 }
