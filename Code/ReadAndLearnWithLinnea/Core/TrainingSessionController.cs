@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 
 namespace ReadAndLearnWithLinnea.Core
 {
@@ -30,13 +31,19 @@ namespace ReadAndLearnWithLinnea.Core
 
         private void MoveToNextQuestion()
         {
-            if (!_questions.Any())
+            if (_questions.Count == 0)
             {
                 TrainingSessionCompleted.Invoke();
                 return;
             }
+
             Question = _questions.Pop();
             QuestionUpdated.Invoke();
+        }
+
+        public bool CanAnswerQuestion(Question question)
+        {
+            return !_trainingSession.HasQuestionBeenAnswered(question);
         }
 
         public void AnswerQuestion(Question question, string answer)

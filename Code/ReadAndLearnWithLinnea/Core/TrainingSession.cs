@@ -37,16 +37,26 @@ namespace ReadAndLearnWithLinnea.Core
 
         public void AnswerQuestion(Question question, string answer)
         {
-            if (!Questions.Contains(question))
+            if (!IsQuestionPartOfTrainingSession(question))
             {
                 throw new AnsweredQuestionIsNotPartOfTrainingSessionException();
             }
-            if (_answers.ContainsKey(question))
+            if (HasQuestionBeenAnswered(question))
             {
                 throw new QuestionHasAlreadyBeenAnsweredException();
             }
 
             _answers.Add(question, answer);
+        }
+
+        private bool IsQuestionPartOfTrainingSession(Question question)
+        {
+            return Questions.Contains(question);
+        }
+
+        public bool HasQuestionBeenAnswered(Question question)
+        {
+            return _answers.ContainsKey(question);
         }
 
         private Question CreateQuestion(Vocable vocable)

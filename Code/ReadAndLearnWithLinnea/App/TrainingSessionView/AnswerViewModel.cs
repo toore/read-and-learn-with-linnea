@@ -14,12 +14,17 @@ namespace ReadAndLearnWithLinnea.App.TrainingSessionView
             _trainingSessionController = trainingSessionController;
             Text = text;
 
-            AnswerCommand = new DelegateCommand(x => Answer());
+            AnswerCommand = new DelegateCommand(x => Answer(), x => CanExecuteAnswer());
         }
 
         private void Answer()
         {
             _trainingSessionController.AnswerQuestion(_question, Text);
+        }
+
+        private bool CanExecuteAnswer()
+        {
+            return _trainingSessionController.CanAnswerQuestion(_question);
         }
 
         public string Text { get; private set; }
