@@ -4,7 +4,7 @@ using System.Linq;
 
 namespace ReadAndLearnWithLinnea.Common.Shuffle
 {
-    public class FisherYatesShuffleAlgorithm
+    public class FisherYatesShuffleAlgorithm : IShuffleAlgorithm
     {
         private readonly Random _random;
 

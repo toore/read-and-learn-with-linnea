@@ -9,15 +9,15 @@ namespace ReadAndLearnWithLinnea.Core
     {
         private const Language TranslateFromLanguage = Language.English;
         private const Language TranslateToLanguage = Language.Swedish;
-        private readonly FisherYatesShuffleAlgorithm _fisherYatesShuffleAlgorithm;
+        private readonly IShuffleAlgorithm _shuffleAlgorithm;
         private readonly Vocabulary _vocabulary;
         private Stack<Vocable> _vocablesInTrainingOrder;
         private string _correctAnswer;
         private IEnumerable<string> _falseAnswers;
 
-        public TrainingSession(FisherYatesShuffleAlgorithm fisherYatesShuffleAlgorithm, Vocabulary vocabulary)
+        public TrainingSession(IShuffleAlgorithm shuffleAlgorithm, Vocabulary vocabulary)
         {
-            _fisherYatesShuffleAlgorithm = fisherYatesShuffleAlgorithm;
+            _shuffleAlgorithm = shuffleAlgorithm;
             _vocabulary = vocabulary;
         }
 
@@ -29,7 +29,7 @@ namespace ReadAndLearnWithLinnea.Core
 
         public void Start()
         {
-            var shuffledVocables = _fisherYatesShuffleAlgorithm.Shuffle(_vocabulary.Vocables);
+            var shuffledVocables = _shuffleAlgorithm.Shuffle(_vocabulary.Vocables);
             _vocablesInTrainingOrder = new Stack<Vocable>(shuffledVocables);
 
             UpdateQuestion(_vocablesInTrainingOrder.Pop());
@@ -60,7 +60,7 @@ namespace ReadAndLearnWithLinnea.Core
         {
             var falseTranslationsCandidates = _vocabulary.Vocables
                 .Where(x => x != vocableToTranslate)
-                .Shuffle(_fisherYatesShuffleAlgorithm)
+                .Shuffle(_shuffleAlgorithm)
                 .Take(3)
                 .Select(x => GetText(x, TranslateToLanguage))
                 .ToList();
@@ -73,7 +73,7 @@ namespace ReadAndLearnWithLinnea.Core
             var text = vocable.Words
                 .Where(x => x.Language == language)
                 .Select(x => x.Text)
-                .Shuffle(_fisherYatesShuffleAlgorithm)
+                .Shuffle(_shuffleAlgorithm)
                 .First();
 
             return text;

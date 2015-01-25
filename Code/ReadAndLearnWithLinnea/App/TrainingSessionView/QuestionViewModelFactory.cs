@@ -6,11 +6,11 @@ namespace ReadAndLearnWithLinnea.App.TrainingSessionView
 {
     public class QuestionViewModelFactory
     {
-        private readonly FisherYatesShuffleAlgorithm _fisherYatesShuffleAlgorithm;
+        private readonly IShuffleAlgorithm _shuffleAlgorithm;
 
-        public QuestionViewModelFactory(FisherYatesShuffleAlgorithm fisherYatesShuffleAlgorithm)
+        public QuestionViewModelFactory(IShuffleAlgorithm shuffleAlgorithm)
         {
-            _fisherYatesShuffleAlgorithm = fisherYatesShuffleAlgorithm;
+            _shuffleAlgorithm = shuffleAlgorithm;
         }
 
         public QuestionViewModel Create(TrainingSession trainingSession)
@@ -29,7 +29,7 @@ namespace ReadAndLearnWithLinnea.App.TrainingSessionView
 
             var answerViewModels = question.Answers
                 .Select(text => CreateAnswerViewModel(text, trainingSession))
-                .Shuffle(_fisherYatesShuffleAlgorithm);
+                .Shuffle(_shuffleAlgorithm);
 
             questionViewModel.Text = question.Text;
             questionViewModel.AnswerViewModels = answerViewModels;
