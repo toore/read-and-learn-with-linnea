@@ -6,14 +6,15 @@ namespace ReadAndLearnWithLinnea.Core
     {
         private readonly string _correctAnswer;
         private readonly IEnumerable<string> _falseAnswers;
-        public string Text { get; private set; }
 
         public Question(string text, string correctAnswer, IEnumerable<string> falseAnswers)
         {
+            Text = text;
             _correctAnswer = correctAnswer;
             _falseAnswers = falseAnswers;
-            Text = text;
         }
+
+        public string Text { get; private set; }
 
         public IEnumerable<string> Answers
         {
@@ -26,5 +27,7 @@ namespace ReadAndLearnWithLinnea.Core
                 return answers;
             }
         }
+
+        public string CorrectAnswer { get { return _correctAnswer; } }
     }
 }

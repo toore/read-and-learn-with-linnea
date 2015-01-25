@@ -13,31 +13,31 @@ namespace ReadAndLearnWithLinnea.App.TrainingSessionView
             _shuffleAlgorithm = shuffleAlgorithm;
         }
 
-        public QuestionViewModel Create(TrainingSession trainingSession)
+        public QuestionViewModel Create(TrainingSessionController trainingSessionController)
         {
             var questionViewModel = new QuestionViewModel();
-            trainingSession.QuestionUpdated = () => UpdateViewModel(questionViewModel, trainingSession);
+            trainingSessionController.QuestionUpdated = () => UpdateViewModel(questionViewModel, trainingSessionController);
 
-            UpdateViewModel(questionViewModel, trainingSession);
+            UpdateViewModel(questionViewModel, trainingSessionController);
 
             return questionViewModel;
         }
 
-        private void UpdateViewModel(QuestionViewModel questionViewModel, TrainingSession trainingSession)
+        private void UpdateViewModel(QuestionViewModel questionViewModel, TrainingSessionController trainingSessionController)
         {
-            var question = trainingSession.Question;
+            var question = trainingSessionController.Question;
 
             var answerViewModels = question.Answers
-                .Select(text => CreateAnswerViewModel(text, trainingSession))
+                .Select(text => CreateAnswerViewModel(text, trainingSessionController))
                 .Shuffle(_shuffleAlgorithm);
 
             questionViewModel.Text = question.Text;
             questionViewModel.AnswerViewModels = answerViewModels;
         }
 
-        private AnswerViewModel CreateAnswerViewModel(string text, TrainingSession trainingSession)
+        private AnswerViewModel CreateAnswerViewModel(string text, TrainingSessionController trainingSessionController)
         {
-            return new AnswerViewModel(text, trainingSession.Question, trainingSession);
+            return new AnswerViewModel(text, trainingSessionController.Question, trainingSessionController);
         }
     }
 }

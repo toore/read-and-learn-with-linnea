@@ -2,11 +2,11 @@ namespace ReadAndLearnWithLinnea.Core
 {
     public class TrainingSessionCompletedMessage
     {
-        public TrainingSessionCompletedMessage(TrainingSession trainingSession)
+        public TrainingSessionCompletedMessage(TrainingSessionController trainingSessionController)
         {
-            TrainingSession = trainingSession;
+            TrainingSessionController = trainingSessionController;
         }
 
-        public TrainingSession TrainingSession { get; private set; }
+        public TrainingSessionController TrainingSessionController { get; private set; }
     }
 }

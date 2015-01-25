@@ -97,13 +97,15 @@
     <Compile Include="App\Shell\MainViewModel.cs" />
     <Compile Include="App\GuiThreadDispatcher.cs" />
     <Compile Include="Core\Question.cs" />
+    <Compile Include="Core\TrainingSession.cs" />
+    <Compile Include="Core\TrainingSessionResult.cs" />
     <Compile Include="Core\VocabularyRepository.cs" />
     <Compile Include="Common\Shuffle\ShuffleExtensions.cs" />
     <Compile Include="Common\Shuffle\FisherYatesShuffleAlgorithm.cs" />
     <Compile Include="Core\ShowSelectTrainingViewMessage.cs" />
     <Compile Include="Core\ShowTrainingSessionCompletedMessage.cs" />
     <Compile Include="Core\ShowTrainingSessionViewMessage.cs" />
-    <Compile Include="Core\TrainingSession.cs" />
+    <Compile Include="Core\TrainingSessionController.cs" />
     <Compile Include="App\TrainingSessionView\QuestionViewModelFactory.cs" />
     <Compile Include="App\TrainingSessionView\QuestionViewModel.cs" />
     <Compile Include="App\Shell\ViewConductor.cs" />

@@ -4,13 +4,18 @@ namespace ReadAndLearnWithLinnea.Core
 {
     public class ShowTrainingSessionCompletedMessage
     {
-        public ShowTrainingSessionCompletedMessage(TrainingSession trainingSession, Action continueWith)
+        public ShowTrainingSessionCompletedMessage(string name, int noOfCorrectAnswers, int noOfQuestions, Action continueWith)
         {
-            TrainingSession = trainingSession;
+            NoOfQuestions = noOfQuestions;
+            NoOfCorrectAnswers = noOfCorrectAnswers;
+            Name = name;
             ContinueWith = continueWith;
         }
 
-        public TrainingSession TrainingSession { get; private set; }
-        public Action ContinueWith { get; set; }
+        public string Name { get; private set; }
+        public int NoOfCorrectAnswers { get; private set; }
+        public int NoOfQuestions { get; private set; }
+
+        public Action ContinueWith { get; private set; }
     }
 }

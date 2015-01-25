@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using ReadAndLearnWithLinnea.Common.Shuffle;
@@ -7,43 +7,57 @@ namespace ReadAndLearnWithLinnea.Core
 {
     public class TrainingSession
     {
-        private const Language TranslateFromLanguage = Language.English;
-        private const Language TranslateToLanguage = Language.Swedish;
         private readonly IShuffleAlgorithm _shuffleAlgorithm;
         private readonly Vocabulary _vocabulary;
-        private Stack<Vocable> _vocablesInTrainingOrder;
-        private string _correctAnswer;
-        private IEnumerable<string> _falseAnswers;
+        private readonly Dictionary<Question, string> _answers;
+
+        private const Language TranslateFromLanguage = Language.English;
+        private const Language TranslateToLanguage = Language.Swedish;
 
         public TrainingSession(IShuffleAlgorithm shuffleAlgorithm, Vocabulary vocabulary)
         {
             _shuffleAlgorithm = shuffleAlgorithm;
             _vocabulary = vocabulary;
+            _answers = new Dictionary<Question, string>();
         }
 
-        public Action TrainingSessionCompleted = () => { };
-        public Action QuestionUpdated = () => { };
-
-        public string Name { get { return _vocabulary.Name; } }
-        public Question Question { get; private set; }
-
-        public void Start()
+        public string Name
         {
-            var shuffledVocables = _shuffleAlgorithm.Shuffle(_vocabulary.Vocables);
-            _vocablesInTrainingOrder = new Stack<Vocable>(shuffledVocables);
-
-            UpdateQuestion(_vocablesInTrainingOrder.Pop());
+            get { return _vocabulary.Name; }
         }
 
-        private void UpdateQuestion(Vocable vocable)
+        public IEnumerable<Question> Questions { get; private set; }
+
+        public void InitializeQuestions()
+        {
+            Questions = _shuffleAlgorithm.Shuffle(_vocabulary.Vocables)
+                .Select(q => CreateQuestion(q))
+                .ToList();
+        }
+
+        public void AnswerQuestion(Question question, string answer)
+        {
+            if (!Questions.Contains(question))
+            {
+                throw new AnsweredQuestionIsNotPartOfTrainingSessionException();
+            }
+            if (_answers.ContainsKey(question))
+            {
+                throw new QuestionHasAlreadyBeenAnsweredException();
+            }
+
+            _answers.Add(question, answer);
+        }
+
+        private Question CreateQuestion(Vocable vocable)
         {
             var text = GetTextToTranslate(vocable);
-            _correctAnswer = GetTranslation(vocable);
-            _falseAnswers = GetIncorrectTranslations(vocable);
+            var correctAnswer = GetTranslation(vocable);
+            var falseAnswers = GetIncorrectTranslations(vocable);
 
-            Question = new Question(text, _correctAnswer, _falseAnswers);
+            var question = new Question(text, correctAnswer, falseAnswers);
 
-            QuestionUpdated.Invoke();
+            return question;
         }
 
         private string GetTextToTranslate(Vocable vocable)
@@ -79,33 +93,33 @@ namespace ReadAndLearnWithLinnea.Core
             return text;
         }
 
-        public int NoOfCorrectAnswers { get; private set; }
-        public int NoOfQuestions { get; private set; }
-
-        public void SetAnswer(Question question, string answer)
+        public TrainingSessionResult GetResult()
         {
-            if (question != Question)
-            {
-                throw new AnsweringAnotherQuestionException();
-            }
+            var noOfCorrectAnswers = GetNoOfCorrectAnswers();
+            var noOfQuestions = Questions.Count();
 
-            NoOfQuestions++;
-            if (answer.Equals(_correctAnswer, StringComparison.InvariantCultureIgnoreCase))
-            {
-                NoOfCorrectAnswers++;
-            }
+            return new TrainingSessionResult(noOfCorrectAnswers, noOfQuestions);
+        }
 
-            if (!_vocablesInTrainingOrder.Any())
-            {
-                TrainingSessionCompleted.Invoke();
-                return;
-            }
-
-            UpdateQuestion(_vocablesInTrainingOrder.Pop());
+        private int GetNoOfCorrectAnswers()
+        {
+            return _answers.Count(a => a.IsAnswerCorrect());
         }
     }
 
-    public class AnsweringAnotherQuestionException : ApplicationException
+    public class AnsweredQuestionIsNotPartOfTrainingSessionException : ApplicationException
     {
+    }
+
+    public class QuestionHasAlreadyBeenAnsweredException : ApplicationException
+    {
+    }
+
+    public static class TrainingSessionResultExtensions
+    {
+        public static bool IsAnswerCorrect(this KeyValuePair<Question, string> answer)
+        {
+            return answer.Key.CorrectAnswer.Equals(answer.Value, StringComparison.InvariantCultureIgnoreCase);
+        }
     }
 }

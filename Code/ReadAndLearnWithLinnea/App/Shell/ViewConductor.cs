@@ -40,15 +40,14 @@ namespace ReadAndLearnWithLinnea.App.Shell
 
         public void Handle(ShowTrainingSessionViewMessage message)
         {
-            ViewModel.Child = _questionViewModelFactory.Create(message.TrainingSession);
+            ViewModel.Child = _questionViewModelFactory.Create(message.TrainingSessionController);
         }
 
         public async void Handle(ShowTrainingSessionCompletedMessage message)
         {
-            var trainingSession = message.TrainingSession;
-            var name = trainingSession.Name;
-            var noOfCorrectTranslations = trainingSession.NoOfCorrectAnswers;
-            var totalWords = trainingSession.NoOfQuestions;
+            var name = message.Name;
+            var noOfCorrectTranslations = message.NoOfCorrectAnswers;
+            var totalWords = message.NoOfQuestions;
             var continueWith = message.ContinueWith;
 
             await _windowManager.ShowMessage(

@@ -6,12 +6,12 @@ namespace ReadAndLearnWithLinnea.App.TrainingSessionView
     public class AnswerViewModel
     {
         private readonly Question _question;
-        private readonly TrainingSession _trainingSession;
+        private readonly TrainingSessionController _trainingSessionController;
 
-        public AnswerViewModel(string text, Question question, TrainingSession trainingSession)
+        public AnswerViewModel(string text, Question question, TrainingSessionController trainingSessionController)
         {
             _question = question;
-            _trainingSession = trainingSession;
+            _trainingSessionController = trainingSessionController;
             Text = text;
 
             AnswerCommand = new DelegateCommand(x => Answer());
@@ -19,7 +19,7 @@ namespace ReadAndLearnWithLinnea.App.TrainingSessionView
 
         private void Answer()
         {
-            _trainingSession.SetAnswer(_question, Text);
+            _trainingSessionController.AnswerQuestion(_question, Text);
         }
 
         public string Text { get; private set; }

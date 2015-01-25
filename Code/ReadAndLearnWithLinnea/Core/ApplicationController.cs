@@ -28,25 +28,32 @@ namespace ReadAndLearnWithLinnea.Core
         public void StartTrainingSession(Vocabulary vocabulary)
         {
             var trainingSession = new TrainingSession(_shuffleAlgorithm, vocabulary);
-            trainingSession.TrainingSessionCompleted = () => TrainingSessionCompleted(trainingSession);
-            trainingSession.Start();
+            var trainingSessionQuestionController = new TrainingSessionController(trainingSession);
+            trainingSessionQuestionController.TrainingSessionCompleted = () => TrainingSessionCompleted(trainingSessionQuestionController);
+            trainingSessionQuestionController.Start();
 
-            ShowTrainingSessionView(trainingSession);
+            ShowTrainingSessionView(trainingSessionQuestionController);
         }
 
-        private void ShowTrainingSessionView(TrainingSession trainingSession)
+        private void ShowTrainingSessionView(TrainingSessionController trainingSessionController)
         {
-            _eventAggregator.Publish(new ShowTrainingSessionViewMessage(trainingSession));
+            _eventAggregator.Publish(new ShowTrainingSessionViewMessage(trainingSessionController));
         }
 
-        private void TrainingSessionCompleted(TrainingSession trainingSession)
+        private void TrainingSessionCompleted(TrainingSessionController trainingSessionController)
         {
-            ShowTrainingSessionCompletedMessage(trainingSession, () => ShowSelectTrainingView());
+            ShowTrainingSessionCompletedMessage(trainingSessionController, () => ShowSelectTrainingView());
         }
 
-        private void ShowTrainingSessionCompletedMessage(TrainingSession trainingSession, Action continueWith)
+        private void ShowTrainingSessionCompletedMessage(TrainingSessionController trainingSessionController, Action continueWith)
         {
-            _eventAggregator.Publish(new ShowTrainingSessionCompletedMessage(trainingSession, continueWith));
+            var name = trainingSessionController.Name;
+            var trainingSessionResult = trainingSessionController.GetResult();
+            var noOfCorrectAnswers = trainingSessionResult.NoOfCorrectAnswers;
+            var noOfQuestions = trainingSessionResult.NoOfQuestions;
+
+            var showTrainingSessionCompletedMessage = new ShowTrainingSessionCompletedMessage(name, noOfCorrectAnswers, noOfQuestions, continueWith);
+            _eventAggregator.Publish(showTrainingSessionCompletedMessage);
         }
     }
 }
