@@ -1,5 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Linq;
+﻿using System;
+using System.Collections.Generic;
+using System.Windows;
 using ReadAndLearnWithLinnea.App.SelectTrainingView;
 using ReadAndLearnWithLinnea.App.TrainingSessionView;
 using ReadAndLearnWithLinnea.Caliburn.Micro;
@@ -7,14 +8,20 @@ using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.App.Shell
 {
-    public class ViewConductor : IHandle<ShowSelectTrainingViewMessage>, IHandle<ShowTrainingSessionViewMessage>
+    public class ViewConductor :
+        IHandle<ShowSelectTrainingViewMessage>,
+        IHandle<ShowTrainingSessionViewMessage>,
+        IHandle<UpdateTrainingSessionViewMessage>,
+        IHandle<ShowTrainingSessionCompletedMessage>
     {
-        private readonly SelectTrainingViewModelFactory _selectTrainingViewModelFactory;
+        private readonly WindowManager _windowManager;
+        private readonly SelectVocabularyTrainingViewModelFactory _selectVocabularyTrainingViewModelFactory;
         private readonly TrainingSessionViewModelFactory _trainingSessionViewModelFactory;
 
-        public ViewConductor(SelectTrainingViewModelFactory selectTrainingViewModelFactory, TrainingSessionViewModelFactory trainingSessionViewModelFactory)
+        public ViewConductor(WindowManager windowManager, SelectVocabularyTrainingViewModelFactory selectVocabularyTrainingViewModelFactory, TrainingSessionViewModelFactory trainingSessionViewModelFactory)
         {
-            _selectTrainingViewModelFactory = selectTrainingViewModelFactory;
+            _windowManager = windowManager;
+            _selectVocabularyTrainingViewModelFactory = selectVocabularyTrainingViewModelFactory;
             _trainingSessionViewModelFactory = trainingSessionViewModelFactory;
 
             ViewModel = new MainViewModel();
@@ -24,30 +31,13 @@ namespace ReadAndLearnWithLinnea.App.Shell
 
         public void Handle(ShowSelectTrainingViewMessage message)
         {
-            ViewModel.Child = _selectTrainingViewModelFactory.Create(GetTrainingCategories());
+            ViewModel.Child = _selectVocabularyTrainingViewModelFactory.Create(GetTrainingCategories());
         }
 
         private static IEnumerable<Vocabulary> GetTrainingCategories()
         {
             yield return CreateHouseAndGardenVocables();
             yield return CreateFurnitureVocables();
-
-            //yield return CreateHouseAndGardenVocables();
-            //yield return CreateFurnitureVocables();
-            //yield return CreateHouseAndGardenVocables();
-            //yield return CreateFurnitureVocables();
-            //yield return CreateHouseAndGardenVocables();
-            //yield return CreateFurnitureVocables();
-            //yield return CreateHouseAndGardenVocables();
-            //yield return CreateFurnitureVocables();
-            //yield return CreateHouseAndGardenVocables();
-            //yield return CreateFurnitureVocables();
-            //yield return CreateHouseAndGardenVocables();
-            //yield return CreateFurnitureVocables();
-            //yield return CreateHouseAndGardenVocables();
-            //yield return CreateFurnitureVocables();
-            //yield return CreateHouseAndGardenVocables();
-            //yield return CreateFurnitureVocables();
         }
 
         private static Vocabulary CreateHouseAndGardenVocables()
@@ -71,6 +61,7 @@ namespace ReadAndLearnWithLinnea.App.Shell
         private static Vocabulary CreateFurnitureVocables()
         {
             var furnitureVocables = new Vocabulary("Furniture");
+
             furnitureVocables.AddSwedishEnglish("Möbler", "Furniture");
             furnitureVocables.AddSwedishEnglish("Soffa", "Sofa");
             furnitureVocables.AddSwedishEnglish("Bord", "Table");
@@ -86,7 +77,24 @@ namespace ReadAndLearnWithLinnea.App.Shell
 
         public void Handle(ShowTrainingSessionViewMessage message)
         {
-            ViewModel.Child = _trainingSessionViewModelFactory.Create(message.Vocables);
+            ViewModel.Child = _trainingSessionViewModelFactory.Create(message.TrainingSession);
+        }
+
+        public void Handle(UpdateTrainingSessionViewMessage message)
+        {
+            ViewModel.Child = _trainingSessionViewModelFactory.Create(message.TrainingSession);
+        }
+
+        public void Handle(ShowTrainingSessionCompletedMessage message)
+        {
+            var trainingSession = message.TrainingSession;
+            var name = trainingSession.Name;
+            var wordsTranslated = trainingSession.NoOfCorrectTranslations;
+            var totalWords = trainingSession.TotalWords;
+
+            _windowManager.ShowMessage(
+                string.Format("Training of {0} completed!{1}{1}You passed {2} of {3} ({4:P0}).",
+                name, Environment.NewLine, wordsTranslated, totalWords, wordsTranslated / (double)totalWords));
         }
     }
 }

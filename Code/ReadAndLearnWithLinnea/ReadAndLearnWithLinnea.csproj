@@ -93,20 +93,25 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="App\ApplicationController.cs" />
+    <Compile Include="App\Shell\WindowManager.cs" />
+    <Compile Include="Core\ApplicationController.cs" />
     <Compile Include="App\Shell\MainViewModel.cs" />
-    <Compile Include="App\Shell\ShowSelectTrainingViewMessage.cs" />
-    <Compile Include="App\Shell\ShowTrainingSessionViewMessage.cs" />
-    <Compile Include="App\TrainingSessionView\CandidateResult.cs" />
+    <Compile Include="Core\ListExtensions.cs" />
+    <Compile Include="Core\ShowSelectTrainingViewMessage.cs" />
+    <Compile Include="Core\ShowTrainingSessionCompletedMessage.cs" />
+    <Compile Include="Core\ShowTrainingSessionViewMessage.cs" />
+    <Compile Include="Core\TrainingSession.cs" />
     <Compile Include="App\TrainingSessionView\TrainingSessionViewModelFactory.cs" />
     <Compile Include="App\TrainingSessionView\TrainingSessionViewModel.cs" />
     <Compile Include="App\Shell\ViewConductor.cs" />
     <Compile Include="App\TrainingSessionView\TranslationCandidateViewModel.cs" />
-    <Compile Include="App\SelectTrainingView\SelectTrainingViewModelFactory.cs" />
-    <Compile Include="App\VocabularyExtension.cs" />
+    <Compile Include="App\SelectTrainingView\SelectVocabularyTrainingViewModelFactory.cs" />
+    <Compile Include="Core\TrainingSessionCompletedMessage.cs" />
+    <Compile Include="Core\UpdateTrainingSessionViewMessage.cs" />
+    <Compile Include="Core\VocabularyExtension.cs" />
     <Compile Include="Caliburn.Micro\EventAggregator.cs" />
     <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />
-    <Compile Include="App\SelectTrainingView\SelectTrainingViewModel.cs" />
+    <Compile Include="App\SelectTrainingView\SelectVocabularyTrainingViewModel.cs" />
     <Compile Include="App\Shell\MainViewModelTestData.cs" />
     <Compile Include="Core\Vocabulary.cs" />
     <Compile Include="App\SelectTrainingView\VocabularyTrainingViewModel.cs" />

@@ -1,4 +1,4 @@
-﻿namespace ReadAndLearnWithLinnea.App.Shell
+﻿namespace ReadAndLearnWithLinnea.Core
 {
     public class ShowSelectTrainingViewMessage
     {

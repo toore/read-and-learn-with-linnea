@@ -4,19 +4,19 @@ using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.App.SelectTrainingView
 {
-    public class SelectTrainingViewModelFactory
+    public class SelectVocabularyTrainingViewModelFactory
     {
         private readonly ApplicationController _applicationController;
 
-        public SelectTrainingViewModelFactory(ApplicationController applicationController)
+        public SelectVocabularyTrainingViewModelFactory(ApplicationController applicationController)
         {
             _applicationController = applicationController;
         }
 
-        public SelectTrainingViewModel Create(IEnumerable<Vocabulary> trainingCategories)
+        public SelectVocabularyTrainingViewModel Create(IEnumerable<Vocabulary> trainingCategories)
         {
-            var trainingCategoryViewModels = trainingCategories.Select(Create).ToList();
-            var trainingCategoriesViewModel = new SelectTrainingViewModel(trainingCategoryViewModels);
+            var vocabularyTrainingViewModels = trainingCategories.Select(Create).ToList();
+            var trainingCategoriesViewModel = new SelectVocabularyTrainingViewModel(vocabularyTrainingViewModels);
 
             return trainingCategoriesViewModel;
         }

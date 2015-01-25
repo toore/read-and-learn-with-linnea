@@ -1,42 +1,26 @@
 ﻿using System.Collections.Generic;
-using System.Linq;
 using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.App.TrainingSessionView
 {
     public class TrainingSessionViewModelFactory
     {
-        public TrainingSessionViewModel Create(IList<Vocable> vocables)
+        public TrainingSessionViewModel Create(TrainingSession trainingSession)
         {
-            var vocableToTranslate = vocables.First();
-            var falseTranslationsCandidates = vocables.Skip(1);
-
-            var text = vocableToTranslate.GetText(Language.English);
-            var translation = vocableToTranslate.GetText(Language.Swedish);
-            var falseTranslations = falseTranslationsCandidates.Select(x => x.GetText(Language.Swedish));
-
-            var wordViewModels = CreateWordViewModels(translation, falseTranslations);
-            var trainingSessionViewModel = new TrainingSessionViewModel(text, wordViewModels);
+            var wordViewModels = CreateWordViewModels(trainingSession);
+            var trainingSessionViewModel = new TrainingSessionViewModel(trainingSession.TextToTranslate, wordViewModels);
 
             return trainingSessionViewModel;
         }
 
-        private static IEnumerable<TranslationCandidateViewModel> CreateWordViewModels(string translation, IEnumerable<string> falseTranslations)
+        private static IEnumerable<TranslationCandidateViewModel> CreateWordViewModels(TrainingSession trainingSession)
         {
-            yield return new TranslationCandidateViewModel(translation, CandidateResult.CorrectTranslation);
+            yield return new TranslationCandidateViewModel(trainingSession, trainingSession.CorrectTranslation);
 
-            foreach (var falseTranslation in falseTranslations)
+            foreach (var falseTranslation in trainingSession.FalseTranslations)
             {
-                yield return new TranslationCandidateViewModel(falseTranslation, CandidateResult.IncorrectTranslation);
+                yield return new TranslationCandidateViewModel(trainingSession, falseTranslation);
             }
-        }
-    }
-
-    public static class VocabularyExtensions
-    {
-        public static string GetText(this Vocable vocable, Language language)
-        {
-            return vocable.Words.Single(x => x.Language == language).Text;
         }
     }
 }

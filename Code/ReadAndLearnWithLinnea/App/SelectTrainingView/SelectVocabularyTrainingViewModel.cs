@@ -2,11 +2,11 @@ using System.Collections.Generic;
 
 namespace ReadAndLearnWithLinnea.App.SelectTrainingView
 {
-    public class SelectTrainingViewModel
+    public class SelectVocabularyTrainingViewModel
     {
         private readonly IEnumerable<VocabularyTrainingViewModel> _vocabularyViewModels;
 
-        public SelectTrainingViewModel(IEnumerable<VocabularyTrainingViewModel> vocabularyViewModels)
+        public SelectVocabularyTrainingViewModel(IEnumerable<VocabularyTrainingViewModel> vocabularyViewModels)
         {
             _vocabularyViewModels = vocabularyViewModels;
         }

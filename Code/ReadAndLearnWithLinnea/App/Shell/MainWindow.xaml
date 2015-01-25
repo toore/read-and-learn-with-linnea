@@ -16,7 +16,7 @@
 
     <Window.Resources>
 
-        <DataTemplate DataType="{x:Type selectTrainingView:SelectTrainingViewModel}">
+        <DataTemplate DataType="{x:Type selectTrainingView:SelectVocabularyTrainingViewModel}">
             <Grid Margin="30">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="80" />
@@ -62,7 +62,8 @@
                         <DataTemplate DataType="trainingSessionView:TranslationCandidateViewModel">
                             <Button Content="{Binding Text}"
                                     FontSize="{StaticResource SubHeaderFontSize}"
-                                    Margin="10"/>
+                                    Margin="10"
+                                    Command="{Binding SelectTranslationCommand}"/>
                         </DataTemplate>
                     </ItemsControl.ItemTemplate>
                 </ItemsControl>

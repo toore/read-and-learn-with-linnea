@@ -14,14 +14,14 @@ namespace ReadAndLearnWithLinnea.App.SelectTrainingView
             _vocabulary = vocabulary;
             _applicationController = applicationController;
 
-            StartTrainingSessionCommand = new AsyncDelegateCommand(x => StartTraining(_vocabulary));
+            StartTrainingSessionCommand = new AsyncDelegateCommand(x => StartTraining());
         }
 
         public ICommand StartTrainingSessionCommand { get; set; }
 
-        private Task StartTraining(Vocabulary vocabulary)
+        private Task StartTraining()
         {
-            return Task.Run(() => _applicationController.StartTrainingSession(vocabulary));
+            return Task.Run(() => _applicationController.StartTrainingSession(_vocabulary));
         }
 
         public string Name

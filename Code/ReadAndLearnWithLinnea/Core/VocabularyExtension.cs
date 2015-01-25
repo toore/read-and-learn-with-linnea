@@ -1,6 +1,6 @@
-using ReadAndLearnWithLinnea.Core;
+using System.Linq;
 
-namespace ReadAndLearnWithLinnea.App
+namespace ReadAndLearnWithLinnea.Core
 {
     public static class VocabularyExtension
     {
@@ -24,6 +24,11 @@ namespace ReadAndLearnWithLinnea.App
                 new Word(Language.English, englishAlternative)
             });
             vocabulary.AddVocable(vocable);
+        }
+
+        public static string GetText(this Vocable vocable, Language language)
+        {
+            return vocable.Words.Single(x => x.Language == language).Text;
         }
     }
 }
