@@ -106,19 +106,19 @@
     <Compile Include="Core\ShowTrainingSessionCompletedMessage.cs" />
     <Compile Include="Core\ShowTrainingSessionViewMessage.cs" />
     <Compile Include="Core\TrainingSessionController.cs" />
-    <Compile Include="App\TrainingSessionView\QuestionViewModelFactory.cs" />
-    <Compile Include="App\TrainingSessionView\QuestionViewModel.cs" />
+    <Compile Include="App\QuestionAndAnswerView\QuestionViewModelFactory.cs" />
+    <Compile Include="App\QuestionAndAnswerView\QuestionViewModel.cs" />
     <Compile Include="App\Shell\ViewConductor.cs" />
-    <Compile Include="App\TrainingSessionView\AnswerViewModel.cs" />
-    <Compile Include="App\SelectTrainingView\SelectVocabularyTrainingViewModelFactory.cs" />
+    <Compile Include="App\QuestionAndAnswerView\AnswerViewModel.cs" />
+    <Compile Include="App\SelectVocabularyView\SelectVocabularyViewModelFactory.cs" />
     <Compile Include="Core\TrainingSessionCompletedMessage.cs" />
     <Compile Include="Core\VocabularyExtension.cs" />
     <Compile Include="Caliburn.Micro\EventAggregator.cs" />
     <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />
-    <Compile Include="App\SelectTrainingView\SelectVocabularyTrainingViewModel.cs" />
+    <Compile Include="App\SelectVocabularyView\SelectVocabularyViewModel.cs" />
     <Compile Include="App\Shell\MainViewModelTestData.cs" />
     <Compile Include="Core\Vocabulary.cs" />
-    <Compile Include="App\SelectTrainingView\VocabularyTrainingViewModel.cs" />
+    <Compile Include="App\SelectVocabularyView\VocabularyViewModel.cs" />
     <Compile Include="Core\Vocable.cs" />
     <Page Include="App\Shell\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

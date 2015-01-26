@@ -2,7 +2,7 @@
 using ReadAndLearnWithLinnea.Common.Shuffle;
 using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.App.TrainingSessionView
+namespace ReadAndLearnWithLinnea.App.QuestionAndAnswerView
 {
     public class QuestionViewModelFactory
     {

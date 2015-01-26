@@ -5,8 +5,8 @@
                       xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
                       xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
                       xmlns:shell="clr-namespace:ReadAndLearnWithLinnea.App.Shell"
-                      xmlns:selectTrainingView="clr-namespace:ReadAndLearnWithLinnea.App.SelectTrainingView"
-                      xmlns:trainingSessionView="clr-namespace:ReadAndLearnWithLinnea.App.TrainingSessionView"
+                      xmlns:selectTrainingView="clr-namespace:ReadAndLearnWithLinnea.App.SelectVocabularyView"
+                      xmlns:trainingSessionView="clr-namespace:ReadAndLearnWithLinnea.App.QuestionAndAnswerView"
                       mc:Ignorable="d"
                       d:DataContext="{d:DesignInstance Type=shell:MainViewModelTestData, IsDesignTimeCreatable=True}"
                       Title="Read and learn with Linnea" Height="480" Width="640"
@@ -16,7 +16,7 @@
 
     <Window.Resources>
 
-        <DataTemplate DataType="{x:Type selectTrainingView:SelectVocabularyTrainingViewModel}">
+        <DataTemplate DataType="{x:Type selectTrainingView:SelectVocabularyViewModel}">
             <Grid Margin="30">
                 <Grid.RowDefinitions>
                     <RowDefinition Height="80" />
@@ -34,7 +34,7 @@
                         </ItemsPanelTemplate>
                     </ItemsControl.ItemsPanel>
                     <ItemsControl.ItemTemplate>
-                        <DataTemplate DataType="selectTrainingView:VocabularyTrainingViewModel">
+                        <DataTemplate DataType="selectTrainingView:VocabularyViewModel">
                             <controls:Tile Title="{Binding Name}"
                                            Count="{Binding VocablesCount}"
                                            Command="{Binding StartTrainingSessionCommand}"

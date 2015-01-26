@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows;
-using ReadAndLearnWithLinnea.App.SelectTrainingView;
-using ReadAndLearnWithLinnea.App.TrainingSessionView;
+using ReadAndLearnWithLinnea.App.QuestionAndAnswerView;
+using ReadAndLearnWithLinnea.App.SelectVocabularyView;
 using ReadAndLearnWithLinnea.Caliburn.Micro;
 using ReadAndLearnWithLinnea.Common;
 using ReadAndLearnWithLinnea.Common.Shuffle;
@@ -27,7 +27,7 @@ namespace ReadAndLearnWithLinnea.App.Shell
 
             var applicationController = new ApplicationController(eventAggregator, shuffleAlgorithm, new VocabularyRepository());
 
-            var vocabulariesViewModelFactory = new SelectVocabularyTrainingViewModelFactory(applicationController);
+            var vocabulariesViewModelFactory = new SelectVocabularyViewModelFactory(applicationController);
             var trainingSessionViewModelFactory = new QuestionViewModelFactory(shuffleAlgorithm);
 
             var mainWindow = new MainWindow();

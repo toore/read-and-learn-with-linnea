@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using PropertyChanged;
 
-namespace ReadAndLearnWithLinnea.App.TrainingSessionView
+namespace ReadAndLearnWithLinnea.App.QuestionAndAnswerView
 {
     [ImplementPropertyChanged]
     public class QuestionViewModel

@@ -1,4 +1,4 @@
-using ReadAndLearnWithLinnea.App.SelectTrainingView;
+using ReadAndLearnWithLinnea.App.SelectVocabularyView;
 using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.App.Shell
@@ -7,7 +7,7 @@ namespace ReadAndLearnWithLinnea.App.Shell
     {
         public MainViewModelTestData()
         {
-            Child = new SelectVocabularyTrainingViewModel(new SelectVocabularyTrainingViewModelFactory(null).Create(
+            Child = new SelectVocabularyViewModel(new SelectVocabularyViewModelFactory(null).Create(
                 new[] {new Vocabulary("animals"), new Vocabulary("cars"), new Vocabulary("science")})
                 .VocabularyViewModels);
 

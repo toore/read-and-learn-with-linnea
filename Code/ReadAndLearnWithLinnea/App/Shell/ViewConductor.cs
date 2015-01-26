@@ -1,6 +1,6 @@
 ﻿using System;
-using ReadAndLearnWithLinnea.App.SelectTrainingView;
-using ReadAndLearnWithLinnea.App.TrainingSessionView;
+using ReadAndLearnWithLinnea.App.QuestionAndAnswerView;
+using ReadAndLearnWithLinnea.App.SelectVocabularyView;
 using ReadAndLearnWithLinnea.Caliburn.Micro;
 using ReadAndLearnWithLinnea.Core;
 
@@ -12,16 +12,16 @@ namespace ReadAndLearnWithLinnea.App.Shell
         IHandle<ShowTrainingSessionCompletedMessage>
     {
         private readonly WindowManager _windowManager;
-        private readonly SelectVocabularyTrainingViewModelFactory _selectVocabularyTrainingViewModelFactory;
+        private readonly SelectVocabularyViewModelFactory _selectVocabularyViewModelFactory;
         private readonly QuestionViewModelFactory _questionViewModelFactory;
 
         public ViewConductor(
             WindowManager windowManager, 
-            SelectVocabularyTrainingViewModelFactory selectVocabularyTrainingViewModelFactory, 
+            SelectVocabularyViewModelFactory selectVocabularyViewModelFactory, 
             QuestionViewModelFactory questionViewModelFactory)
         {
             _windowManager = windowManager;
-            _selectVocabularyTrainingViewModelFactory = selectVocabularyTrainingViewModelFactory;
+            _selectVocabularyViewModelFactory = selectVocabularyViewModelFactory;
             _questionViewModelFactory = questionViewModelFactory;
 
             ViewModel = new MainViewModel();
@@ -31,7 +31,7 @@ namespace ReadAndLearnWithLinnea.App.Shell
 
         public void Handle(ShowSelectTrainingViewMessage message)
         {
-            ViewModel.Child = _selectVocabularyTrainingViewModelFactory.Create(message.Vocabularies);
+            ViewModel.Child = _selectVocabularyViewModelFactory.Create(message.Vocabularies);
         }
 
         public void Handle(ShowTrainingSessionViewMessage message)
