@@ -1,8 +1,8 @@
 ﻿namespace ReadAndLearnWithLinnea.App
 {
-    public class TrainingSessionResult
+    public class PracticeScore
     {
-        public TrainingSessionResult(int noOfCorrectAnswers, int noOfQuestions)
+        public PracticeScore(int noOfCorrectAnswers, int noOfQuestions)
         {
             NoOfQuestions = noOfQuestions;
             NoOfCorrectAnswers = noOfCorrectAnswers;

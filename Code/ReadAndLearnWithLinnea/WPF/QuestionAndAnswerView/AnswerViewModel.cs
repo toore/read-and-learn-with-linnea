@@ -6,13 +6,13 @@ namespace ReadAndLearnWithLinnea.WPF.QuestionAndAnswerView
 {
     public class AnswerViewModel
     {
-        private readonly Question _question;
-        private readonly IModerator _readAndLearnWithLinneaModerator;
+        private readonly IQuestion _question;
+        private readonly IModerator _moderator;
 
-        public AnswerViewModel(string text, Question question, IModerator readAndLearnWithLinneaModerator)
+        public AnswerViewModel(string text, IQuestion question, IModerator moderator)
         {
             _question = question;
-            _readAndLearnWithLinneaModerator = readAndLearnWithLinneaModerator;
+            _moderator = moderator;
             Text = text;
 
             AnswerCommand = new DelegateCommand(x => Answer(), x => CanExecuteAnswer());
@@ -20,12 +20,12 @@ namespace ReadAndLearnWithLinnea.WPF.QuestionAndAnswerView
 
         private void Answer()
         {
-            _readAndLearnWithLinneaModerator.Answer(_question, Text);
+            _moderator.Answer(_question, Text);
         }
 
         private bool CanExecuteAnswer()
         {
-            return _readAndLearnWithLinneaModerator.CanAnswerQuestion(_question);
+            return _moderator.CanAnswerQuestion(_question);
         }
 
         public string Text { get; private set; }

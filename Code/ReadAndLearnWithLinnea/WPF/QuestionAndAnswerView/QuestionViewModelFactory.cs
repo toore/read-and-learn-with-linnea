@@ -5,30 +5,23 @@ namespace ReadAndLearnWithLinnea.WPF.QuestionAndAnswerView
 {
     public class QuestionViewModelFactory
     {
-        public QuestionViewModel Create(TrainingSessionController trainingSessionController)
+        public QuestionViewModel Create()
         {
-            var questionViewModel = new QuestionViewModel();
-            trainingSessionController.QuestionUpdated = () => UpdateViewModel(questionViewModel, trainingSessionController);
-
-            UpdateViewModel(questionViewModel, trainingSessionController);
-
-            return questionViewModel;
+            return new QuestionViewModel();
         }
 
-        private void UpdateViewModel(QuestionViewModel questionViewModel, TrainingSessionController trainingSessionController)
+        public void UpdateViewModel(QuestionViewModel questionViewModel, IModerator moderator, IQuestion question)
         {
-            var question = trainingSessionController.Question;
-
             var answerViewModels = question.Answers
-                .Select(text => CreateAnswerViewModel(text, trainingSessionController));
+                .Select(text => CreateAnswerViewModel(text, moderator, question));
 
             questionViewModel.Text = question.Text;
             questionViewModel.AnswerViewModels = answerViewModels;
         }
 
-        private static AnswerViewModel CreateAnswerViewModel(string text, TrainingSessionController trainingSessionController)
+        private static AnswerViewModel CreateAnswerViewModel(string text, IModerator moderator, IQuestion question)
         {
-            return new AnswerViewModel(text, trainingSessionController.Question, trainingSessionController);
+            return new AnswerViewModel(text, question, moderator);
         }
     }
 }

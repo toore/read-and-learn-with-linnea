@@ -4,13 +4,13 @@ namespace ReadAndLearnWithLinnea.App
 {
     public class Startup : IPractiseInitializer
     {
-        private readonly IConsumer _readAndLearnWithLinneaApplicationConsumer;
+        private readonly IConsumer _consumer;
         private readonly IShuffleAlgorithm _shuffleAlgorithm;
         private readonly IVocabularyRepository _vocabularyRepository;
 
-        private Startup(IConsumer readAndLearnWithLinneaApplicationConsumer, IShuffleAlgorithm shuffleAlgorithm, IVocabularyRepository vocabularyRepository)
+        private Startup(IConsumer consumer, IShuffleAlgorithm shuffleAlgorithm, IVocabularyRepository vocabularyRepository)
         {
-            _readAndLearnWithLinneaApplicationConsumer = readAndLearnWithLinneaApplicationConsumer;
+            _consumer = consumer;
             _shuffleAlgorithm = shuffleAlgorithm;
             _vocabularyRepository = vocabularyRepository;
         }
@@ -28,38 +28,33 @@ namespace ReadAndLearnWithLinnea.App
         {
             var vocabularies = _vocabularyRepository.GetAll();
 
-            _readAndLearnWithLinneaApplicationConsumer.SelectPractise(vocabularies, this);
+            _consumer.SelectPractise(vocabularies, this);
         }
 
         void IPractiseInitializer.Start(IVocabulary vocabulary)
         {
-            var trainingSession = new TrainingSession(_shuffleAlgorithm, vocabulary);
+            var practise = new Practise(_shuffleAlgorithm, vocabulary);
 
-            var trainingSessionController = new TrainingSessionController(trainingSession);
-            trainingSessionController.TrainingSessionCompleted = () => TrainingSessionCompleted(trainingSessionController);
-            trainingSessionController.Start();
+            var moderator = new Moderator(practise);
+            moderator.QuestionUpdated = () => QuestionUpdated(moderator);
+            moderator.PractiseCompleted = () => PractiseCompleted(moderator);
 
-            ShowTrainingSessionView(trainingSessionController);
+            moderator.StartPractise();
         }
 
-        private void ShowTrainingSessionView(TrainingSessionController trainingSessionController)
+        private void QuestionUpdated(Moderator moderator)
         {
-            _readAndLearnWithLinneaApplicationConsumer.PractiseStarted(trainingSessionController);
+            _consumer.NewPractise(moderator, moderator.Question);
         }
 
-        private void TrainingSessionCompleted(TrainingSessionController trainingSessionController)
+        private void PractiseCompleted(Moderator moderator)
         {
-            ShowTrainingSessionCompletedMessage(trainingSessionController);
-        }
+            var name = moderator.Name;
+            var practiceScore = moderator.GetPracticeScore();
+            var noOfCorrectAnswers = practiceScore.NoOfCorrectAnswers;
+            var noOfQuestions = practiceScore.NoOfQuestions;
 
-        private void ShowTrainingSessionCompletedMessage(TrainingSessionController trainingSessionController)
-        {
-            var name = trainingSessionController.Name;
-            var trainingSessionResult = trainingSessionController.GetResult();
-            var noOfCorrectAnswers = trainingSessionResult.NoOfCorrectAnswers;
-            var noOfQuestions = trainingSessionResult.NoOfQuestions;
-
-            _readAndLearnWithLinneaApplicationConsumer.PractiseCompleted(
+            _consumer.PractiseCompleted(
                 name,
                 noOfCorrectAnswers,
                 noOfQuestions,

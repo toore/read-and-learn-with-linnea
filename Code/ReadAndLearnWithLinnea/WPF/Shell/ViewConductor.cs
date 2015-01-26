@@ -11,6 +11,7 @@ namespace ReadAndLearnWithLinnea.WPF.Shell
         private readonly WindowManager _windowManager;
         private readonly SelectVocabularyViewModelFactory _selectVocabularyViewModelFactory;
         private readonly QuestionViewModelFactory _questionViewModelFactory;
+        private readonly Lazy<QuestionViewModel> _questionViewModel;
 
         public ViewConductor(
             WindowManager windowManager,
@@ -20,6 +21,8 @@ namespace ReadAndLearnWithLinnea.WPF.Shell
             _windowManager = windowManager;
             _selectVocabularyViewModelFactory = selectVocabularyViewModelFactory;
             _questionViewModelFactory = questionViewModelFactory;
+
+            _questionViewModel = new Lazy<QuestionViewModel>(() => CreateQuestionViewModel());
 
             ViewModel = new MainViewModel();
         }
@@ -31,16 +34,28 @@ namespace ReadAndLearnWithLinnea.WPF.Shell
             ViewModel.Child = _selectVocabularyViewModelFactory.Create(vocabularies, practiseInitializer);
         }
 
-        public void PractiseStarted(TrainingSessionController trainingSessionController)
+        public void NewPractise(IModerator moderator, IQuestion question)
         {
-            ViewModel.Child = _questionViewModelFactory.Create(trainingSessionController);
+            var questionViewModel = _questionViewModel.Value;
+            _questionViewModelFactory.UpdateViewModel(questionViewModel, moderator, question);
+
+            ViewModel.Child = questionViewModel;
+        }
+
+        private QuestionViewModel CreateQuestionViewModel()
+        {
+            return _questionViewModelFactory.Create();
         }
 
         public async void PractiseCompleted(string name, int noOfCorrectAnswers, int noOfQuestions, Action continueWith)
         {
             await _windowManager.ShowMessage(
                 string.Format("Practies of {1} completed!{0}{0}You passed {2} of {3} ({4:P0}).",
-                    Environment.NewLine, name, noOfCorrectAnswers, noOfQuestions, noOfCorrectAnswers / (double)noOfQuestions));
+                Environment.NewLine,
+                name,
+                noOfCorrectAnswers,
+                noOfQuestions,
+                noOfCorrectAnswers / (double)noOfQuestions));
 
             continueWith.Invoke();
         }

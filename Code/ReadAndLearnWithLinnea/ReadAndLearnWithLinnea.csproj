@@ -91,7 +91,6 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="App\IConsumer.cs" />
-    <Compile Include="App\IModerator.cs" />
     <Compile Include="App\IPractiseInitializer.cs" />
     <Compile Include="Common\DelegateCommand.cs" />
     <Compile Include="WPF\Shell\WindowManager.cs" />
@@ -100,12 +99,12 @@
     <Compile Include="WPF\Shell\MainViewModel.cs" />
     <Compile Include="Common\GuiThreadDispatcher.cs" />
     <Compile Include="App\Question.cs" />
-    <Compile Include="App\TrainingSession.cs" />
-    <Compile Include="App\TrainingSessionResult.cs" />
+    <Compile Include="App\Practise.cs" />
+    <Compile Include="App\PracticeScore.cs" />
     <Compile Include="App\VocabularyRepository.cs" />
     <Compile Include="Common\Shuffle\ShuffleExtensions.cs" />
     <Compile Include="Common\Shuffle\FisherYatesShuffleAlgorithm.cs" />
-    <Compile Include="App\TrainingSessionController.cs" />
+    <Compile Include="App\Moderator.cs" />
     <Compile Include="WPF\QuestionAndAnswerView\QuestionViewModelFactory.cs" />
     <Compile Include="WPF\QuestionAndAnswerView\QuestionViewModel.cs" />
     <Compile Include="WPF\Shell\ViewConductor.cs" />

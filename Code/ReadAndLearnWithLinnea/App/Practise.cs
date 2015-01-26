@@ -5,7 +5,7 @@ using ReadAndLearnWithLinnea.Common.Shuffle;
 
 namespace ReadAndLearnWithLinnea.App
 {
-    public class TrainingSession
+    public class Practise
     {
         private readonly IShuffleAlgorithm _shuffleAlgorithm;
         private readonly IVocabulary _vocabulary;
@@ -14,7 +14,7 @@ namespace ReadAndLearnWithLinnea.App
         private const Language TranslateFromLanguage = Language.English;
         private const Language TranslateToLanguage = Language.Swedish;
 
-        public TrainingSession(IShuffleAlgorithm shuffleAlgorithm, IVocabulary vocabulary)
+        public Practise(IShuffleAlgorithm shuffleAlgorithm, IVocabulary vocabulary)
         {
             _shuffleAlgorithm = shuffleAlgorithm;
             _vocabulary = vocabulary;
@@ -103,7 +103,7 @@ namespace ReadAndLearnWithLinnea.App
             return text;
         }
 
-        public TrainingSessionResult GetResult()
+        public PracticeScore GetResult()
         {
             if (_answers.Count < Questions.Count())
             {
@@ -113,7 +113,7 @@ namespace ReadAndLearnWithLinnea.App
             var noOfCorrectAnswers = GetNoOfCorrectAnswers();
             var noOfQuestions = Questions.Count();
 
-            return new TrainingSessionResult(noOfCorrectAnswers, noOfQuestions);
+            return new PracticeScore(noOfCorrectAnswers, noOfQuestions);
         }
 
         private int GetNoOfCorrectAnswers()
