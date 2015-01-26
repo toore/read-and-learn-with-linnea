@@ -3,7 +3,7 @@ using System.Windows.Input;
 using ReadAndLearnWithLinnea.App;
 using ReadAndLearnWithLinnea.Common;
 
-namespace ReadAndLearnWithLinnea.WPF.SelectVocabularyView
+namespace ReadAndLearnWithLinnea.WPF.SelectPractiseView
 {
     public class VocabularyViewModel
     {

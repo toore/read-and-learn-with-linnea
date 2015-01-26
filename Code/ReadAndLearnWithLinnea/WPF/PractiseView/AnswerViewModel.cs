@@ -2,7 +2,7 @@ using System.Windows.Input;
 using ReadAndLearnWithLinnea.App;
 using ReadAndLearnWithLinnea.Common;
 
-namespace ReadAndLearnWithLinnea.WPF.QuestionAndAnswerView
+namespace ReadAndLearnWithLinnea.WPF.PractiseView
 {
     public class AnswerViewModel
     {

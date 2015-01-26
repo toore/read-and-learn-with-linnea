@@ -105,16 +105,16 @@
     <Compile Include="Common\Shuffle\ShuffleExtensions.cs" />
     <Compile Include="Common\Shuffle\FisherYatesShuffleAlgorithm.cs" />
     <Compile Include="App\Moderator.cs" />
-    <Compile Include="WPF\QuestionAndAnswerView\QuestionViewModelFactory.cs" />
-    <Compile Include="WPF\QuestionAndAnswerView\QuestionViewModel.cs" />
+    <Compile Include="WPF\PractiseView\QuestionViewModelFactory.cs" />
+    <Compile Include="WPF\PractiseView\QuestionViewModel.cs" />
     <Compile Include="WPF\Shell\ViewConductor.cs" />
-    <Compile Include="WPF\QuestionAndAnswerView\AnswerViewModel.cs" />
-    <Compile Include="WPF\SelectVocabularyView\SelectVocabularyViewModelFactory.cs" />
+    <Compile Include="WPF\PractiseView\AnswerViewModel.cs" />
+    <Compile Include="WPF\SelectPractiseView\SelectVocabularyViewModelFactory.cs" />
     <Compile Include="App\VocabularyExtension.cs" />
-    <Compile Include="WPF\SelectVocabularyView\SelectVocabularyViewModel.cs" />
+    <Compile Include="WPF\SelectPractiseView\SelectVocabularyViewModel.cs" />
     <Compile Include="WPF\Shell\MainViewModelTestData.cs" />
     <Compile Include="App\Vocabulary.cs" />
-    <Compile Include="WPF\SelectVocabularyView\VocabularyViewModel.cs" />
+    <Compile Include="WPF\SelectPractiseView\VocabularyViewModel.cs" />
     <Compile Include="App\Vocable.cs" />
     <Page Include="WPF\Shell\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>

@@ -2,7 +2,7 @@ using System.Collections.Generic;
 using System.Linq;
 using ReadAndLearnWithLinnea.App;
 
-namespace ReadAndLearnWithLinnea.WPF.SelectVocabularyView
+namespace ReadAndLearnWithLinnea.WPF.SelectPractiseView
 {
     public class SelectVocabularyViewModelFactory
     {

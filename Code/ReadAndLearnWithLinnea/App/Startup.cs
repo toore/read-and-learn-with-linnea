@@ -15,9 +15,9 @@ namespace ReadAndLearnWithLinnea.App
             _vocabularyRepository = vocabularyRepository;
         }
 
-        public static object Run(IConsumer readAndLearnWithLinneaApplicationConsumer, IShuffleAlgorithm shuffleAlgorithm, IVocabularyRepository vocabularyRepository)
+        public static object Run(IConsumer consumer, IShuffleAlgorithm shuffleAlgorithm, IVocabularyRepository vocabularyRepository)
         {
-            var startup = new Startup(readAndLearnWithLinneaApplicationConsumer, shuffleAlgorithm, vocabularyRepository);
+            var startup = new Startup(consumer, shuffleAlgorithm, vocabularyRepository);
 
             startup.ShowSelectTrainingView();
 

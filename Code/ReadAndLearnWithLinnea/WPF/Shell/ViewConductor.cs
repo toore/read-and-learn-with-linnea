@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using ReadAndLearnWithLinnea.App;
-using ReadAndLearnWithLinnea.WPF.QuestionAndAnswerView;
-using ReadAndLearnWithLinnea.WPF.SelectVocabularyView;
+using ReadAndLearnWithLinnea.WPF.PractiseView;
+using ReadAndLearnWithLinnea.WPF.SelectPractiseView;
 
 namespace ReadAndLearnWithLinnea.WPF.Shell
 {

@@ -1,5 +1,5 @@
 using ReadAndLearnWithLinnea.App;
-using ReadAndLearnWithLinnea.WPF.SelectVocabularyView;
+using ReadAndLearnWithLinnea.WPF.SelectPractiseView;
 
 namespace ReadAndLearnWithLinnea.WPF.Shell
 {

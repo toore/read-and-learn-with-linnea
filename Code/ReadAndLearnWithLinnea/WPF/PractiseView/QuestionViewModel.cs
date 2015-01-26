@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using PropertyChanged;
 
-namespace ReadAndLearnWithLinnea.WPF.QuestionAndAnswerView
+namespace ReadAndLearnWithLinnea.WPF.PractiseView
 {
     [ImplementPropertyChanged]
     public class QuestionViewModel
