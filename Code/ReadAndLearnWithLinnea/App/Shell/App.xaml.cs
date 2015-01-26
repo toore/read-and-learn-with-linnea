@@ -3,6 +3,7 @@ using System.Windows;
 using ReadAndLearnWithLinnea.App.SelectTrainingView;
 using ReadAndLearnWithLinnea.App.TrainingSessionView;
 using ReadAndLearnWithLinnea.Caliburn.Micro;
+using ReadAndLearnWithLinnea.Common;
 using ReadAndLearnWithLinnea.Common.Shuffle;
 using ReadAndLearnWithLinnea.Core;
 

@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Windows.Input;
 
-namespace ReadAndLearnWithLinnea.App
+namespace ReadAndLearnWithLinnea.Common
 {
     public class DelegateCommand : ICommand
     {

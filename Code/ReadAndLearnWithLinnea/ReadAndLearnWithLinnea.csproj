@@ -90,12 +90,12 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="App\DelegateCommand.cs" />
+    <Compile Include="Common\DelegateCommand.cs" />
     <Compile Include="App\Shell\WindowManager.cs" />
     <Compile Include="Common\Shuffle\IShuffleAlgorithm.cs" />
     <Compile Include="Core\ApplicationController.cs" />
     <Compile Include="App\Shell\MainViewModel.cs" />
-    <Compile Include="App\GuiThreadDispatcher.cs" />
+    <Compile Include="Common\GuiThreadDispatcher.cs" />
     <Compile Include="Core\Question.cs" />
     <Compile Include="Core\TrainingSession.cs" />
     <Compile Include="Core\TrainingSessionResult.cs" />

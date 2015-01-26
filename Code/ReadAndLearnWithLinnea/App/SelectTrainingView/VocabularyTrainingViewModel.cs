@@ -1,4 +1,5 @@
 using System.Windows.Input;
+using ReadAndLearnWithLinnea.Common;
 using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.App.SelectTrainingView
