@@ -8,16 +8,20 @@ namespace ReadAndLearnWithLinnea.App
         private readonly IShuffleAlgorithm _shuffleAlgorithm;
         private readonly IVocabularyRepository _vocabularyRepository;
 
-        public Startup(IConsumer readAndLearnWithLinneaApplicationConsumer, IShuffleAlgorithm shuffleAlgorithm, IVocabularyRepository vocabularyRepository)
+        private Startup(IConsumer readAndLearnWithLinneaApplicationConsumer, IShuffleAlgorithm shuffleAlgorithm, IVocabularyRepository vocabularyRepository)
         {
             _readAndLearnWithLinneaApplicationConsumer = readAndLearnWithLinneaApplicationConsumer;
             _shuffleAlgorithm = shuffleAlgorithm;
             _vocabularyRepository = vocabularyRepository;
         }
 
-        public void Run()
+        public static object Run(IConsumer readAndLearnWithLinneaApplicationConsumer, IShuffleAlgorithm shuffleAlgorithm, IVocabularyRepository vocabularyRepository)
         {
-            ShowSelectTrainingView();
+            var startup = new Startup(readAndLearnWithLinneaApplicationConsumer, shuffleAlgorithm, vocabularyRepository);
+
+            startup.ShowSelectTrainingView();
+
+            return startup;
         }
 
         private void ShowSelectTrainingView()
