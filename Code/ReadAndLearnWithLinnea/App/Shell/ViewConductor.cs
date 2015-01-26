@@ -12,18 +12,15 @@ namespace ReadAndLearnWithLinnea.App.Shell
         IHandle<ShowTrainingSessionCompletedMessage>
     {
         private readonly WindowManager _windowManager;
-        private readonly VocabularyRepository _vocabularyRepository;
         private readonly SelectVocabularyTrainingViewModelFactory _selectVocabularyTrainingViewModelFactory;
         private readonly QuestionViewModelFactory _questionViewModelFactory;
 
         public ViewConductor(
             WindowManager windowManager, 
-            VocabularyRepository vocabularyRepository,
             SelectVocabularyTrainingViewModelFactory selectVocabularyTrainingViewModelFactory, 
             QuestionViewModelFactory questionViewModelFactory)
         {
             _windowManager = windowManager;
-            _vocabularyRepository = vocabularyRepository;
             _selectVocabularyTrainingViewModelFactory = selectVocabularyTrainingViewModelFactory;
             _questionViewModelFactory = questionViewModelFactory;
 
@@ -34,8 +31,7 @@ namespace ReadAndLearnWithLinnea.App.Shell
 
         public void Handle(ShowSelectTrainingViewMessage message)
         {
-            var vocabularies = _vocabularyRepository.GetAll();
-            ViewModel.Child = _selectVocabularyTrainingViewModelFactory.Create(vocabularies);
+            ViewModel.Child = _selectVocabularyTrainingViewModelFactory.Create(message.Vocabularies);
         }
 
         public void Handle(ShowTrainingSessionViewMessage message)

@@ -24,14 +24,14 @@ namespace ReadAndLearnWithLinnea.App.Shell
             };
             var shuffleAlgorithm = new FisherYatesShuffleAlgorithm(new Random());
 
-            var applicationController = new ApplicationController(eventAggregator, shuffleAlgorithm);
+            var applicationController = new ApplicationController(eventAggregator, shuffleAlgorithm, new VocabularyRepository());
 
             var vocabulariesViewModelFactory = new SelectVocabularyTrainingViewModelFactory(applicationController);
             var trainingSessionViewModelFactory = new QuestionViewModelFactory(shuffleAlgorithm);
 
             var mainWindow = new MainWindow();
             var windowManager = new WindowManager(mainWindow);
-            _viewConductor = new ViewConductor(windowManager, new VocabularyRepository(), vocabulariesViewModelFactory, trainingSessionViewModelFactory);
+            _viewConductor = new ViewConductor(windowManager, vocabulariesViewModelFactory, trainingSessionViewModelFactory);
             eventAggregator.Subscribe(_viewConductor);
 
             applicationController.StartApplication();

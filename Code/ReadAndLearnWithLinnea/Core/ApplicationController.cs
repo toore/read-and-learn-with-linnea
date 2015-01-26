@@ -8,11 +8,13 @@ namespace ReadAndLearnWithLinnea.Core
     {
         private readonly IEventAggregator _eventAggregator;
         private readonly IShuffleAlgorithm _shuffleAlgorithm;
+        private readonly VocabularyRepository _vocabularyRepository;
 
-        public ApplicationController(IEventAggregator eventAggregator, IShuffleAlgorithm shuffleAlgorithm)
+        public ApplicationController(IEventAggregator eventAggregator, IShuffleAlgorithm shuffleAlgorithm, VocabularyRepository vocabularyRepository)
         {
             _eventAggregator = eventAggregator;
             _shuffleAlgorithm = shuffleAlgorithm;
+            _vocabularyRepository = vocabularyRepository;
         }
 
         public void StartApplication()
@@ -22,7 +24,7 @@ namespace ReadAndLearnWithLinnea.Core
 
         private void ShowSelectTrainingView()
         {
-            _eventAggregator.Publish(new ShowSelectTrainingViewMessage());
+            _eventAggregator.Publish(new ShowSelectTrainingViewMessage(_vocabularyRepository.GetAll()));
         }
 
         public void StartTrainingSession(Vocabulary vocabulary)
@@ -53,6 +55,7 @@ namespace ReadAndLearnWithLinnea.Core
             var noOfQuestions = trainingSessionResult.NoOfQuestions;
 
             var showTrainingSessionCompletedMessage = new ShowTrainingSessionCompletedMessage(name, noOfCorrectAnswers, noOfQuestions, continueWith);
+
             _eventAggregator.Publish(showTrainingSessionCompletedMessage);
         }
     }
