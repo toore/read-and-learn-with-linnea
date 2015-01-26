@@ -30,7 +30,7 @@ namespace ReadAndLearnWithLinnea.Core
 
         public void InitializeQuestions()
         {
-            Questions = _shuffleAlgorithm.Shuffle(_vocabulary.Vocables)
+            Questions = _vocabulary.Vocables.Shuffle(_shuffleAlgorithm)
                 .Select(q => CreateQuestion(q))
                 .ToList();
         }
@@ -65,7 +65,7 @@ namespace ReadAndLearnWithLinnea.Core
             var correctAnswer = GetTranslation(vocable);
             var falseAnswers = GetIncorrectTranslations(vocable);
 
-            var question = new Question(text, correctAnswer, falseAnswers);
+            var question = new Question(_shuffleAlgorithm, text, correctAnswer, falseAnswers);
 
             return question;
         }

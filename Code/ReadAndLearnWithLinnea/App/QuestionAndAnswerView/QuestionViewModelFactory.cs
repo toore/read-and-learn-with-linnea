@@ -6,13 +6,6 @@ namespace ReadAndLearnWithLinnea.App.QuestionAndAnswerView
 {
     public class QuestionViewModelFactory
     {
-        private readonly IShuffleAlgorithm _shuffleAlgorithm;
-
-        public QuestionViewModelFactory(IShuffleAlgorithm shuffleAlgorithm)
-        {
-            _shuffleAlgorithm = shuffleAlgorithm;
-        }
-
         public QuestionViewModel Create(TrainingSessionController trainingSessionController)
         {
             var questionViewModel = new QuestionViewModel();
@@ -28,8 +21,7 @@ namespace ReadAndLearnWithLinnea.App.QuestionAndAnswerView
             var question = trainingSessionController.Question;
 
             var answerViewModels = question.Answers
-                .Select(text => CreateAnswerViewModel(text, trainingSessionController))
-                .Shuffle(_shuffleAlgorithm);
+                .Select(text => CreateAnswerViewModel(text, trainingSessionController));
 
             questionViewModel.Text = question.Text;
             questionViewModel.AnswerViewModels = answerViewModels;
