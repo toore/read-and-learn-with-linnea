@@ -86,49 +86,46 @@
     <Reference Include="PresentationFramework" />
   </ItemGroup>
   <ItemGroup>
-    <ApplicationDefinition Include="App\Shell\App.xaml">
+    <ApplicationDefinition Include="WPF\Shell\App.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="App\IConsumer.cs" />
+    <Compile Include="App\IModerator.cs" />
+    <Compile Include="App\IPractiseInitializer.cs" />
     <Compile Include="Common\DelegateCommand.cs" />
-    <Compile Include="App\Shell\WindowManager.cs" />
+    <Compile Include="WPF\Shell\WindowManager.cs" />
     <Compile Include="Common\Shuffle\IShuffleAlgorithm.cs" />
-    <Compile Include="Core\ApplicationController.cs" />
-    <Compile Include="App\Shell\MainViewModel.cs" />
+    <Compile Include="App\Startup.cs" />
+    <Compile Include="WPF\Shell\MainViewModel.cs" />
     <Compile Include="Common\GuiThreadDispatcher.cs" />
-    <Compile Include="Core\Question.cs" />
-    <Compile Include="Core\TrainingSession.cs" />
-    <Compile Include="Core\TrainingSessionResult.cs" />
-    <Compile Include="Core\VocabularyRepository.cs" />
+    <Compile Include="App\Question.cs" />
+    <Compile Include="App\TrainingSession.cs" />
+    <Compile Include="App\TrainingSessionResult.cs" />
+    <Compile Include="App\VocabularyRepository.cs" />
     <Compile Include="Common\Shuffle\ShuffleExtensions.cs" />
     <Compile Include="Common\Shuffle\FisherYatesShuffleAlgorithm.cs" />
-    <Compile Include="Core\ShowSelectTrainingViewMessage.cs" />
-    <Compile Include="Core\ShowTrainingSessionCompletedMessage.cs" />
-    <Compile Include="Core\ShowTrainingSessionViewMessage.cs" />
-    <Compile Include="Core\TrainingSessionController.cs" />
-    <Compile Include="App\QuestionAndAnswerView\QuestionViewModelFactory.cs" />
-    <Compile Include="App\QuestionAndAnswerView\QuestionViewModel.cs" />
-    <Compile Include="App\Shell\ViewConductor.cs" />
-    <Compile Include="App\QuestionAndAnswerView\AnswerViewModel.cs" />
-    <Compile Include="App\SelectVocabularyView\SelectVocabularyViewModelFactory.cs" />
-    <Compile Include="Core\TrainingSessionCompletedMessage.cs" />
-    <Compile Include="Core\VocabularyExtension.cs" />
-    <Compile Include="Caliburn.Micro\EventAggregator.cs" />
-    <Compile Include="Caliburn.Micro\ExtensionMethods.cs" />
-    <Compile Include="App\SelectVocabularyView\SelectVocabularyViewModel.cs" />
-    <Compile Include="App\Shell\MainViewModelTestData.cs" />
-    <Compile Include="Core\Vocabulary.cs" />
-    <Compile Include="App\SelectVocabularyView\VocabularyViewModel.cs" />
-    <Compile Include="Core\Vocable.cs" />
-    <Page Include="App\Shell\MainWindow.xaml">
+    <Compile Include="App\TrainingSessionController.cs" />
+    <Compile Include="WPF\QuestionAndAnswerView\QuestionViewModelFactory.cs" />
+    <Compile Include="WPF\QuestionAndAnswerView\QuestionViewModel.cs" />
+    <Compile Include="WPF\Shell\ViewConductor.cs" />
+    <Compile Include="WPF\QuestionAndAnswerView\AnswerViewModel.cs" />
+    <Compile Include="WPF\SelectVocabularyView\SelectVocabularyViewModelFactory.cs" />
+    <Compile Include="App\VocabularyExtension.cs" />
+    <Compile Include="WPF\SelectVocabularyView\SelectVocabularyViewModel.cs" />
+    <Compile Include="WPF\Shell\MainViewModelTestData.cs" />
+    <Compile Include="App\Vocabulary.cs" />
+    <Compile Include="WPF\SelectVocabularyView\VocabularyViewModel.cs" />
+    <Compile Include="App\Vocable.cs" />
+    <Page Include="WPF\Shell\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
-    <Compile Include="App\Shell\App.xaml.cs">
+    <Compile Include="WPF\Shell\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="App\Shell\MainWindow.xaml.cs">
+    <Compile Include="WPF\Shell\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
