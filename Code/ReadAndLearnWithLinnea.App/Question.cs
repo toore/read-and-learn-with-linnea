@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using ReadAndLearnWithLinnea.Common.Shuffle;
+using ReadAndLearnWithLinnea.App.Common.Shuffle;
 
 namespace ReadAndLearnWithLinnea.App
 {

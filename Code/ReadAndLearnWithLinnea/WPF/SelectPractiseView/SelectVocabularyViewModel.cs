@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ReadAndLearnWithLinnea.WPF.SelectPractiseView
+namespace ReadAndLearnWithLinnea.WPF.WPF.SelectPractiseView
 {
     public class SelectVocabularyViewModel
     {

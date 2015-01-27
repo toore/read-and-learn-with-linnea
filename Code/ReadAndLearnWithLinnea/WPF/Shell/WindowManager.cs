@@ -2,7 +2,7 @@
 using MahApps.Metro.Controls;
 using MahApps.Metro.Controls.Dialogs;
 
-namespace ReadAndLearnWithLinnea.WPF.Shell
+namespace ReadAndLearnWithLinnea.WPF.WPF.Shell
 {
     public class WindowManager
     {

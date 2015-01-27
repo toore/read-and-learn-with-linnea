@@ -1,6 +1,6 @@
 ﻿using System;
 using ReadAndLearnWithLinnea.App;
-using ReadAndLearnWithLinnea.Common.Shuffle;
+using ReadAndLearnWithLinnea.App.Common.Shuffle;
 
 namespace ReadAndLearnWithLinnea.ConsoleView
 {

@@ -4,17 +4,15 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{8E63C2BE-B114-4117-A92D-68CB5040ADD5}</ProjectGuid>
-    <OutputType>Exe</OutputType>
+    <ProjectGuid>{25D7BEEC-9A42-4379-9892-2FF091E2B789}</ProjectGuid>
+    <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ReadAndLearnWithLinnea.ConsoleView</RootNamespace>
-    <AssemblyName>ReadAndLearnWithLinnea.ConsoleView</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <RootNamespace>ReadAndLearnWithLinnea.App</RootNamespace>
+    <AssemblyName>ReadAndLearnWithLinnea.App</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -22,17 +20,14 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -44,22 +39,21 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ConsoleView.cs" />
-    <Compile Include="Program.cs" />
+    <Compile Include="Common\Shuffle\FisherYatesShuffleAlgorithm.cs" />
+    <Compile Include="Common\Shuffle\IShuffleAlgorithm.cs" />
+    <Compile Include="Common\Shuffle\ShuffleExtensions.cs" />
+    <Compile Include="IConsumer.cs" />
+    <Compile Include="IPractiseInitializer.cs" />
+    <Compile Include="Moderator.cs" />
+    <Compile Include="PracticeScore.cs" />
+    <Compile Include="Practise.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\ReadAndLearnWithLinnea.App\ReadAndLearnWithLinnea.App.csproj">
-      <Project>{25D7BEEC-9A42-4379-9892-2FF091E2B789}</Project>
-      <Name>ReadAndLearnWithLinnea.App</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ReadAndLearnWithLinnea\ReadAndLearnWithLinnea.WPF.csproj">
-      <Project>{3a440ecc-286b-41ad-b0fa-5c6959216570}</Project>
-      <Name>ReadAndLearnWithLinnea.WPF</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
+    <Compile Include="Question.cs" />
+    <Compile Include="Startup.cs" />
+    <Compile Include="Vocable.cs" />
+    <Compile Include="Vocabulary.cs" />
+    <Compile Include="VocabularyExtension.cs" />
+    <Compile Include="VocabularyRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

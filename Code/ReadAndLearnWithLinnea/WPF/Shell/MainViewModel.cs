@@ -1,6 +1,6 @@
 using PropertyChanged;
 
-namespace ReadAndLearnWithLinnea.WPF.Shell
+namespace ReadAndLearnWithLinnea.WPF.WPF.Shell
 {
     [ImplementPropertyChanged]
     public class MainViewModel

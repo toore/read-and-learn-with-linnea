@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using ReadAndLearnWithLinnea.App;
 
-namespace ReadAndLearnWithLinnea.WPF.PractiseView
+namespace ReadAndLearnWithLinnea.WPF.WPF.PractiseView
 {
     public class QuestionViewModelFactory
     {

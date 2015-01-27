@@ -1,11 +1,11 @@
 ﻿using System;
 using System.Windows;
 using ReadAndLearnWithLinnea.App;
-using ReadAndLearnWithLinnea.Common.Shuffle;
-using ReadAndLearnWithLinnea.WPF.PractiseView;
-using ReadAndLearnWithLinnea.WPF.SelectPractiseView;
+using ReadAndLearnWithLinnea.App.Common.Shuffle;
+using ReadAndLearnWithLinnea.WPF.WPF.PractiseView;
+using ReadAndLearnWithLinnea.WPF.WPF.SelectPractiseView;
 
-namespace ReadAndLearnWithLinnea.WPF.Shell
+namespace ReadAndLearnWithLinnea.WPF.WPF.Shell
 {
     public partial class App
     {

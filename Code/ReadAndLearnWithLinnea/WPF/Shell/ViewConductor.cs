@@ -1,10 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using ReadAndLearnWithLinnea.App;
-using ReadAndLearnWithLinnea.WPF.PractiseView;
-using ReadAndLearnWithLinnea.WPF.SelectPractiseView;
+using ReadAndLearnWithLinnea.WPF.WPF.PractiseView;
+using ReadAndLearnWithLinnea.WPF.WPF.SelectPractiseView;
 
-namespace ReadAndLearnWithLinnea.WPF.Shell
+namespace ReadAndLearnWithLinnea.WPF.WPF.Shell
 {
     public class ViewConductor : IConsumer
     {

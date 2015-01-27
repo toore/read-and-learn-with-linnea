@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ReadAndLearnWithLinnea.Common.Shuffle
+namespace ReadAndLearnWithLinnea.App.Common.Shuffle
 {
     public interface IShuffleAlgorithm
     {

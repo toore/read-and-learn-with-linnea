@@ -1,7 +1,7 @@
 using ReadAndLearnWithLinnea.App;
-using ReadAndLearnWithLinnea.WPF.SelectPractiseView;
+using ReadAndLearnWithLinnea.WPF.WPF.SelectPractiseView;
 
-namespace ReadAndLearnWithLinnea.WPF.Shell
+namespace ReadAndLearnWithLinnea.WPF.WPF.Shell
 {
     public class MainViewModelTestData : MainViewModel
     {

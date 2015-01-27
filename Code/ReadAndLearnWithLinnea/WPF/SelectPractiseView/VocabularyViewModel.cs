@@ -1,9 +1,8 @@
 using System.Linq;
 using System.Windows.Input;
 using ReadAndLearnWithLinnea.App;
-using ReadAndLearnWithLinnea.Common;
 
-namespace ReadAndLearnWithLinnea.WPF.SelectPractiseView
+namespace ReadAndLearnWithLinnea.WPF.WPF.SelectPractiseView
 {
     public class VocabularyViewModel
     {
