@@ -26,10 +26,10 @@ namespace ReadAndLearnWithLinnea.Core
         {
             var vocabularies = _vocabularyRepository.GetAll();
 
-            _consumer.SelectPractise(vocabularies, this);
+            _consumer.SelectVocabularyToPractise(vocabularies, this);
         }
 
-        void IPractiseInitializer.Start(IVocabulary vocabulary)
+        void IPractiseInitializer.StartPractise(IVocabulary vocabulary)
         {
             var practise = new Practise(_shuffleAlgorithm, vocabulary);
 
@@ -42,7 +42,7 @@ namespace ReadAndLearnWithLinnea.Core
 
         private void QuestionUpdated(Moderator moderator)
         {
-            _consumer.NewPractise(moderator, moderator.Question);
+            _consumer.NewQuestion(moderator.Question, moderator);
         }
 
         private void PractiseCompleted(Moderator moderator)

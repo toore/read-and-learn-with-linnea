@@ -19,7 +19,7 @@ namespace ReadAndLearnWithLinnea.WpfApp.Shell
 
             var random = new Random();
             var fisherYatesShuffleAlgorithm = new FisherYatesShuffleAlgorithm(random);
-            var vocabularyRepository = new VocabularyRepository();
+            var vocabularyRepository = new HardCodedVocabularyRepository();
 
             Core.Startup.Run(viewConductor, fisherYatesShuffleAlgorithm, vocabularyRepository);
 

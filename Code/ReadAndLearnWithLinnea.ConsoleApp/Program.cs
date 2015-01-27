@@ -10,7 +10,7 @@ namespace ReadAndLearnWithLinnea.ConsoleApp
         {
             var random = new Random();
             var fisherYatesShuffleAlgorithm = new FisherYatesShuffleAlgorithm(random);
-            var vocabularyRepository = new VocabularyRepository();
+            var vocabularyRepository = new HardCodedVocabularyRepository();
 
             Startup.Run(new ConsoleView(), fisherYatesShuffleAlgorithm, vocabularyRepository);
 

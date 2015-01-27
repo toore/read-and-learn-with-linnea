@@ -2,12 +2,6 @@ using System.Collections.Generic;
 
 namespace ReadAndLearnWithLinnea.Core
 {
-    public interface IVocabulary
-    {
-        string Name { get; }
-        IEnumerable<Vocable> Vocables { get; }
-    }
-
     public class Vocabulary : IVocabulary
     {
         private readonly string _name;

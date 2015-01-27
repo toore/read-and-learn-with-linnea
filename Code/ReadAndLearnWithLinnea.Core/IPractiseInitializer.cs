@@ -2,6 +2,6 @@
 {
     public interface IPractiseInitializer
     {
-        void Start(IVocabulary vocabulary);
+        void StartPractise(IVocabulary vocabulary);
     }
 }

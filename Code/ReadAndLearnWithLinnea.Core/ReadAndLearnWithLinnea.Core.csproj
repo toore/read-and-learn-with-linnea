@@ -43,7 +43,12 @@
     <Compile Include="Common\Shuffle\IShuffleAlgorithm.cs" />
     <Compile Include="Common\Shuffle\ShuffleExtensions.cs" />
     <Compile Include="IConsumer.cs" />
+    <Compile Include="IModerator.cs" />
     <Compile Include="IPractiseInitializer.cs" />
+    <Compile Include="IQuestion.cs" />
+    <Compile Include="IScore.cs" />
+    <Compile Include="IVocabulary.cs" />
+    <Compile Include="IVocabularyRepository.cs" />
     <Compile Include="Moderator.cs" />
     <Compile Include="Score.cs" />
     <Compile Include="Practise.cs" />
@@ -53,7 +58,7 @@
     <Compile Include="Vocable.cs" />
     <Compile Include="Vocabulary.cs" />
     <Compile Include="VocabularyExtension.cs" />
-    <Compile Include="VocabularyRepository.cs" />
+    <Compile Include="HardCodedVocabularyRepository.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

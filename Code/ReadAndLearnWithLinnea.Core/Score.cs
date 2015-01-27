@@ -1,12 +1,5 @@
 ﻿namespace ReadAndLearnWithLinnea.Core
 {
-    public interface IScore
-    {
-        int NoOfCorrectAnswers { get; }
-        int NoOfQuestions { get; }
-        double PercentageCompleted { get; }
-    }
-
     public class Score : IScore
     {
         public Score(int noOfCorrectAnswers, int noOfQuestions)

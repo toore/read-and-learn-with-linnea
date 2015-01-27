@@ -29,12 +29,12 @@ namespace ReadAndLearnWithLinnea.WpfApp.Shell
 
         public readonly MainViewModel ViewModel;
 
-        public void SelectPractise(IEnumerable<IVocabulary> vocabularies, IPractiseInitializer practiseInitializer)
+        public void SelectVocabularyToPractise(IEnumerable<IVocabulary> vocabularies, IPractiseInitializer practiseInitializer)
         {
             ViewModel.Child = _selectVocabularyViewModelFactory.Create(vocabularies, practiseInitializer);
         }
 
-        public void NewPractise(IModerator moderator, IQuestion question)
+        public void NewQuestion(IQuestion question, IModerator moderator)
         {
             var questionViewModel = _questionViewModel.Value;
             _questionViewModelFactory.UpdateViewModel(questionViewModel, moderator, question);

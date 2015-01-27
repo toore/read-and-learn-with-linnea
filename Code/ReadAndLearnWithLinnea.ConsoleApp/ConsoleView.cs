@@ -8,7 +8,7 @@ namespace ReadAndLearnWithLinnea.ConsoleApp
 {
     public class ConsoleView : IConsumer
     {
-        public void SelectPractise(IEnumerable<IVocabulary> vocabularies, IPractiseInitializer practiseInitializer)
+        public void SelectVocabularyToPractise(IEnumerable<IVocabulary> vocabularies, IPractiseInitializer practiseInitializer)
         {
             WriteTitle("Select vocabulary to practise?");
 
@@ -22,10 +22,10 @@ namespace ReadAndLearnWithLinnea.ConsoleApp
 
             var selectedIndex = GetSelectedIndex(vocabulariesClosure.Count);
 
-            practiseInitializer.Start(vocabulariesClosure[selectedIndex]);
+            practiseInitializer.StartPractise(vocabulariesClosure[selectedIndex]);
         }
 
-        public void NewPractise(IModerator moderator, IQuestion question)
+        public void NewQuestion(IQuestion question, IModerator moderator)
         {
             WriteTitle("Translate: " + question.Text);
 

@@ -21,7 +21,7 @@ namespace ReadAndLearnWithLinnea.WpfApp.SelectPractiseView
 
         private void StartTrainingSession()
         {
-            _practiseInitializer.Start(_vocabulary);
+            _practiseInitializer.StartPractise(_vocabulary);
         }
 
         public string Name

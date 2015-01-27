@@ -2,12 +2,7 @@
 
 namespace ReadAndLearnWithLinnea.Core
 {
-    public interface IVocabularyRepository
-    {
-        IEnumerable<IVocabulary> GetAll();
-    }
-
-    public class VocabularyRepository : IVocabularyRepository
+    public class HardCodedVocabularyRepository : IVocabularyRepository
     {
         public IEnumerable<IVocabulary> GetAll()
         {

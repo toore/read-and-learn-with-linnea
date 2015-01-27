@@ -4,12 +4,6 @@ using ReadAndLearnWithLinnea.Core.Common.Shuffle;
 
 namespace ReadAndLearnWithLinnea.Core
 {
-    public interface IQuestion
-    {
-        string Text { get; }
-        IEnumerable<string> Answers { get; }
-    }
-
     public class Question : IQuestion
     {
         private readonly IShuffleAlgorithm _shuffleAlgorithm;

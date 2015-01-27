@@ -3,12 +3,6 @@ using System.Collections.Generic;
 
 namespace ReadAndLearnWithLinnea.Core
 {
-    public interface IModerator
-    {
-        void Answer(IQuestion question, string text);
-        bool CanAnswerQuestion(IQuestion question);
-    }
-
     public class Moderator : IModerator
     {
         private readonly Practise _practise;
