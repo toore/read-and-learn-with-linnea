@@ -15,13 +15,11 @@ namespace ReadAndLearnWithLinnea.Core
             _vocabularyRepository = vocabularyRepository;
         }
 
-        public static object Run(IConsumer consumer, IShuffleAlgorithm shuffleAlgorithm, IVocabularyRepository vocabularyRepository)
+        public static void Run(IConsumer consumer, IShuffleAlgorithm shuffleAlgorithm, IVocabularyRepository vocabularyRepository)
         {
             var startup = new Startup(consumer, shuffleAlgorithm, vocabularyRepository);
 
             startup.ShowSelectTrainingView();
-
-            return startup;
         }
 
         private void ShowSelectTrainingView()
@@ -50,14 +48,11 @@ namespace ReadAndLearnWithLinnea.Core
         private void PractiseCompleted(Moderator moderator)
         {
             var name = moderator.Name;
-            var practiceScore = moderator.GetPracticeScore();
-            var noOfCorrectAnswers = practiceScore.NoOfCorrectAnswers;
-            var noOfQuestions = practiceScore.NoOfQuestions;
+            var score = moderator.GetScore();
 
             _consumer.PractiseCompleted(
                 name,
-                noOfCorrectAnswers,
-                noOfQuestions,
+                score,
                 () => ShowSelectTrainingView());
         }
     }

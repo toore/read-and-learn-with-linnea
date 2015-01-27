@@ -4,12 +4,12 @@ namespace ReadAndLearnWithLinnea.Core
 {
     public interface IVocabularyRepository
     {
-        IEnumerable<Vocabulary> GetAll();
+        IEnumerable<IVocabulary> GetAll();
     }
 
     public class VocabularyRepository : IVocabularyRepository
     {
-        public IEnumerable<Vocabulary> GetAll()
+        public IEnumerable<IVocabulary> GetAll()
         {
             yield return CreateHouseAndGardenVocables();
             yield return CreateFurnitureVocables();

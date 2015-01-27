@@ -103,7 +103,7 @@ namespace ReadAndLearnWithLinnea.Core
             return text;
         }
 
-        public PracticeScore GetResult()
+        public Score GetResult()
         {
             if (_answers.Count < Questions.Count())
             {
@@ -113,7 +113,7 @@ namespace ReadAndLearnWithLinnea.Core
             var noOfCorrectAnswers = GetNoOfCorrectAnswers();
             var noOfQuestions = Questions.Count();
 
-            return new PracticeScore(noOfCorrectAnswers, noOfQuestions);
+            return new Score(noOfCorrectAnswers, noOfQuestions);
         }
 
         private int GetNoOfCorrectAnswers()

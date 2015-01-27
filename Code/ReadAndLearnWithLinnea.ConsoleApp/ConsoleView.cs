@@ -42,17 +42,18 @@ namespace ReadAndLearnWithLinnea.ConsoleApp
             moderator.Answer(question, answers[selectedIndex]);
         }
 
-        public void PractiseCompleted(string name, int noOfCorrectAnswers, int noOfQuestions, Action continueWith)
+        public void PractiseCompleted(string name, IScore score, Action continueWith)
         {
-            WriteTitle(
-                string.Format("Practies of {1} completed!{0}{0}You passed {2} of {3} ({4:P0}).",
-                Environment.NewLine,
-                name,
-                noOfCorrectAnswers,
-                noOfQuestions,
-                noOfCorrectAnswers / (double)noOfQuestions));
+            WriteTitle(string.Format("Practies of {0} completed!", name));
+
+            Console.WriteLine(
+                "You passed {0} of {1} ({2:P0}).",
+                score.NoOfCorrectAnswers,
+                score.NoOfQuestions,
+                score.PercentageCompleted);
 
             Console.ReadKey(true);
+
             continueWith.Invoke();
         }
 
@@ -61,8 +62,9 @@ namespace ReadAndLearnWithLinnea.ConsoleApp
             Console.WriteLine();
             Console.BackgroundColor = ConsoleColor.Blue;
             Console.ForegroundColor = ConsoleColor.White;
-            Console.WriteLine(title);
+            Console.Write(title);
             Console.ResetColor();
+            Console.WriteLine();
             Console.WriteLine();
         }
 

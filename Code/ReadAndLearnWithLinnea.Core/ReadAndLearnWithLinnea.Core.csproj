@@ -45,7 +45,7 @@
     <Compile Include="IConsumer.cs" />
     <Compile Include="IPractiseInitializer.cs" />
     <Compile Include="Moderator.cs" />
-    <Compile Include="PracticeScore.cs" />
+    <Compile Include="Score.cs" />
     <Compile Include="Practise.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Question.cs" />

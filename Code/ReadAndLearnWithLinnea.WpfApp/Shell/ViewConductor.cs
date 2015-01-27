@@ -47,15 +47,15 @@ namespace ReadAndLearnWithLinnea.WpfApp.Shell
             return _questionViewModelFactory.Create();
         }
 
-        public async void PractiseCompleted(string name, int noOfCorrectAnswers, int noOfQuestions, Action continueWith)
+        public async void PractiseCompleted(string name, IScore score, Action continueWith)
         {
             await _windowManager.ShowMessage(
                 string.Format("Practies of {1} completed!{0}{0}You passed {2} of {3} ({4:P0}).",
                 Environment.NewLine,
                 name,
-                noOfCorrectAnswers,
-                noOfQuestions,
-                noOfCorrectAnswers / (double)noOfQuestions));
+                score.NoOfCorrectAnswers,
+                score.NoOfQuestions,
+                score.PercentageCompleted));
 
             continueWith.Invoke();
         }

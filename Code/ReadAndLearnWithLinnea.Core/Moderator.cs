@@ -58,7 +58,7 @@ namespace ReadAndLearnWithLinnea.Core
             MoveToNextQuestion();
         }
 
-        public PracticeScore GetPracticeScore()
+        public Score GetScore()
         {
             return _practise.GetResult();
         }
