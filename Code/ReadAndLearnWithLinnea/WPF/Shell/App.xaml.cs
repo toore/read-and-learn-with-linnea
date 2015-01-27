@@ -17,7 +17,8 @@ namespace ReadAndLearnWithLinnea.WPF.Shell
             var questionViewModelFactory = new QuestionViewModelFactory();
             var viewConductor = new ViewConductor(windowManager, selectVocabularyViewModelFactory, questionViewModelFactory);
 
-            var fisherYatesShuffleAlgorithm = new FisherYatesShuffleAlgorithm(new Random());
+            var random = new Random();
+            var fisherYatesShuffleAlgorithm = new FisherYatesShuffleAlgorithm(random);
             var vocabularyRepository = new VocabularyRepository();
 
             ReadAndLearnWithLinnea.App.Startup.Run(viewConductor, fisherYatesShuffleAlgorithm, vocabularyRepository);
