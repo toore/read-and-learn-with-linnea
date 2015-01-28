@@ -1,5 +1,4 @@
-﻿using System;
-using ReadAndLearnWithLinnea.Core;
+﻿using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.ConsoleApp
 {
@@ -8,8 +7,6 @@ namespace ReadAndLearnWithLinnea.ConsoleApp
         static void Main()
         {
             Startup.Run(new ConsoleView());
-
-            Console.ReadLine();
         }
     }
 }
