@@ -19,10 +19,10 @@ namespace ReadAndLearnWithLinnea.Core
         {
             var startup = new Startup(consumer, shuffleAlgorithm, vocabularyRepository);
 
-            startup.ShowSelectTrainingView();
+            startup.SelectVocabularyToPractise();
         }
 
-        private void ShowSelectTrainingView()
+        private void SelectVocabularyToPractise()
         {
             var vocabularies = _vocabularyRepository.GetAll();
 
@@ -49,14 +49,12 @@ namespace ReadAndLearnWithLinnea.Core
         {
             var score = moderator.GetScore();
 
-            _consumer.PractiseCompleted(
-                score,
-                this);
+            _consumer.PractiseCompleted(score, this);
         }
 
-        public void StartOver()
+        void IApplicationInitializer.StartOver()
         {
-            ShowSelectTrainingView();
+            SelectVocabularyToPractise();
         }
     }
 }
