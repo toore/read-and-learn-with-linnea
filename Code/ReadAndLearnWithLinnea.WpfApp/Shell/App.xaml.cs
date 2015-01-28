@@ -14,10 +14,10 @@ namespace ReadAndLearnWithLinnea.WpfApp.Shell
             var questionViewModelFactory = new QuestionViewModelFactory();
             var viewConductor = new ViewConductor(windowManager, selectVocabularyViewModelFactory, questionViewModelFactory);
 
-            Core.Startup.Run(viewConductor);
-
             mainWindow.DataContext = viewConductor.ViewModel;
             mainWindow.Show();
+
+            Core.Startup.Run(viewConductor);
         }
     }
 }
