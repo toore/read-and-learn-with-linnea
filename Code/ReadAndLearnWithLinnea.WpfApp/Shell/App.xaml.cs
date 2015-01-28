@@ -1,7 +1,4 @@
-﻿using System;
-using System.Windows;
-using ReadAndLearnWithLinnea.Core;
-using ReadAndLearnWithLinnea.Core.Common.Shuffle;
+﻿using System.Windows;
 using ReadAndLearnWithLinnea.WpfApp.PractiseView;
 using ReadAndLearnWithLinnea.WpfApp.SelectPractiseView;
 
@@ -17,11 +14,7 @@ namespace ReadAndLearnWithLinnea.WpfApp.Shell
             var questionViewModelFactory = new QuestionViewModelFactory();
             var viewConductor = new ViewConductor(windowManager, selectVocabularyViewModelFactory, questionViewModelFactory);
 
-            var random = new Random();
-            var fisherYatesShuffleAlgorithm = new FisherYatesShuffleAlgorithm(random);
-            var vocabularyRepository = new HardCodedVocabularyRepository();
-
-            Core.Startup.Run(viewConductor, fisherYatesShuffleAlgorithm, vocabularyRepository);
+            Core.Startup.Run(viewConductor);
 
             mainWindow.DataContext = viewConductor.ViewModel;
             mainWindow.Show();

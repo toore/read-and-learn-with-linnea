@@ -46,6 +46,7 @@
     <Compile Include="IConsumer.cs" />
     <Compile Include="IModerator.cs" />
     <Compile Include="IPractiseInitializer.cs" />
+    <Compile Include="PractiseInitializerFactory.cs" />
     <Compile Include="IQuestion.cs" />
     <Compile Include="IScore.cs" />
     <Compile Include="IVocabulary.cs" />
