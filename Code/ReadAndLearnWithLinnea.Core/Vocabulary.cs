@@ -5,11 +5,12 @@ namespace ReadAndLearnWithLinnea.Core
     public class Vocabulary : IVocabulary
     {
         private readonly string _name;
-        private readonly List<Vocable> _vocables = new List<Vocable>();
+        private readonly IEnumerable<Vocable> _vocables = new List<Vocable>();
 
-        public Vocabulary(string name)
+        public Vocabulary(string name, IEnumerable<Vocable> vocables)
         {
             _name = name;
+            _vocables = vocables;
         }
 
         public string Name
@@ -20,11 +21,6 @@ namespace ReadAndLearnWithLinnea.Core
         public IEnumerable<Vocable> Vocables
         {
             get { return _vocables; }
-        }
-
-        public void AddVocable(Vocable vocable)
-        {
-            _vocables.Add(vocable);
         }
     }
 }

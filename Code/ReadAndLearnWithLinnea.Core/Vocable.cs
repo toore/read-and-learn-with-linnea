@@ -4,11 +4,11 @@ namespace ReadAndLearnWithLinnea.Core
 {
     public class Vocable
     {
-        private readonly List<Word> _words = new List<Word>();
+        private readonly IEnumerable<Word> _words = new List<Word>();
 
-        public void AddWord(Word word)
+        public Vocable(IEnumerable<Word> words)
         {
-            _words.Add(word);
+            _words = words;
         }
 
         public IEnumerable<Word> Words

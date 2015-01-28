@@ -8,7 +8,7 @@ namespace ReadAndLearnWithLinnea.WpfApp.Shell
         public MainViewModelTestData()
         {
             Child = new SelectVocabularyViewModel(new SelectVocabularyViewModelFactory().Create(
-                new[] {new Vocabulary("animals"), new Vocabulary("cars"), new Vocabulary("science")},
+                new[] {new Vocabulary("animals", null), new Vocabulary("cars", null), new Vocabulary("science", null)},
                 null)
                 .VocabularyViewModels);
         }
