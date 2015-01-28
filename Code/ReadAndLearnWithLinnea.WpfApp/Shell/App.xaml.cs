@@ -1,4 +1,5 @@
-﻿using System.Windows;
+﻿using System;
+using System.Windows;
 using ReadAndLearnWithLinnea.WpfApp.PractiseView;
 using ReadAndLearnWithLinnea.WpfApp.SelectPractiseView;
 
@@ -12,12 +13,20 @@ namespace ReadAndLearnWithLinnea.WpfApp.Shell
             var windowManager = new WindowManager(mainWindow);
             var selectVocabularyViewModelFactory = new SelectVocabularyViewModelFactory();
             var questionViewModelFactory = new QuestionViewModelFactory();
-            var viewConductor = new ViewConductor(windowManager, selectVocabularyViewModelFactory, questionViewModelFactory);
+            var viewConductor = new ViewConductor(windowManager, selectVocabularyViewModelFactory,
+                questionViewModelFactory);
 
             mainWindow.DataContext = viewConductor.ViewModel;
             mainWindow.Show();
-
-            Core.Startup.Run(viewConductor);
+ 
+            try
+            {
+                Core.Startup.Run(viewConductor);
+            }
+            catch (Exception exception)
+            {
+                new WindowManager(mainWindow).ShowMessage(exception.Message);
+            }
         }
     }
 }
