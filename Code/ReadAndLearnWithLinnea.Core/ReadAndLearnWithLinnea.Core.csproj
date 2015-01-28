@@ -42,6 +42,7 @@
     <Compile Include="Common\Shuffle\FisherYatesShuffleAlgorithm.cs" />
     <Compile Include="Common\Shuffle\IShuffleAlgorithm.cs" />
     <Compile Include="Common\Shuffle\ShuffleExtensions.cs" />
+    <Compile Include="IApplicationInitializer.cs" />
     <Compile Include="IConsumer.cs" />
     <Compile Include="IModerator.cs" />
     <Compile Include="IPractiseInitializer.cs" />

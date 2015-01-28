@@ -21,11 +21,6 @@ namespace ReadAndLearnWithLinnea.Core
             _answers = new Dictionary<IQuestion, string>();
         }
 
-        public string Name
-        {
-            get { return _vocabulary.Name; }
-        }
-
         public IEnumerable<Question> Questions { get; private set; }
 
         public void InitializeQuestions()
@@ -112,8 +107,9 @@ namespace ReadAndLearnWithLinnea.Core
 
             var noOfCorrectAnswers = GetNoOfCorrectAnswers();
             var noOfQuestions = Questions.Count();
+            var name = _vocabulary.Name;
 
-            return new Score(noOfCorrectAnswers, noOfQuestions);
+            return new Score(name, noOfCorrectAnswers, noOfQuestions);
         }
 
         private int GetNoOfCorrectAnswers()

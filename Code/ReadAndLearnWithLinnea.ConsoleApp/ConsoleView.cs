@@ -42,9 +42,9 @@ namespace ReadAndLearnWithLinnea.ConsoleApp
             moderator.Answer(question, answers[selectedIndex]);
         }
 
-        public void PractiseCompleted(string name, IScore score, Action continueWith)
+        public void PractiseCompleted(IScore score, IApplicationInitializer applicationInitializer)
         {
-            WriteTitle(string.Format("Practies of {0} completed!", name));
+            WriteTitle(string.Format("Practies of {0} completed!", score.Name));
 
             Console.WriteLine(
                 "You passed {0} of {1} ({2:P0}).",
@@ -54,7 +54,7 @@ namespace ReadAndLearnWithLinnea.ConsoleApp
 
             Console.ReadKey(true);
 
-            continueWith.Invoke();
+            applicationInitializer.StartOver();
         }
 
         private static void WriteTitle(string title)

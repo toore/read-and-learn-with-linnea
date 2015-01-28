@@ -16,7 +16,6 @@ namespace ReadAndLearnWithLinnea.Core
         public Action QuestionUpdated = () => { };
         public Action PractiseCompleted = () => { };
 
-        public string Name { get { return _practise.Name; } }
         public IQuestion Question { get; private set; }
 
         public void StartPractise()

@@ -2,12 +2,14 @@
 {
     public class Score : IScore
     {
-        public Score(int noOfCorrectAnswers, int noOfQuestions)
+        public Score(string name, int noOfCorrectAnswers, int noOfQuestions)
         {
+            Name = name;
             NoOfQuestions = noOfQuestions;
             NoOfCorrectAnswers = noOfCorrectAnswers;
         }
 
+        public string Name { get; set; }
         public int NoOfCorrectAnswers { get; private set; }
         public int NoOfQuestions { get; private set; }
 

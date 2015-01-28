@@ -2,7 +2,7 @@
 
 namespace ReadAndLearnWithLinnea.Core
 {
-    public class Startup : IPractiseInitializer
+    public class Startup : IPractiseInitializer, IApplicationInitializer
     {
         private readonly IConsumer _consumer;
         private readonly IShuffleAlgorithm _shuffleAlgorithm;
@@ -47,13 +47,16 @@ namespace ReadAndLearnWithLinnea.Core
 
         private void PractiseCompleted(Moderator moderator)
         {
-            var name = moderator.Name;
             var score = moderator.GetScore();
 
             _consumer.PractiseCompleted(
-                name,
                 score,
-                () => ShowSelectTrainingView());
+                this);
+        }
+
+        public void StartOver()
+        {
+            ShowSelectTrainingView();
         }
     }
 }

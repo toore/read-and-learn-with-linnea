@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 
 namespace ReadAndLearnWithLinnea.Core
 {
@@ -7,6 +6,6 @@ namespace ReadAndLearnWithLinnea.Core
     {
         void SelectVocabularyToPractise(IEnumerable<IVocabulary> vocabularies, IPractiseInitializer practiseInitializer);
         void NewQuestion(IQuestion question, IModerator moderator);
-        void PractiseCompleted(string name, IScore score, Action continueWith);
+        void PractiseCompleted(IScore score, IApplicationInitializer applicationInitializer);
     }
 }

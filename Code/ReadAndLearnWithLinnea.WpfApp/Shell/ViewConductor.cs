@@ -47,17 +47,17 @@ namespace ReadAndLearnWithLinnea.WpfApp.Shell
             return _questionViewModelFactory.Create();
         }
 
-        public async void PractiseCompleted(string name, IScore score, Action continueWith)
+        public async void PractiseCompleted(IScore score, IApplicationInitializer applicationInitializer)
         {
             await _windowManager.ShowMessage(
                 string.Format("Practies of {1} completed!{0}{0}You passed {2} of {3} ({4:P0}).",
                 Environment.NewLine,
-                name,
+                score.Name,
                 score.NoOfCorrectAnswers,
                 score.NoOfQuestions,
                 score.PercentageCompleted));
 
-            continueWith.Invoke();
+            applicationInitializer.StartOver();
         }
     }
 }
