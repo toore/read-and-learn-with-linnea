@@ -1,7 +1,5 @@
 # read-and-learn-with-linnea
 
-Application designed by my 11-year old daughter Linnea to use when she does her vocabulary practise
+Designed by my 11-year old daughter Linnea to use when she does her vocabulary practise.
 
-Two different front-ends exist:
-- Mahapps (http://mahapps.com)
-- Console
+Mahapps (http://mahapps.com) used as UI toolkit, but application has a console front end alternative.
