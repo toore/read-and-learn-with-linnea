@@ -1,6 +1,6 @@
 ﻿
 
-This application was designed by my 12 year old daughter...
+This application was designed by my 11 year old daughter...
 
 ... Linnea... This is to you! Love you!
 
