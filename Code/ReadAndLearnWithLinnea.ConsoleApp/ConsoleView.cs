@@ -6,9 +6,9 @@ using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.ConsoleApp
 {
-    public class ConsoleView : IConsumer
+    public class ConsoleView : IView
     {
-        public void SelectVocabularyToPractise(IEnumerable<IVocabulary> vocabularies, IPractiseInitializer practiseInitializer)
+        public void ShowSelectVocabularyToPractiseView(IEnumerable<IVocabulary> vocabularies, IPractiseInitializer practiseInitializer)
         {
             WriteTitle("Select vocabulary to practise?");
 
@@ -25,7 +25,7 @@ namespace ReadAndLearnWithLinnea.ConsoleApp
             practiseInitializer.StartPractise(vocabulariesClosure[selectedIndex]);
         }
 
-        public void NewQuestion(IQuestion question, IModerator moderator)
+        public void ShowNewQuestionView(IQuestion question, IModerator moderator)
         {
             WriteTitle("Translate: " + question.Text);
 
@@ -42,7 +42,7 @@ namespace ReadAndLearnWithLinnea.ConsoleApp
             moderator.Answer(question, answers[selectedIndex]);
         }
 
-        public void PractiseCompleted(IScore score, IApplicationInitializer applicationInitializer)
+        public void ShowPractiseCompletedView(IScore score, IApplicationInitializer applicationInitializer)
         {
             WriteTitle(string.Format("Practies of {0} completed!", score.Name));
 

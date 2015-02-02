@@ -163,9 +163,6 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Readme.txt" />
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\ReadAndLearnWithLinnea.Core\ReadAndLearnWithLinnea.Core.csproj">
       <Project>{25D7BEEC-9A42-4379-9892-2FF091E2B789}</Project>
       <Name>ReadAndLearnWithLinnea.Core</Name>

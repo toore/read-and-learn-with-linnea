@@ -10,13 +10,13 @@ namespace ReadAndLearnWithLinnea.Core
     public class PractiseInitializer : IPractiseInitializer
     {
         private readonly IApplicationInitializer _applicationInitializer;
-        private readonly IConsumer _consumer;
+        private readonly IView _view;
         private readonly IShuffleAlgorithm _shuffleAlgorithm;
 
-        public PractiseInitializer(IApplicationInitializer applicationInitializer, IConsumer consumer, IShuffleAlgorithm shuffleAlgorithm)
+        public PractiseInitializer(IApplicationInitializer applicationInitializer, IView view, IShuffleAlgorithm shuffleAlgorithm)
         {
             _applicationInitializer = applicationInitializer;
-            _consumer = consumer;
+            _view = view;
             _shuffleAlgorithm = shuffleAlgorithm;
         }
 
@@ -33,14 +33,14 @@ namespace ReadAndLearnWithLinnea.Core
 
         private void QuestionUpdated(Moderator moderator)
         {
-            _consumer.NewQuestion(moderator.Question, moderator);
+            _view.ShowNewQuestionView(moderator.Question, moderator);
         }
 
         private void PractiseCompleted(Moderator moderator)
         {
             var score = moderator.GetScore();
 
-            _consumer.PractiseCompleted(score, _applicationInitializer);
+            _view.ShowPractiseCompletedView(score, _applicationInitializer);
         }
     }
 }

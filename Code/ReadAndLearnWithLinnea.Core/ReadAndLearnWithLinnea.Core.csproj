@@ -43,7 +43,7 @@
     <Compile Include="Common\Shuffle\IShuffleAlgorithm.cs" />
     <Compile Include="Common\Shuffle\ShuffleExtensions.cs" />
     <Compile Include="IApplicationInitializer.cs" />
-    <Compile Include="IConsumer.cs" />
+    <Compile Include="IView.cs" />
     <Compile Include="IModerator.cs" />
     <Compile Include="IPractiseInitializer.cs" />
     <Compile Include="PractiseInitializerFactory.cs" />
