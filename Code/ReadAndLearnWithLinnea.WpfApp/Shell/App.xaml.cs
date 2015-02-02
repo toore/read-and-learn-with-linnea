@@ -25,7 +25,7 @@ namespace ReadAndLearnWithLinnea.WpfApp.Shell
             }
             catch (Exception exception)
             {
-                new WindowManager(mainWindow).ShowMessage(exception.Message);
+                windowManager.ShowMessage(exception.Message);
             }
         }
     }
