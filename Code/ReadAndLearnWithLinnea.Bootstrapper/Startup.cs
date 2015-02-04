@@ -1,7 +1,7 @@
 ﻿using System;
 using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.Launcher
+namespace ReadAndLearnWithLinnea.Bootstrapper
 {
     public static class Startup
     {

@@ -1,6 +1,6 @@
 ﻿using System.Collections.Generic;
 
-namespace ReadAndLearnWithLinnea.Core.Common.Shuffle
+namespace ReadAndLearnWithLinnea.Core
 {
     public static class ShuffleExtensions
     {

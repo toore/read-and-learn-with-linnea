@@ -1,7 +1,6 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using ReadAndLearnWithLinnea.Core.Common.Shuffle;
 
 namespace ReadAndLearnWithLinnea.Core
 {

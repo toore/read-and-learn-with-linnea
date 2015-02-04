@@ -7,8 +7,8 @@
     <ProjectGuid>{19DD405A-DD57-468E-A008-6F752D3BF237}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>ReadAndLearnWithLinnea.Launcher</RootNamespace>
-    <AssemblyName>ReadAndLearnWithLinnea.Launcher</AssemblyName>
+    <RootNamespace>ReadAndLearnWithLinnea.Bootstrapper</RootNamespace>
+    <AssemblyName>ReadAndLearnWithLinnea.Bootstrapper</AssemblyName>
     <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <TargetFrameworkProfile />

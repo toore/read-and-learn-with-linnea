@@ -12,7 +12,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadAndLearnWithLinnea.Core
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadAndLearnWithLinnea.WpfApp", "ReadAndLearnWithLinnea.WpfApp\ReadAndLearnWithLinnea.WpfApp.csproj", "{3A440ECC-286B-41AD-B0FA-5C6959216570}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadAndLearnWithLinnea.Launcher", "ReadAndLearnWithLinnea.Launcher\ReadAndLearnWithLinnea.Launcher.csproj", "{19DD405A-DD57-468E-A008-6F752D3BF237}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ReadAndLearnWithLinnea.Bootstrapper", "ReadAndLearnWithLinnea.Bootstrapper\ReadAndLearnWithLinnea.Bootstrapper.csproj", "{19DD405A-DD57-468E-A008-6F752D3BF237}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

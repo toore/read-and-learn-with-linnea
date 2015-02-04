@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
-using ReadAndLearnWithLinnea.Core.Common.Shuffle;
+using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.Launcher
+namespace ReadAndLearnWithLinnea.Bootstrapper
 {
     public static class ShuffleExtensions
     {

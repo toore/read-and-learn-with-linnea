@@ -1,6 +1,4 @@
-﻿using ReadAndLearnWithLinnea.Core.Common.Shuffle;
-
-namespace ReadAndLearnWithLinnea.Core
+﻿namespace ReadAndLearnWithLinnea.Core
 {
     public class PractiseInitializer : IPractiseInitializer
     {
