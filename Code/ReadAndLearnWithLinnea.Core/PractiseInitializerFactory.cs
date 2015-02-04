@@ -9,18 +9,18 @@ namespace ReadAndLearnWithLinnea.Core
 
     public class PractiseInitializerFactory : IPractiseInitializerFactory
     {
-        private readonly IView _view;
+        private readonly IConsumer _consumer;
         private readonly FisherYatesShuffleAlgorithm _shuffleAlgorithm;
 
-        public PractiseInitializerFactory(IView view, FisherYatesShuffleAlgorithm shuffleAlgorithm)
+        public PractiseInitializerFactory(IConsumer consumer, FisherYatesShuffleAlgorithm shuffleAlgorithm)
         {
-            _view = view;
+            _consumer = consumer;
             _shuffleAlgorithm = shuffleAlgorithm;
         }
 
         public IPractiseInitializer Create(ApplicationInitializer applicationInitializer)
         {
-            return new PractiseInitializer(applicationInitializer, _view, _shuffleAlgorithm);
+            return new PractiseInitializer(applicationInitializer, _consumer, _shuffleAlgorithm);
         }
     }
 }
