@@ -1,8 +1,9 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.Core
+namespace ReadAndLearnWithLinnea.Launcher
 {
     public class FileVocabularyRepository : IVocabularyRepository
     {

@@ -167,6 +167,10 @@
       <Project>{25D7BEEC-9A42-4379-9892-2FF091E2B789}</Project>
       <Name>ReadAndLearnWithLinnea.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ReadAndLearnWithLinnea.Launcher\ReadAndLearnWithLinnea.Launcher.csproj">
+      <Project>{19dd405a-dd57-468e-a008-6f752d3bf237}</Project>
+      <Name>ReadAndLearnWithLinnea.Launcher</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.1.26.4\build\Fody.targets" Condition="Exists('..\packages\Fody.1.26.4\build\Fody.targets')" />

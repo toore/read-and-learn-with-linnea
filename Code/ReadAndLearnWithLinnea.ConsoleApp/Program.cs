@@ -1,4 +1,5 @@
 ﻿using ReadAndLearnWithLinnea.Core;
+using ReadAndLearnWithLinnea.Launcher;
 
 namespace ReadAndLearnWithLinnea.ConsoleApp
 {

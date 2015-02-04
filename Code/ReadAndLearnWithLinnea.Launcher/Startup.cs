@@ -1,7 +1,7 @@
 ﻿using System;
-using ReadAndLearnWithLinnea.Core.Common.Shuffle;
+using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.Core
+namespace ReadAndLearnWithLinnea.Launcher
 {
     public static class Startup
     {

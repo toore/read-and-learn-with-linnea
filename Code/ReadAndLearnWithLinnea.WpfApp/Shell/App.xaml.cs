@@ -21,7 +21,7 @@ namespace ReadAndLearnWithLinnea.WpfApp.Shell
  
             try
             {
-                Core.Startup.Run(viewConductor);
+               Launcher.Startup.Run(viewConductor);
             }
             catch (Exception exception)
             {

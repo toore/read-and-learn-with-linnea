@@ -10,9 +10,9 @@ namespace ReadAndLearnWithLinnea.Core
     public class PractiseInitializerFactory : IPractiseInitializerFactory
     {
         private readonly IConsumer _consumer;
-        private readonly FisherYatesShuffleAlgorithm _shuffleAlgorithm;
+        private readonly IShuffleAlgorithm _shuffleAlgorithm;
 
-        public PractiseInitializerFactory(IConsumer consumer, FisherYatesShuffleAlgorithm shuffleAlgorithm)
+        public PractiseInitializerFactory(IConsumer consumer, IShuffleAlgorithm shuffleAlgorithm)
         {
             _consumer = consumer;
             _shuffleAlgorithm = shuffleAlgorithm;

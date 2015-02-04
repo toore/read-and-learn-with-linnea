@@ -49,17 +49,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="app.config" />
+  </ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\ReadAndLearnWithLinnea.Core\ReadAndLearnWithLinnea.Core.csproj">
       <Project>{25D7BEEC-9A42-4379-9892-2FF091E2B789}</Project>
       <Name>ReadAndLearnWithLinnea.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\ReadAndLearnWithLinnea.WpfApp\ReadAndLearnWithLinnea.WpfApp.csproj">
-      <Project>{3a440ecc-286b-41ad-b0fa-5c6959216570}</Project>
-      <Name>ReadAndLearnWithLinnea.WpfApp</Name>
+    <ProjectReference Include="..\ReadAndLearnWithLinnea.Launcher\ReadAndLearnWithLinnea.Launcher.csproj">
+      <Project>{19DD405A-DD57-468E-A008-6F752D3BF237}</Project>
+      <Name>ReadAndLearnWithLinnea.Launcher</Name>
     </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="app.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

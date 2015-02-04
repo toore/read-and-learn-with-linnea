@@ -1,8 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using ReadAndLearnWithLinnea.Core.Common.Shuffle;
 
-namespace ReadAndLearnWithLinnea.Core.Common.Shuffle
+namespace ReadAndLearnWithLinnea.Launcher
 {
     public class FisherYatesShuffleAlgorithm : IShuffleAlgorithm
     {
