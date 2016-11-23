@@ -5,12 +5,12 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ReadAndLearnWithLinnea.App")]
+[assembly: AssemblyTitle("ReadAndLearnWithLinnea.Core")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("AtlasCopco")]
-[assembly: AssemblyProduct("ReadAndLearnWithLinnea.App")]
-[assembly: AssemblyCopyright("Copyright © AtlasCopco 2015")]
+[assembly: AssemblyCompany("toore")]
+[assembly: AssemblyProduct("ReadAndLearnWithLinnea.Core")]
+[assembly: AssemblyCopyright("Copyright © toore 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

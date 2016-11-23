@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("ReadAndLearnWithLinnea")]
+[assembly: AssemblyTitle("ReadAndLearnWithLinnea.WpfApp")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("ReadAndLearnWithLinnea")]
-[assembly: AssemblyProduct("ReadAndLearnWithLinnea")]
-[assembly: AssemblyCopyright("Copyright © ReadAndLearnWithLinnea 2015")]
+[assembly: AssemblyCompany("toore")]
+[assembly: AssemblyProduct("ReadAndLearnWithLinnea.WpfApp")]
+[assembly: AssemblyCopyright("Copyright © toore 2015")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
