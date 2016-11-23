@@ -1,0 +1,12 @@
+SVENSKA;ENGLISH
+Hus;House
+Trädgård;Garden
+Lägenhet;Apartment,Flat
+Grind;Gate
+Fönster;Window
+Dörr (entré);Frontdoor
+Tak (ute);Roof
+Tak (inne);Ceiling
+Balkong;Balcony
+Brevlåda;Letter box
+Staket;Fence

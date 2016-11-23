@@ -1,0 +1,10 @@
+SVENSKA;ENGLISH
+Möbler;Furniture
+Soffa;Sofa
+Bord;Table
+Gardin;Curtain
+Bokhylla;Bookshelf
+Stol;Chair
+Säng;Bed
+Byrå;Drawer
+Matta;Carpet
