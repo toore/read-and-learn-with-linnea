@@ -5,19 +5,19 @@
         public Score(string name, int noOfCorrectAnswers, int noOfQuestions)
         {
             Name = name;
-            NoOfQuestions = noOfQuestions;
-            NoOfCorrectAnswers = noOfCorrectAnswers;
+            NumberOfQuestions = noOfQuestions;
+            NumberOfCorrectAnswers = noOfCorrectAnswers;
         }
 
         public string Name { get; set; }
-        public int NoOfCorrectAnswers { get; private set; }
-        public int NoOfQuestions { get; private set; }
+        public int NumberOfCorrectAnswers { get; private set; }
+        public int NumberOfQuestions { get; private set; }
 
         public double PercentageCompleted
         {
             get
             {
-                return NoOfCorrectAnswers / (double)NoOfQuestions;
+                return NumberOfCorrectAnswers / (double)NumberOfQuestions;
             }
         }
     }

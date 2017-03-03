@@ -48,8 +48,8 @@ namespace ReadAndLearnWithLinnea.ConsoleApp
 
             Console.WriteLine(
                 "You passed {0} of {1} ({2:P0}).",
-                score.NoOfCorrectAnswers,
-                score.NoOfQuestions,
+                score.NumberOfCorrectAnswers,
+                score.NumberOfQuestions,
                 score.PercentageCompleted);
 
             Console.ReadKey(true);

@@ -49,13 +49,15 @@ namespace ReadAndLearnWithLinnea.WpfApp.Shell
 
         public async void PractiseCompleted(IScore score, IApplicationInitializer applicationInitializer)
         {
+            var name = score.Name;
+            var numberOfCorrectAnswers = score.NumberOfCorrectAnswers;
+            var numberOfQuestions = score.NumberOfQuestions;
+            var percentageCompleted = score.PercentageCompleted;
+
+            var newLine = Environment.NewLine;
+
             await _windowManager.ShowMessage(
-                string.Format("Practies of {1} completed!{0}{0}You passed {2} of {3} ({4:P0}).",
-                Environment.NewLine,
-                score.Name,
-                score.NoOfCorrectAnswers,
-                score.NoOfQuestions,
-                score.PercentageCompleted));
+                $"Practies of {name} completed!{newLine}{newLine}You passed {numberOfCorrectAnswers} of {numberOfQuestions} ({percentageCompleted:P0}).");
 
             applicationInitializer.StartOver();
         }

@@ -3,8 +3,8 @@
     public interface IScore
     {
         string Name { get; set; }
-        int NoOfCorrectAnswers { get; }
-        int NoOfQuestions { get; }
+        int NumberOfCorrectAnswers { get; }
+        int NumberOfQuestions { get; }
         double PercentageCompleted { get; }
     }
 }
