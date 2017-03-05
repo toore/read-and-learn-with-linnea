@@ -1,5 +1,12 @@
 # read-and-learn-with-linnea
 
-Designed by my 11-year old daughter Linnea to use when she does her vocabulary practise.
+## intro
+Designed by my then 11-year old daughter Linnea to use when she does her vocabulary practise.
 
-Mahapps (http://mahapps.com) used as UI toolkit, but application has a console front end alternative.
+## cross platform
+- WPF (Windows)
+
+  Built with MahApps.Metro (http://mahapps.com) as UI toolkit.
+  
+- Console (Windows)
+- Xamarin (Android)
