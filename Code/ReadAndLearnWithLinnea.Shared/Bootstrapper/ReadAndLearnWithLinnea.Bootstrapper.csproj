@@ -47,9 +47,11 @@
     <Compile Include="FileVocabularyRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="HardcodedVocabularyRepository.cs" />
+    <Compile Include="VocabularyTextParser.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ReadAndLearnWithLinnea.Core\ReadAndLearnWithLinnea.Core.csproj">
+    <ProjectReference Include="..\Core\ReadAndLearnWithLinnea.Core.csproj">
       <Project>{25D7BEEC-9A42-4379-9892-2FF091E2B789}</Project>
       <Name>ReadAndLearnWithLinnea.Core</Name>
     </ProjectReference>

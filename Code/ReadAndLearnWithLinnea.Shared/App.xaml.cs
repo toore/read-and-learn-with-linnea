@@ -20,7 +20,9 @@ namespace ReadAndLearnWithLinnea.Shared
                 new SelectVocabularyViewModelFactory(),
                 new QuestionViewModelFactory());
 
-            Startup.Run(consumer);
+            var vocabularyRepository = new HardcodedVocabularyRepository();
+
+            Startup.Run(consumer, vocabularyRepository);
         }
 
         protected override void OnSleep()

@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Windows;
+using ReadAndLearnWithLinnea.Bootstrapper;
+using ReadAndLearnWithLinnea.Core;
 using ReadAndLearnWithLinnea.WpfApp.PractiseView;
 using ReadAndLearnWithLinnea.WpfApp.SelectPractiseView;
 
@@ -18,10 +20,13 @@ namespace ReadAndLearnWithLinnea.WpfApp.Shell
 
             mainWindow.DataContext = viewConductor.ViewModel;
             mainWindow.Show();
- 
+
             try
             {
-               Bootstrapper.Startup.Run(viewConductor);
+                var vocabularyTextParser = new VocabularyTextParser();
+                var vocabularyRepository = new FileVocabularyRepository(vocabularyTextParser);
+
+                Bootstrapper.Startup.Run(viewConductor, vocabularyRepository);
             }
             catch (Exception exception)
             {

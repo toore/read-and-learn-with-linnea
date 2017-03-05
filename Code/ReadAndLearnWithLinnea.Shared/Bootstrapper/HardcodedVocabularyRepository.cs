@@ -3,7 +3,7 @@ using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.Bootstrapper
 {
-    public class StaticVocabularyRepository : IVocabularyRepository
+    public class HardcodedVocabularyRepository : IVocabularyRepository
     {
         public IEnumerable<IVocabulary> GetAll()
         {

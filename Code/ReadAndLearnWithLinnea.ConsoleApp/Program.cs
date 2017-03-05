@@ -1,4 +1,5 @@
 ﻿using ReadAndLearnWithLinnea.Bootstrapper;
+using ReadAndLearnWithLinnea.Core;
 
 namespace ReadAndLearnWithLinnea.ConsoleApp
 {
@@ -6,7 +7,10 @@ namespace ReadAndLearnWithLinnea.ConsoleApp
     {
         static void Main()
         {
-            Startup.Run(new ConsoleView());
+            var vocabularyTextParser = new VocabularyTextParser();
+            var vocabularyRepository = new FileVocabularyRepository(vocabularyTextParser);
+
+            Startup.Run(new ConsoleView(), vocabularyRepository);
         }
     }
 }

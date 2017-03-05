@@ -12,10 +12,12 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\StaticVocabularyRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\FileVocabularyRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\HardcodedVocabularyRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\FisherYatesShuffleAlgorithm.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\ShuffleExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\Startup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\VocabularyTextParser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)QuestionAndAnswer\AnswerViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)QuestionAndAnswer\QuestionPage.xaml.cs">
       <DependentUpon>QuestionPage.xaml</DependentUpon>
@@ -45,7 +47,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Core\ShuffleExtensions.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\Vocable.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Core\Vocabulary.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\VocabularyTextParser.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SelectVocabulary\SelectVocabularyViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SelectVocabulary\SelectVocabularyViewModelFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SelectVocabulary\VocabularyViewModel.cs" />
@@ -55,9 +56,6 @@
       <SubType>Designer</SubType>
       <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
     </EmbeddedResource>
-  </ItemGroup>
-  <ItemGroup>
-    <Folder Include="$(MSBuildThisFileDirectory)Core\" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="$(MSBuildThisFileDirectory)SelectVocabulary\SelectVocabularyPage.xaml">
