@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using ReadAndLearnWithLinnea.Core;
 using ReadAndLearnWithLinnea.Shared.QuestionAndAnswer;
 using ReadAndLearnWithLinnea.Shared.SelectVocabulary;
@@ -47,13 +46,11 @@ namespace ReadAndLearnWithLinnea.Shared
             var numberOfQuestions = score.NumberOfQuestions;
             var percentageCompleted = score.PercentageCompleted;
 
-            var newLine = Environment.NewLine;
-
             const string hideCancelButton = null;
             await _app.MainPage.DisplayActionSheet(
                 "Practise Completed!",
                 hideCancelButton,
-                $"Practise of {name} completed!{newLine}{newLine}You passed {numberOfCorrectAnswers} of {numberOfQuestions} ({percentageCompleted:P0}).",
+                $"Practise of {name} completed! You passed {numberOfCorrectAnswers} of {numberOfQuestions} ({percentageCompleted:P0}).",
                 "OK");
 
             applicationInitializer.StartOver();
