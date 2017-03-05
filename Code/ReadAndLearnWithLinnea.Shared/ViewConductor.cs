@@ -26,8 +26,7 @@ namespace ReadAndLearnWithLinnea.Shared
         {
             var viewModel = _selectVocabularyViewModelFactory.Create(vocabularies, practiseInitializer);
 
-            var page = new SelectVocabularyPage();
-            page.BindingContext = viewModel;
+            var page = new SelectVocabularyPage { BindingContext = viewModel };
 
             _app.MainPage = page;
         }
@@ -36,8 +35,7 @@ namespace ReadAndLearnWithLinnea.Shared
         {
             var viewModel = _questionViewModelFactory.Create(moderator, question);
 
-            var page = new QuestionPage();
-            page.BindingContext = viewModel;
+            var page = new QuestionPage { BindingContext = viewModel };
 
             _app.MainPage = page;
         }
