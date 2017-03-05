@@ -1,0 +1,72 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>c5daf66f-985e-42c3-a98a-118953159d81</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>ReadAndLearnWithLinnea.Shared</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\StaticVocabularyRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\FisherYatesShuffleAlgorithm.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\ShuffleExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\Startup.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)QuestionAndAnswer\AnswerViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)QuestionAndAnswer\QuestionPage.xaml.cs">
+      <DependentUpon>QuestionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)QuestionAndAnswer\QuestionViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)QuestionAndAnswer\QuestionViewModelFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SelectVocabulary\SelectVocabularyPage.xaml.cs">
+      <DependentUpon>SelectVocabularyPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)ViewConductor.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\ApplicationInitializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\IApplicationInitializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\IConsumer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\IModerator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\IPractiseInitializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\IQuestion.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\IScore.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\IShuffleAlgorithm.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\IVocabulary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\IVocabularyRepository.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Moderator.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Practise.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\PractiseInitializer.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\PractiseInitializerFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Question.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Score.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\ShuffleExtensions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Vocable.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\Vocabulary.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Core\VocabularyTextParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SelectVocabulary\SelectVocabularyViewModel.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SelectVocabulary\SelectVocabularyViewModelFactory.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SelectVocabulary\VocabularyViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="$(MSBuildThisFileDirectory)Core\" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)SelectVocabulary\SelectVocabularyPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)QuestionAndAnswer\QuestionPage.xaml">
+      <Generator>MSBuild:UpdateDesignTimeXaml</Generator>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
