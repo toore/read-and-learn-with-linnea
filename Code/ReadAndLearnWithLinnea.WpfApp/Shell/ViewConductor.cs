@@ -57,7 +57,7 @@ namespace ReadAndLearnWithLinnea.WpfApp.Shell
             var newLine = Environment.NewLine;
 
             await _windowManager.ShowMessage(
-                $"Practies of {name} completed!{newLine}{newLine}You passed {numberOfCorrectAnswers} of {numberOfQuestions} ({percentageCompleted:P0}).");
+                $"Practise of {name} completed!{newLine}{newLine}You passed {numberOfCorrectAnswers} of {numberOfQuestions} ({percentageCompleted:P0}).");
 
             applicationInitializer.StartOver();
         }

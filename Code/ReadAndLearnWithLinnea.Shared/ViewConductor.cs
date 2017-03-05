@@ -55,7 +55,7 @@ namespace ReadAndLearnWithLinnea.Shared
             await _app.MainPage.DisplayActionSheet(
                 "Practise Completed!",
                 hideCancelButton,
-                $"Practies of {name} completed!{newLine}{newLine}You passed {numberOfCorrectAnswers} of {numberOfQuestions} ({percentageCompleted:P0}).",
+                $"Practise of {name} completed!{newLine}{newLine}You passed {numberOfCorrectAnswers} of {numberOfQuestions} ({percentageCompleted:P0}).",
                 "OK");
 
             applicationInitializer.StartOver();
