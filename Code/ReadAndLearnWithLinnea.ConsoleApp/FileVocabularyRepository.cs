@@ -1,9 +1,9 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.Bootstrapper
+namespace ReadAndLearnWithLinnea.Core.Tools
 {
     public class FileVocabularyRepository : IVocabularyRepository
     {
@@ -16,7 +16,7 @@ namespace ReadAndLearnWithLinnea.Bootstrapper
 
         public IEnumerable<IVocabulary> GetAll()
         {
-            var currentDirectory = System.Environment.CurrentDirectory;
+            var currentDirectory = Environment.CurrentDirectory;
             const string vocabularyFileSearchPattern = "*.txt";
 
             var vocabularyFiles = Directory.EnumerateFiles(currentDirectory, vocabularyFileSearchPattern);

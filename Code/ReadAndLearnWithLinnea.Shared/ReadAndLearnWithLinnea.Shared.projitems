@@ -12,12 +12,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\FileVocabularyRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\HardcodedVocabularyRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\FisherYatesShuffleAlgorithm.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\ShuffleExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\Startup.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Bootstrapper\VocabularyTextParser.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)HardcodedVocabularyRepository.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)QuestionAndAnswer\AnswerViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)QuestionAndAnswer\QuestionPage.xaml.cs">
       <DependentUpon>QuestionPage.xaml</DependentUpon>
@@ -28,25 +23,6 @@
       <DependentUpon>SelectVocabularyPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)ViewConductor.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\ApplicationInitializer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\IApplicationInitializer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\IConsumer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\IModerator.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\IPractiseInitializer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\IQuestion.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\IScore.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\IShuffleAlgorithm.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\IVocabulary.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\IVocabularyRepository.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\Moderator.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\Practise.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\PractiseInitializer.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\PractiseInitializerFactory.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\Question.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\Score.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\ShuffleExtensions.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\Vocable.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)Core\Vocabulary.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SelectVocabulary\SelectVocabularyViewModel.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SelectVocabulary\SelectVocabularyViewModelFactory.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SelectVocabulary\VocabularyViewModel.cs" />

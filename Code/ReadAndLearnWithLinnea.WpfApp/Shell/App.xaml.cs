@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows;
-using ReadAndLearnWithLinnea.Bootstrapper;
-using ReadAndLearnWithLinnea.Core;
+using ReadAndLearnWithLinnea.Core.Tools;
 using ReadAndLearnWithLinnea.WpfApp.PractiseView;
 using ReadAndLearnWithLinnea.WpfApp.SelectPractiseView;
 

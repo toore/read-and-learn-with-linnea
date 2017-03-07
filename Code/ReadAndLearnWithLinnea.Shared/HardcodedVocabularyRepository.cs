@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.Bootstrapper
+namespace ReadAndLearnWithLinnea.Core.Tools
 {
     public class HardcodedVocabularyRepository : IVocabularyRepository
     {

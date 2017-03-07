@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>ReadAndLearnWithLinnea.WpfApp</RootNamespace>
     <AssemblyName>ReadAndLearnWithLinnea</AssemblyName>
-    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6.1</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
     <WarningLevel>4</WarningLevel>
@@ -92,6 +92,7 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="DelegateCommand.cs" />
+    <Compile Include="FileVocabularyRepository.cs" />
     <Compile Include="Shell\WindowManager.cs" />
     <Compile Include="Shell\MainViewModel.cs" />
     <Compile Include="PractiseView\QuestionViewModelFactory.cs" />
@@ -102,6 +103,7 @@
     <Compile Include="SelectPractiseView\SelectVocabularyViewModel.cs" />
     <Compile Include="Shell\MainViewModelTestData.cs" />
     <Compile Include="SelectPractiseView\VocabularyViewModel.cs" />
+    <Compile Include="VocabularyTextParser.cs" />
     <Page Include="Shell\MainWindow.xaml">
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
@@ -164,22 +166,22 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\ReadAndLearnWithLinnea.Shared\Bootstrapper\ReadAndLearnWithLinnea.Bootstrapper.csproj">
-      <Project>{19dd405a-dd57-468e-a008-6f752d3bf237}</Project>
-      <Name>ReadAndLearnWithLinnea.Bootstrapper</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\ReadAndLearnWithLinnea.Shared\Core\ReadAndLearnWithLinnea.Core.csproj">
-      <Project>{25d7beec-9a42-4379-9892-2ff091e2b789}</Project>
-      <Name>ReadAndLearnWithLinnea.Core</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
     <None Include="Furniture.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
     <None Include="House and Garden.txt">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ReadAndLearnWithLinnea.Bootstrapper\ReadAndLearnWithLinnea.Bootstrapper.csproj">
+      <Project>{275b1a88-62d7-48da-83a8-d14b8f85f0a4}</Project>
+      <Name>ReadAndLearnWithLinnea.Bootstrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ReadAndLearnWithLinnea.Core\ReadAndLearnWithLinnea.Core.csproj">
+      <Project>{74818dd5-1fd8-42a6-9716-fc2eedb66ef2}</Project>
+      <Name>ReadAndLearnWithLinnea.Core</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Import Project="..\packages\Fody.1.29.4\build\dotnet\Fody.targets" Condition="Exists('..\packages\Fody.1.29.4\build\dotnet\Fody.targets')" />

@@ -1,4 +1,5 @@
 ﻿using ReadAndLearnWithLinnea.Bootstrapper;
+using ReadAndLearnWithLinnea.Core.Tools;
 using ReadAndLearnWithLinnea.Shared.QuestionAndAnswer;
 using ReadAndLearnWithLinnea.Shared.SelectVocabulary;
 

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 
-namespace ReadAndLearnWithLinnea.Core
+namespace ReadAndLearnWithLinnea.Core.Tools
 {
     public class VocabularyTextParser
     {
@@ -31,8 +31,8 @@ namespace ReadAndLearnWithLinnea.Core
 
             var data =
                 SplitLines(content)
-                .Skip(1)
-                .ToList();
+                    .Skip(1)
+                    .ToList();
 
             return new TextFormat(columnDefinitions, data);
         }
@@ -84,18 +84,18 @@ namespace ReadAndLearnWithLinnea.Core
             var languageKey = language.ToLowerInvariant();
 
             var validLanguages = new Dictionary<string, Language>
-            {
-                {"svenska", Language.Swedish},
-                {"english", Language.English}
-            };
+                {
+                    { "svenska", Language.Swedish },
+                    { "english", Language.English }
+                };
 
             return validLanguages[languageKey];
         }
 
         private class TextFormat
         {
-            public IEnumerable<Language> Languages { get; private set; }
-            public IEnumerable<string> Data { get; private set; }
+            public IEnumerable<Language> Languages { get; }
+            public IEnumerable<string> Data { get; }
 
             public TextFormat(IEnumerable<Language> languages, IEnumerable<string> data)
             {
@@ -104,6 +104,4 @@ namespace ReadAndLearnWithLinnea.Core
             }
         }
     }
-
-
 }

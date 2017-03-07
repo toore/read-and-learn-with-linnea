@@ -1,5 +1,5 @@
 ﻿using ReadAndLearnWithLinnea.Bootstrapper;
-using ReadAndLearnWithLinnea.Core;
+using ReadAndLearnWithLinnea.Core.Tools;
 
 namespace ReadAndLearnWithLinnea.ConsoleApp
 {

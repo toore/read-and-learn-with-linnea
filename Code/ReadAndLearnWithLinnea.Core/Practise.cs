@@ -117,15 +117,15 @@ namespace ReadAndLearnWithLinnea.Core
         }
     }
 
-    public class NotAllQuestionsHaveBeenAnsweredException : ApplicationException
+    public class NotAllQuestionsHaveBeenAnsweredException : Exception
     {
     }
 
-    public class AnsweredQuestionIsNotPartOfTrainingSessionException : ApplicationException
+    public class AnsweredQuestionIsNotPartOfTrainingSessionException : Exception
     {
     }
 
-    public class QuestionHasAlreadyBeenAnsweredException : ApplicationException
+    public class QuestionHasAlreadyBeenAnsweredException : Exception
     {
     }
 
@@ -134,7 +134,7 @@ namespace ReadAndLearnWithLinnea.Core
         public static bool IsAnswerCorrect(this KeyValuePair<IQuestion, string> answer)
         {
             var question = ((Question)answer.Key);
-            return question.CorrectAnswer.Equals(answer.Value, StringComparison.InvariantCultureIgnoreCase);
+            return question.CorrectAnswer.Equals(answer.Value, StringComparison.CurrentCultureIgnoreCase);
         }
     }
 }
