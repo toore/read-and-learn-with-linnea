@@ -1,7 +1,7 @@
 ﻿using System.Linq;
 using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.Shared.QuestionAndAnswer
+namespace Xamarin.QuestionAndAnswer
 {
     public class QuestionViewModelFactory
     {

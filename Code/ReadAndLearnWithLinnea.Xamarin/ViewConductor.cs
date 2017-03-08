@@ -1,9 +1,9 @@
 ﻿using System.Collections.Generic;
 using ReadAndLearnWithLinnea.Core;
-using ReadAndLearnWithLinnea.Shared.QuestionAndAnswer;
-using ReadAndLearnWithLinnea.Shared.SelectVocabulary;
+using Xamarin.QuestionAndAnswer;
+using Xamarin.SelectVocabulary;
 
-namespace ReadAndLearnWithLinnea.Shared
+namespace Xamarin
 {
     public class ViewConductor : IConsumer
     {

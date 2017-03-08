@@ -8,8 +8,8 @@
     <ProjectGuid>{18A0C514-9C5F-4E6E-94F6-9D0667C9B8BC}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Xamarin</RootNamespace>
-    <AssemblyName>Xamarin</AssemblyName>
+    <RootNamespace>ReadAndLearnWithLinnea.Xamarin</RootNamespace>
+    <AssemblyName>ReadAndLearnWithLinnea.Xamarin</AssemblyName>
     <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
     <TargetFrameworkProfile>
     </TargetFrameworkProfile>
@@ -25,7 +25,7 @@
     <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
+    <WarningLevel>3</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>

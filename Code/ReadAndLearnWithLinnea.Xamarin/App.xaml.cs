@@ -1,9 +1,8 @@
 ﻿using ReadAndLearnWithLinnea.Bootstrapper;
-using ReadAndLearnWithLinnea.Core.Tools;
-using ReadAndLearnWithLinnea.Shared.QuestionAndAnswer;
-using ReadAndLearnWithLinnea.Shared.SelectVocabulary;
+using Xamarin.QuestionAndAnswer;
+using Xamarin.SelectVocabulary;
 
-namespace ReadAndLearnWithLinnea.Shared
+namespace Xamarin
 {
     public partial class App
     {

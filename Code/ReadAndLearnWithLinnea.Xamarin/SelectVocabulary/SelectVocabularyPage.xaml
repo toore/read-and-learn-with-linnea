@@ -2,7 +2,7 @@
 
 <ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="ReadAndLearnWithLinnea.Shared.SelectVocabulary.SelectVocabularyPage">
+             x:Class="Xamarin.SelectVocabulary.SelectVocabularyPage">
     <StackLayout Orientation="Vertical"
                  Margin="10">
         <Label Text="Read and learn with Linnea!"

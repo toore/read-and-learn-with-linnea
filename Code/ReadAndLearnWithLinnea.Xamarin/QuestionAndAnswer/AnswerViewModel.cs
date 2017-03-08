@@ -1,7 +1,7 @@
 using ReadAndLearnWithLinnea.Core;
 using Xamarin.Forms;
 
-namespace ReadAndLearnWithLinnea.Shared.QuestionAndAnswer
+namespace Xamarin.QuestionAndAnswer
 {
     public class AnswerViewModel
     {

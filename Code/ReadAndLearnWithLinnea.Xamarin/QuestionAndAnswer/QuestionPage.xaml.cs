@@ -1,6 +1,6 @@
 ﻿using Xamarin.Forms;
 
-namespace ReadAndLearnWithLinnea.Shared.QuestionAndAnswer
+namespace Xamarin.QuestionAndAnswer
 {
     public partial class QuestionPage
     {

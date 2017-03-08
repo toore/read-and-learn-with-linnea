@@ -3,7 +3,7 @@ using System.Windows.Input;
 using ReadAndLearnWithLinnea.Core;
 using Xamarin.Forms;
 
-namespace ReadAndLearnWithLinnea.Shared.SelectVocabulary
+namespace Xamarin.SelectVocabulary
 {
     public class VocabularyViewModel
     {

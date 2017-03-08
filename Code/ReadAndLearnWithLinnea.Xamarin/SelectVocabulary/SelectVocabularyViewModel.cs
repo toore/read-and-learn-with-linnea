@@ -1,6 +1,6 @@
 using System.Collections.Generic;
 
-namespace ReadAndLearnWithLinnea.Shared.SelectVocabulary
+namespace Xamarin.SelectVocabulary
 {
     public class SelectVocabularyViewModel
     {

@@ -9,9 +9,9 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-[assembly: global::Android.Runtime.ResourceDesignerAttribute("ReadAndLearnWithLinnea.Shared.Android.Resource", IsApplication=true)]
+[assembly: global::Android.Runtime.ResourceDesignerAttribute("ReadAndLearnWithLinnea.Xamarin.Android.Resource", IsApplication=true)]
 
-namespace ReadAndLearnWithLinnea.Shared.Android
+namespace ReadAndLearnWithLinnea.Xamarin.Android
 {
 	
 	
@@ -26,7 +26,7 @@ namespace ReadAndLearnWithLinnea.Shared.Android
 		
 		public static void UpdateIdValues()
 		{
-			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::ReadAndLearnWithLinnea.Shared.Android.Resource.Attribute.actionBarSize;
+			global::Xamarin.Forms.Platform.Android.Resource.Attribute.actionBarSize = global::ReadAndLearnWithLinnea.Xamarin.Android.Resource.Attribute.actionBarSize;
 		}
 		
 		public partial class Animation

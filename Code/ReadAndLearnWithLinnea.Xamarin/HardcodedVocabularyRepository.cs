@@ -1,7 +1,7 @@
 ﻿using System.Collections.Generic;
 using ReadAndLearnWithLinnea.Core;
 
-namespace ReadAndLearnWithLinnea.Core.Tools
+namespace Xamarin
 {
     public class HardcodedVocabularyRepository : IVocabularyRepository
     {
