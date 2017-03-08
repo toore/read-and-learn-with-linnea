@@ -141,6 +141,10 @@
       <Project>{74818dd5-1fd8-42a6-9716-fc2eedb66ef2}</Project>
       <Name>ReadAndLearnWithLinnea.Core</Name>
     </ProjectReference>
+    <ProjectReference Include="..\ReadAndLearnWithLinnea.Xamarin\ReadAndLearnWithLinnea.Xamarin.csproj">
+      <Project>{18a0c514-9c5f-4e6e-94f6-9d0667c9b8bc}</Project>
+      <Name>ReadAndLearnWithLinnea.Xamarin</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="..\ReadAndLearnWithLinnea.Shared\ReadAndLearnWithLinnea.Shared.projitems" Label="Shared" Condition="Exists('..\ReadAndLearnWithLinnea.Shared\ReadAndLearnWithLinnea.Shared.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
