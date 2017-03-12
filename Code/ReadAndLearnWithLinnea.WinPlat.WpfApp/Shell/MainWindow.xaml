@@ -1,0 +1,84 @@
+﻿<controls:MetroWindow x:Class="ReadAndLearnWithLinnea.WinPlat.WpfApp.Shell.MainWindow"
+                      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+                      xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+                      xmlns:controls="http://metro.mahapps.com/winfx/xaml/controls"
+                      xmlns:selectTrainingView="clr-namespace:ReadAndLearnWithLinnea.WinPlat.WpfApp.SelectPractiseView"
+                      xmlns:trainingSessionView="clr-namespace:ReadAndLearnWithLinnea.WinPlat.WpfApp.PractiseView"
+                      xmlns:Shell="clr-namespace:ReadAndLearnWithLinnea.WinPlat.WpfApp.Shell"
+                      mc:Ignorable="d"
+                      d:DataContext="{d:DesignInstance Type=Shell:MainViewModelTestData, IsDesignTimeCreatable=True}"
+                      Title="Read and learn with Linnea" Height="480" Width="640"
+                      GlowBrush="{DynamicResource AccentColorBrush}"
+                      ResizeMode="CanResizeWithGrip"
+                      UseLayoutRounding="True">
+
+    <Window.Resources>
+
+        <DataTemplate DataType="{x:Type selectTrainingView:SelectVocabularyViewModel}">
+            <Grid Margin="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="80" />
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+
+                <Label FontSize="{StaticResource HeaderFontSize}" 
+                       Content="What do you want to practise?" />
+
+                <ItemsControl Grid.Row="1"
+                              ItemsSource="{Binding VocabularyViewModels}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <WrapPanel />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="selectTrainingView:VocabularyViewModel">
+                            <controls:Tile Title="{Binding Name}"
+                                           Count="{Binding VocablesCount}"
+                                           Command="{Binding StartTrainingSessionCommand}"
+                                           Width="150" Height="80" />
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+            </Grid>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type trainingSessionView:QuestionViewModel}">
+            <Grid Margin="30">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                    <RowDefinition Height="auto" />
+                </Grid.RowDefinitions>
+
+                <ItemsControl ItemsSource="{Binding AnswerViewModels}">
+                    <ItemsControl.ItemsPanel>
+                        <ItemsPanelTemplate>
+                            <UniformGrid Rows="2" />
+                        </ItemsPanelTemplate>
+                    </ItemsControl.ItemsPanel>
+                    <ItemsControl.ItemTemplate>
+                        <DataTemplate DataType="trainingSessionView:AnswerViewModel">
+                            <Button Content="{Binding Text}"
+                                    FontSize="{StaticResource SubHeaderFontSize}"
+                                    Margin="10"
+                                    Command="{Binding AnswerCommand}"/>
+                        </DataTemplate>
+                    </ItemsControl.ItemTemplate>
+                </ItemsControl>
+
+                <Label Grid.Row="1" 
+                       Margin="0" 
+                       HorizontalContentAlignment="Center" 
+                       FontSize="{StaticResource HeaderFontSize}" 
+                       Content="{Binding Text}" />
+
+            </Grid>
+        </DataTemplate>
+
+    </Window.Resources>
+
+    <controls:TransitioningContentControl Content="{Binding Child}" />
+
+</controls:MetroWindow>
