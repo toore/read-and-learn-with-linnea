@@ -1,7 +1,9 @@
 ﻿using ReadAndLearnWithLinnea.Bootstrapper;
 using ReadAndLearnWithLinnea.XamarinPlat.QuestionAndAnswer;
 using ReadAndLearnWithLinnea.XamarinPlat.SelectVocabulary;
+using Xamarin.Forms.Xaml;
 
+[assembly: XamlCompilation(XamlCompilationOptions.Compile)]
 namespace ReadAndLearnWithLinnea.XamarinPlat
 {
     public partial class App
