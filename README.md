@@ -9,4 +9,4 @@ Designed by my then 11-year old daughter Linnea to use when she does her vocabul
   Built with MahApps.Metro (http://mahapps.com) as UI toolkit.
   
 - Console (Windows)
-- Xamarin (Android)
+- Xamarin.Forms (Android)
